@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Conversion Calculator
+Comment=
+Exec=../Calculator/menu_prompt.py
+Icon=accessories-calculator
+Terminal=true
+StartupNotify=false
