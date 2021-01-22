@@ -11,8 +11,8 @@ class Power(FormulaBase):
 		self.function_list = OrderedDict(
 		[
 			('BTU per Hour to Watts', self.form_btuhour),
-			('Horse Power to Foot-Pounds per Minute', self.form_hpftlbsm),
-			('Horse Power to Foot-Pounds per Second', self.form_hpftlbss),
+			('Horse Power to Foot/Pounds per Minute', self.form_hpftlbsm),
+			('Horse Power to Foot/Pounds per Second', self.form_hpftlbss),
 			('Horse Power to Watts', self.form_hpw),
 			('Kilo Watts to Horse Power', self.form_kwhp)
 		]
@@ -25,16 +25,16 @@ class Power(FormulaBase):
 		return (result, self.pluralize(result, 'Watt'))
 		
 	def form_hpftlbsm(self):
-		argsOut = ['Horse Power to Foot-Pounds per Minute', 'Enter Horse Power']
+		argsOut = ['Horse Power to Foot/Pounds per Minute', 'Enter Horse Power']
 		argsIn = self.prompt(argsOut)
 		result = argsIn[0] * 33000
-		return (result, self.pluralize(result, 'Foot-Pounds per Minute'))
+		return (result, self.pluralize(result, 'Foot/Pounds per Minute'))
 		
 	def form_hpftlbss(self):
-		argsOut = ['Horse Power to Foor-Pounds per Second', 'Enter Horse Power']
+		argsOut = ['Horse Power to Foor/Pounds per Second', 'Enter Horse Power']
 		argsIn = self.prompt(argsOut)
 		result = argsIn[0] * 550.0
-		return (result, self.pluralize(result, 'Foot-Pounds per Second'))
+		return (result, self.pluralize(result, 'Foot/Pounds per Second'))
 		
 	def form_hpw(self):
 		argsOut = ['Horse Power to Watts', 'Enter Horse Power']

@@ -1,7 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 import os
-from collections import OrderedDict
 from FormulaBase import *
 from importlib import import_module
 
@@ -21,16 +20,18 @@ strings = {
 
 list_category = OrderedDict(
 	[
-            ('Metric To Imperial', 'Metric_to_Imperial'),
-            ('Imperial To Metric', 'Imperial_to_Metric'),
-            ('Imperial To Imperial', 'Imperial_to_Imperial'),
-            ('Torque', 'Torque'),
-            ('Power', 'Power'),
-            ('Energy or Work', 'Energy_or_Work'),
-            ('Plane Angle', 'PlaneAngle'),
-            ('Ohms Law', 'OhmsLaw'),
-            ('Resistive Inductance Series', 'ResistiveInductance_Series'),
-            ('Budgeting', 'Budgeting')
+                ('Accounting', 'Accounting'),
+                ('Budgeting', 'Budget'),
+		('Energy or Work', 'Energy_or_Work'),
+		('Imperial to Imperial', 'Imperial_to_Imperial'),
+		('Imperial to Metric', 'Imperial_to_Metric'),
+		('Metric To Imperial', 'Metric_to_Imperial'),
+                ('Ohms Law', 'OhmsLaw'),
+		('Plane Angle', 'PlaneAngle'),
+		('Power', 'Power'),
+                ('Resistive Inductive Series', 'ResistiveInductive_series'),
+		('Torque', 'Torque'),
+                ("Velocity", 'Velocity'),
 	]
 )
 
@@ -75,10 +76,11 @@ def print_menu(list_category):
     for line in list_category.keys():
         print '{}. {}'.format(cnt, line)
         cnt += 1
+        allowances.cat_allowances.append(line)
 
 def print_help():
-    print strings['cathelpstring']
-    raw_input(prompts['continueprompt'])
+	print strings['cathelpstring']
+	raw_input(prompts['continueprompt'])
         
 def category_prompt():
 
@@ -86,7 +88,7 @@ def category_prompt():
     while True:
         print_menu(list_category)
         prompt = raw_input(prompts['categoryprompt'])
-        #logme('user input ' + prompt)
+        logme('user input ' + prompt)
 
 
         if prompt.isalpha():
@@ -131,10 +133,9 @@ def category_prompt():
                 objects[key] = submod(subkey)
             finally:
                 #print objects[key].functions_list.keys(); exit()
-                #logme(repr(objects[key].functions_list.keys()))
                 cnt = 0
                 for funct in objects[key].function_list.keys():
-                    print '\n{} {}'.format(cnt, funct)
+                    print '\n{} {}'.format(cnt,funct)
                     cnt += 1
     #formula_prompt(objects[key].function_list[key])
                     formula_prompt(objects[key])
@@ -145,10 +146,10 @@ def category_prompt():
 		
 def formula_prompt(cat):
 
-
     while True:
         print_menu(cat.function_list)
         prompt = raw_input(prompts['formulaprompt'])
+        logme('user input ' + prompt)
 
         if prompt.isalpha():
 
