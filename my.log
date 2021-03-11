@@ -94,3 +94,309 @@ user input q
 
 user input 10
 
+
+user input 2
+
+
+user input 1
+
+
+user input q
+
+
+user input 2
+
+
+user input 1
+
+
+user input q
+
+
+user input 2
+
+
+user input 1
+
+
+user input q
+
+
+user input 2
+
+
+user input 1
+
+
+user input q
+
+
+user input q
+
+
+user input 2
+
+
+user input 2
+
+
+user input 1
+
+
+user input 9
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f20e8bc1d50>>
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f9c7464bd10>>
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f5b507fee50>>
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7febb8ac5d10>>
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7febb8ac5d10>>
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7febb8ac5d10>>
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7febb8ac5d10>>
+
+
+user input 7
+
+
+I got the Function List: <bound method PlaneAngle.form_degrees of <PlaneAngle.PlaneAngle object at 0x7fedfc500e10>>
+
+
+user input 1
+
+
+I got the Function List: <bound method Metric_to_Imperial.form_celsius of <Metric_to_Imperial.Metric_to_Imperial object at 0x7fedfc510250>>
+
+
+user input 6
+
+
+I got the Function List: <bound method Energy_or_Work.form_btu of <Energy_or_Work.Energy_or_Work object at 0x7fedfc5103d0>>
+
+
+user input 7
+
+
+I got the Function List: <bound method PlaneAngle.form_degrees of <PlaneAngle.PlaneAngle object at 0x7fce9ebcbe50>>
+
+
+user input 7
+
+
+I got the Function List: <bound method PlaneAngle.form_degrees of <PlaneAngle.PlaneAngle object at 0x7f27b6d5de50>>
+
+
+user input 7
+
+
+I got the Function List: <bound method PlaneAngle.form_degrees of <PlaneAngle.PlaneAngle object at 0x7f63ae741e50>>
+
+
+user input 7
+
+
+I got the Function List: <bound method PlaneAngle.form_degrees of <PlaneAngle.PlaneAngle object at 0x7fdc1a18ee10>>
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f741b05fd10>>
+
+
+Error: list index out of range
+
+
+user input 1
+
+
+I got the Function List: <bound method Metric_to_Imperial.form_celsius of <Metric_to_Imperial.Metric_to_Imperial object at 0x7f259741afd0>>
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f259742d150>>
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fa9a6d31e50>>
+
+
+Error: cannot concatenate 'str' and 'float' objects
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fdf7d503e50>>
+
+
+Error: cannot concatenate 'str' and 'float' objects
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f3721db1e50>>
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f72963d1e90>>
+
+
+Error: cannot concatenate 'str' and 'instancemethod' objects
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fa264dd2d50>>
+
+
+Error: cannot concatenate 'str' and 'instancemethod' objects
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f7ebb1f4e90>>
+
+
+Error: cannot concatenate 'str' and 'instancemethod' objects
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f4338606d50>>
+
+
+Error: cannot concatenate 'str' and 'instancemethod' objects
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fccbc9c1d10>>
+
+
+Error: cannot concatenate 'str' and 'tuple' objects
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f561de25d10>>
+
+
+I got the RetVal (700.0, 'Dollars')
+
+
+After Print cat.function_list
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f02a6986d50>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f02a6986d50>>
+
+
+I got the RetVal (700.0, 'Dollars')
+
+
+After Print cat.function_list
+

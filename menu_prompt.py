@@ -1,6 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin python
 
 import os
+from collections import OrderedDict
 from FormulaBase import *
 from importlib import import_module
 
@@ -20,18 +21,14 @@ strings = {
 
 list_category = OrderedDict(
 	[
-                ('Accounting', 'Accounting'),
-                ('Budgeting', 'Budget'),
-		('Energy or Work', 'Energy_or_Work'),
-		('Imperial to Imperial', 'Imperial_to_Imperial'),
-		('Imperial to Metric', 'Imperial_to_Metric'),
 		('Metric To Imperial', 'Metric_to_Imperial'),
-                ('Ohms Law', 'OhmsLaw'),
-		('Plane Angle', 'PlaneAngle'),
-		('Power', 'Power'),
-                ('Resistive Inductive Series', 'ResistiveInductive_series'),
+		('Imperial to Metric', 'Imperial_to_Metric'),
+		('Imperial to Imperial', 'Imperial_to_Imperial'),
 		('Torque', 'Torque'),
-                ("Velocity", 'Velocity'),
+		('Power', 'Power'),
+		('Energy or Work', 'Energy_or_Work'),
+		('Plane Angle', 'PlaneAngle'),
+                ('Budget', 'Budget')
 	]
 )
 
@@ -42,6 +39,7 @@ def logme(msg):
 	fp = open('my.log', 'a')
 	fp.write('\n'+msg+'\n\n')
 	fp.close()
+       
 
 class allowances(object):
 
@@ -149,7 +147,6 @@ def formula_prompt(cat):
     while True:
         print_menu(cat.function_list)
         prompt = raw_input(prompts['formulaprompt'])
-        logme('user input ' + prompt)
 
         if prompt.isalpha():
 
@@ -174,19 +171,23 @@ def formula_prompt(cat):
         #exit()
         if runFormula in range(len(cat.function_list)):
             promptstr = cat.function_list.keys()[runFormula]
-        #logme('I got the Function List: ' + str(cat.function_list[promptstr]))
+            logme('I got the Function List: ' + str(cat.function_list[promptstr]))
             try:
-                if isinstance (cat.function_list[promptstr], OrderedDict):
-                         formula_prompt(cat.function_list[promptstr])
+                if isinstance(cat.function_list[promptstr], OrderedDict):
+                    formula_prompt(cat.function_list[promptstr])
                 else:
-                #logme('I got the PromptStr ' + cat.function_list[promptstr])
-                    retval = cat.function_list[promptstr]()
-                #logme('I got the RetVal ' + retval)
-                    print "\nAnswer: {} {}\n".format(retval[0], retval[1])
-                #logme('After Print cat.function_list')
-                    prompt = raw_input(prompts['continueprompt'])
+                    try:
+                        logme('I got the PromptStr ' + str(cat.function_list[promptstr]))
+                        retval = cat.function_list[promptstr]()
+                        logme('I got the RetVal ' + str(retval))
+                        print "\nAnswer: {} {}\n".format(retval[0], retval[1])
+                        logme('After Print cat.function_list')
+                        prompt = raw_input(prompts['continueprompt'])
+                    except(Exception) as e:
+                        print "There was an error, please see my.log file"
+                        logme("Error: {}".format(e))
             except(Exception) as e:
-                    print e
+                print "Error: {}".format(e)
 
 		
 #os.system('clear')

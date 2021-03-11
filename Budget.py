@@ -13,11 +13,10 @@ class Budget(FormulaBase):
                 ]
             )
 
-
     def form_budgeting(self):
         title = 'Budgeting'
         income = 'Enter Monthly Income'
-        rent = 'Enter Rent/Mortgage Bill'
+        rent = 'Enter Rent or Mortgage Bill'
         cable = 'Enter Cable Bill'
         elect = 'Enter Electricity and Water Bill'
         telephone = 'Enter Telephone Bill'
@@ -25,4 +24,4 @@ class Budget(FormulaBase):
         argsOut = [title, income, rent, cable, elect, telephone, groceries]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] - (argsIn[1] + argsIn[2] + argsIn[3] + argsIn[4] + argsIn[5])
-        return ('$'+str(result))
+        return (result, self.pluralize(result, 'Dollar'))
