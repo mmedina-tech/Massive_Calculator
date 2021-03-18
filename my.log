@@ -400,3 +400,165 @@ I got the RetVal (700.0, 'Dollars')
 
 After Print cat.function_list
 
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f884d822f90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f884d822f90>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f9f1f47cf90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f9f1f47cf90>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f340041cf90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f340041cf90>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fbfc86b7f90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fbfc86b7f90>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fb2cdadbf90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fb2cdadbf90>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fe7aef24f90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fe7aef24f90>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7efe29c59d50>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7efe29c59d50>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f03a695cf90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f03a695cf90>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f6152a95f90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f6152a95f90>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fba1e9b4d50>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fba1e9b4d50>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f1bbc83ff90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f1bbc83ff90>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f2fbf2c6d50>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f2fbf2c6d50>>
+
+
+Error: list index out of range
+
+
+user input 8
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fd1f28bef90>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7fd1f28bef90>>
+
+
+After Print cat.function_list
+
+
+user input q
+
+
+user input q
+
