@@ -23,10 +23,12 @@
 
 
 from FormulaBase import * 
+from collections import OrderedDict
 
 class Acceleration(FormulaBase):
-    def __init__(self): 
-        super(Acceleration, self).__init__()
+    def __init__(self, name): 
+        super(Acceleration, self).__init__(name)
+        self.name = name
 
         self.function_list = OrderedDict(
             [
@@ -74,7 +76,7 @@ class Acceleration(FormulaBase):
         argsOut = [title, feet]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .3048
-        return (result, self.pluralize(result, 'Meters/Sec<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Meters/Sec^2'))
 
     def meters (self):
         title = 'Meters/Sec Squared to Feet/Sec Squared'
@@ -82,7 +84,7 @@ class Acceleration(FormulaBase):
         argsOut = [title, meter]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 3.281
-        return (result, self.pluralize(result, 'Feet/Sec<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Feet/Sec^2'))
 
     def inch (self):
         title = 'Inches/Sec Squared to Meters/Sec Squared'
@@ -90,7 +92,7 @@ class Acceleration(FormulaBase):
         argsOut = [title, inch]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .0254
-        return (result, self.pluralize(result, 'Meters/Sec<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Meters/Sec^2'))
 
     def meters2 (self):
         title = 'Meters/Sec Squared to Inches/Sec Squared'
@@ -98,4 +100,5 @@ class Acceleration(FormulaBase):
         argsOut = [title, meter]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 39.37
-        return (result, self.pluralize(result, 'Inches/Sec<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Inches/Sec^2'))
+

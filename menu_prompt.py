@@ -21,16 +21,34 @@ strings = {
 		}
 # Category Module list for Menu list 
 list_category = OrderedDict(
-	[
-		('Metric To Imperial', 'Metric_to_Imperial'),
-		('Imperial to Metric', 'Imperial_to_Metric'),
-		('Imperial to Imperial', 'Imperial_to_Imperial'),
-		('Torque', 'Torque'),
-		('Power', 'Power'),
-		('Energy or Work', 'Energy_or_Work'),
-		('Plane Angle', 'PlaneAngle'),
-                ('Budget', 'Budget')
-	]
+    [
+        ('Acceleration', 'Acceleration'),
+        ('Accounting', 'Accounting'),
+        ('Area', 'Area'),
+        ('Astronomic Units', 'Astronomic_units'),
+        ('Budget', 'Budget'),
+        ('Culinary', 'Culinary'),
+        ('Energy or Work', 'Energy_or_Work'),
+        ('Fuel Economy', 'Fuel_Economy'),
+        ('GED Practice', 'GED_Practice'),
+        ('Imperial to Imperial', 'Imperial_to_Imperial'),
+        ('Imperial to Metric', 'Imperial_to_Metric'),
+        ('Light', 'Light'),
+        ('Maritime Measurements', 'Maritime_Measurements'),
+        ('Mass', 'Mass'),
+        ('Metric To Imperial', 'Metric_to_Imperial'),
+        ('Ohms Law', 'OhmsLaw'),
+        ('Physical Fitness', 'Physical_Fitness'),
+        ('Plane Angle', 'PlaneAngle'),
+        ('Power', 'Power'),
+        ('Pressure', 'Pressure'),
+        ('Resistive Capacitance (Parallel)', 'Resistive_Capacitive_Parallel'),
+        ('Resistive Capacitance (Series)', 'Resistive_Capacitive_Series'),
+        ('Resistive Inductance (Parallel)', 'Resistive_Inductive_parallel'),
+        ('Resistive Inductance (Series)', 'Resistive_Inductive_series'),
+        ('Torque', 'Torque'),
+        ('Velocity', 'Velocity')
+    ]
 )
 
 objects = {}

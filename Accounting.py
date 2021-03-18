@@ -21,8 +21,6 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 #
-#
-#
 
 from FormulaBase import *
 
@@ -34,6 +32,7 @@ class Accounting(FormulaBase):
         name -- Accounting
         """
         super(Accounting, self).__init__(name)
+        self.name = name
         self.function_list = OrderedDict(
                 [
                     ('The Equity Ratio', self.equity_ratio),

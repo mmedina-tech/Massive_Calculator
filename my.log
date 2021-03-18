@@ -562,3 +562,249 @@ user input q
 
 user input q
 
+
+user input 9
+
+
+user input 9
+
+
+user input 9
+
+
+user input 9
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f0d1d276f50>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f0d1d276f50>>
+
+
+After Print cat.function_list
+
+
+user input 10
+
+
+I got the Function List: <bound method Accounting.equity_ratio of <Accounting.Accounting object at 0x7fe2e01d1d50>>
+
+
+I got the PromptStr <bound method Accounting.equity_ratio of <Accounting.Accounting object at 0x7fe2e01d1d50>>
+
+
+After Print cat.function_list
+
+
+user input q
+
+
+user input h
+
+
+user input q
+
+
+user input 4
+
+
+I got the Function List: <bound method Astronomic_units.form_celsius of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.form_celsius of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Astronomic_units.form_fahrenheit of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.form_fahrenheit of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Astronomic_units.light of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.light of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Astronomic_units.astro of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.astro of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Astronomic_units.light2 of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.light2 of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+Error: global name 'ran' is not defined
+
+
+I got the Function List: <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+Error: global name 'ran' is not defined
+
+
+I got the Function List: <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7f05354c5f10>>
+
+
+Error: global name 'ran' is not defined
+
+
+user input 
+
+
+user input 4
+
+
+I got the Function List: <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7fe45201bf10>>
+
+
+I got the PromptStr <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7fe45201bf10>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Astronomic_units.rankin of <Astronomic_units.Astronomic_units object at 0x7fe45201bf10>>
+
+
+I got the PromptStr <bound method Astronomic_units.rankin of <Astronomic_units.Astronomic_units object at 0x7fe45201bf10>>
+
+
+Error: list index out of range
+
+
+user input 4
+
+
+I got the Function List: <bound method Astronomic_units.rankin of <Astronomic_units.Astronomic_units object at 0x7f68b7ec9210>>
+
+
+I got the PromptStr <bound method Astronomic_units.rankin of <Astronomic_units.Astronomic_units object at 0x7f68b7ec9210>>
+
+
+Error: list index out of range
+
+
+I got the Function List: <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7f68b7ec9210>>
+
+
+I got the PromptStr <bound method Astronomic_units.parsec of <Astronomic_units.Astronomic_units object at 0x7f68b7ec9210>>
+
+
+After Print cat.function_list
+
+
+user input 4
+
+
+I got the Function List: <bound method Astronomic_units.rankin of <Astronomic_units.Astronomic_units object at 0x7f2265002f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.rankin of <Astronomic_units.Astronomic_units object at 0x7f2265002f10>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Astronomic_units.celsius of <Astronomic_units.Astronomic_units object at 0x7f2265002f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.celsius of <Astronomic_units.Astronomic_units object at 0x7f2265002f10>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Astronomic_units.kelvin of <Astronomic_units.Astronomic_units object at 0x7f2265002f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.kelvin of <Astronomic_units.Astronomic_units object at 0x7f2265002f10>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Astronomic_units.rankin2 of <Astronomic_units.Astronomic_units object at 0x7f2265002f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.rankin2 of <Astronomic_units.Astronomic_units object at 0x7f2265002f10>>
+
+
+After Print cat.function_list
+
+
+user input 6
+
+
+user input 6
+
+
+user input 6
+
+
+I got the Function List: <bound method Culinary.liters of <Culinary.Culinary object at 0x7f284c424050>>
+
+
+I got the PromptStr <bound method Culinary.liters of <Culinary.Culinary object at 0x7f284c424050>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Culinary.pints of <Culinary.Culinary object at 0x7f284c424050>>
+
+
+I got the PromptStr <bound method Culinary.pints of <Culinary.Culinary object at 0x7f284c424050>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Culinary.teaspoon of <Culinary.Culinary object at 0x7f284c424050>>
+
+
+I got the PromptStr <bound method Culinary.teaspoon of <Culinary.Culinary object at 0x7f284c424050>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Culinary.recipe of <Culinary.Culinary object at 0x7f284c424050>>
+
+
+I got the PromptStr <bound method Culinary.recipe of <Culinary.Culinary object at 0x7f284c424050>>
+
+
+After Print cat.function_list
+

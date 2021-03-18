@@ -25,8 +25,9 @@ from FormulaBase import *
 
 
 class Astronomic_units(FormulaBase):
-    def __init__(self):
-        super(Astronomic_units, self).__init__()
+    def __init__(self, name):
+        super(Astronomic_units, self).__init__(name)
+        self.name = name
         
         self.function_list = OrderedDict(
             [
@@ -80,6 +81,7 @@ class Astronomic_units(FormulaBase):
         }
     #}}}
 
+#{{{___ Formula List _____________________________________________________________________________
         self.formula_list = {
             'Celsius to Kelvin':{
                 'Formula:<br>' : 'Celsius + 270'
@@ -112,42 +114,84 @@ class Astronomic_units(FormulaBase):
                 'Formula:<br>' : 'Kelvin * 1.8'
             },
         }
-    def rankin2 (self, num):
-            result = float(num) * 1.8
-            return (str(self.prec2(result))+'&#65042', self.pluralize(result, 'Rankine')) 
+#}}}_________________________________________________________________________________________
 
-    def kelvin (self, num):
-            result = float(num) * .555555556
-            return (self.prec2(result), self.pluralize(result, 'Kelvin')) 
+    def rankin2 (self):
+        title = 'Kelvin to Rankine'
+        kel = 'Enter Kelvin'
+        argsOut = [title, kel]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.8
+        return (str(self.prec2(result))+'&#65042', self.pluralize(result, 'Rankine')) 
 
-    def celsius (self, num):
-            result = float(num) * -272.594444444
-            return (str(self.prec2(result))+'&#65042', self.pluralize(result, 'Celsius')) 
+    def kelvin (self):
+        title = "Rankine to Kelvin"
+        ran = "Enter Rankine"
+        argsOut = [title, ran]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .555555556
+        return (self.prec2(result), self.pluralize(result, 'Kelvin')) 
 
-    def rankin (self, num):
-            result = float(num) * 493.47
-            return (str(self.prec2(result))+'&#65042', self.pluralize(result, 'Rankine')) 
+    def celsius (self):
+        title = 'Rankine to Celsius'
+        ran = "Enter Rankine"
+        argsOut = [title, ran]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * -272.594444444
+        return (str(self.prec2(result))+'&#65042', self.pluralize(result, 'Celsius')) 
 
-    def light2 (self, num):
-            result = float(num) * 3.261587474
-            return (self.prec2(result), self.pluralize(result, 'Parsec')) 
+    def rankin (self):
+        title = 'Celsius to Rankine'
+        cel = "Enter Celsius"
+        argsOut = [title, cel]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 493.47
+        return (str(self.prec2(result))+'&#65042', self.pluralize(result, 'Rankine')) 
 
-    def parsec (self, num):
-            result = float(num) * .306599166
-            return (self.prec2(result), self.pluralize(result, 'Light Year')) 
+    def light2 (self):
+        title = 'Light Years to Parsecs'
+        light = "Enter Light Years"
+        argsOut = [title, light]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 3.261587474
+        return (self.prec2(result), self.pluralize(result, 'Parsec')) 
 
-    def astro (self, num):
-            result = float(num) * .000015813
-            return (self.prec4(result), self.pluralize(result, 'Light Year')) 
+    def parsec (self):
+        title = 'Parsecs to Light Years'
+        par = "Enter Parsecs"
+        argsOut = [title, par]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .306599166
+        return (self.prec2(result), self.pluralize(result, 'Light Year')) 
 
-    def light (self, num):
-            result = float(num) * 63241.08
-            return (self.prec2(result), self.pluralize(result, 'Astronomical Unit')) 
+    def astro (self):
+        title = 'Astronomical Units to Light Years'
+        au = "Enter Astronomical Units"
+        argsOut = [title, au]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .000015813
+        return (self.prec4(result), self.pluralize(result, 'Light Year')) 
 
-    def form_celsius(self, num):
-            result = (float(num) + 270)
-            return (self.prec2(result), self.pluralize(result, 'Kelvin'))
+    def light (self):
+        title = 'Light Years to Astronomical Units'
+        ly = "Enter Light Years"
+        argsOut = [title, ly]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 63241.08
+        return (self.prec2(result), self.pluralize(result, 'Astronomical Unit')) 
 
-    def form_fahrenheit(self, num):
-            result = (((float(num) - 32) * 5/9) + 270)
-            return (self.prec2(result), self.pluralize(result, 'Kelvin'))
+    def form_celsius(self):
+        title = 'Celsius to Kelvin'
+        cel = "Enter Celsius"
+        argsOut = [title, cel]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0] + 270)
+        return (self.prec2(result), self.pluralize(result, 'Kelvin'))
+
+    def form_fahrenheit(self):
+        title = 'Fahrenheit to Kelvin'
+        fah = "Enter Fahrenheit"
+        argsOut = [title, fah]
+        argsIn = self.prompt(argsOut)
+        result = (((argsIn[0] - 32) * 5/9) + 270)
+        return (self.prec2(result), self.pluralize(result, 'Kelvin'))
