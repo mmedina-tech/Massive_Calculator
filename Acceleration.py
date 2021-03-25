@@ -20,6 +20,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 #
+# This Module is for Acceleration Formulas 
 
 
 from FormulaBase import * 
@@ -71,6 +72,7 @@ class Acceleration(FormulaBase):
         }
 
     def feet (self):
+        # Feet/Sec Squared to Meters/Sec Squared 
         title = 'Feet/Sec Squared to Meters/Sec Squared'
         feet = 'Enter Feet/Sec Squared'
         argsOut = [title, feet]
@@ -79,6 +81,7 @@ class Acceleration(FormulaBase):
         return (result, self.pluralize(result, 'Meters/Sec^2'))
 
     def meters (self):
+        # Meters/Sec Squared to Feet/Sec Squared 
         title = 'Meters/Sec Squared to Feet/Sec Squared'
         meter = 'Enter Meters/Sec Squared'
         argsOut = [title, meter]
@@ -87,6 +90,7 @@ class Acceleration(FormulaBase):
         return (result, self.pluralize(result, 'Feet/Sec^2'))
 
     def inch (self):
+        # Inches/Sec Squared to Meters/Sec Squared 
         title = 'Inches/Sec Squared to Meters/Sec Squared'
         inch = 'Enter Inches/Sec Squared'
         argsOut = [title, inch]
@@ -95,6 +99,7 @@ class Acceleration(FormulaBase):
         return (result, self.pluralize(result, 'Meters/Sec^2'))
 
     def meters2 (self):
+        # Meters/Sec Squared to Inches/Sec Squared 
         title = 'Meters/Sec Squared to Inches/Sec Squared'
         meter = 'Enter Meters/Sec Squared'
         argsOut = [title, meter]
