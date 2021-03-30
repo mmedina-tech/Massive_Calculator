@@ -1,48 +1,66 @@
-#!/usr/bin/python
+#!/usr/bin python
 
 import os
+from collections import OrderedDict
 from FormulaBase import *
 from importlib import import_module
 
 
+# Sets up prompt strings 
 prompts = {
 	'categoryprompt' : "\nEnter Category - 'h' for Help or 'q' to Quit: ",
 	'formulaprompt' : "\nEnter Formula or 'b' to go back, or 'q' to Quit: ",
 	'continueprompt' : 'Press Enter to Continue'
 		}
-		
+# strings for titles, exit messages, error messages, and help strings		
 strings = {
 	'mainmenutitle' : '\nThe Massive Calculator\n',
 	'endnote' : '\nThank you for using the Massive Calculator\n',
 	'cathelpstring' : '\nPress the number of the formula or conversion you want\n',
 	'tryagain' : 'Please Try Again'
 		}
-
+# Category Module list for Menu list 
 list_category = OrderedDict(
-	[
-                ('Accounting', 'Accounting'),
-                ('Budgeting', 'Budget'),
-		('Energy or Work', 'Energy_or_Work'),
-		('Imperial to Imperial', 'Imperial_to_Imperial'),
-		('Imperial to Metric', 'Imperial_to_Metric'),
-		('Metric To Imperial', 'Metric_to_Imperial'),
-                ('Ohms Law', 'OhmsLaw'),
-		('Plane Angle', 'PlaneAngle'),
-		('Power', 'Power'),
-                ('Resistive Inductive Series', 'ResistiveInductive_series'),
-		('Torque', 'Torque'),
-                ("Velocity", 'Velocity'),
-	]
+    [
+        ('Acceleration', 'Acceleration'),
+        ('Accounting', 'Accounting'),
+        ('Area', 'Area'),
+        ('Astronomic Units', 'Astronomic_units'),
+        ('Budget', 'Budget'),
+        ('Culinary', 'Culinary'),
+        ('Energy or Work', 'Energy_or_Work'),
+        ('Fuel Economy', 'Fuel_Economy'),
+        ('GED Practice', 'GED_Practice'),
+        ('Imperial to Imperial', 'Imperial_to_Imperial'),
+        ('Imperial to Metric', 'Imperial_to_Metric'),
+        ('Light', 'Light'),
+        ('Maritime Measurements', 'Maritime_Measurements'),
+        ('Mass', 'Mass'),
+        ('Metric To Imperial', 'Metric_to_Imperial'),
+        ('Ohms Law', 'OhmsLaw'),
+        ('Physical Fitness', 'Physical_Fitness'),
+        ('Plane Angle', 'PlaneAngle'),
+        ('Power', 'Power'),
+        ('Pressure', 'Pressure'),
+        ('Resistive Capacitance (Parallel)', 'Resistive_Capacitive_Parallel'),
+        ('Resistive Capacitance (Series)', 'Resistive_Capacitive_Series'),
+        ('Resistive Inductance (Parallel)', 'Resistive_Inductive_parallel'),
+        ('Resistive Inductance (Series)', 'Resistive_Inductive_series'),
+        ('Torque', 'Torque'),
+        ('Velocity', 'Velocity')
+    ]
 )
 
 objects = {}
 menu = {}
 
+# log function 
 def logme(msg):
 	fp = open('my.log', 'a')
 	fp.write('\n'+msg+'\n\n')
 	fp.close()
-
+       
+# Allowances class for allowable inputs other than numbers 
 class allowances(object):
 
     def __init__(self):
@@ -69,6 +87,7 @@ class allowances(object):
 
 allowances = allowances()
 
+#  Prints the Menus
 def print_menu(list_category):
     os.system('clear')
     print strings['mainmenutitle']
@@ -78,19 +97,21 @@ def print_menu(list_category):
         cnt += 1
         allowances.cat_allowances.append(line)
 
+# Prints the help message 
 def print_help():
 	print strings['cathelpstring']
 	raw_input(prompts['continueprompt'])
         
+# Category Selection 
 def category_prompt():
 
-	
+    # Loops until a proper selection is made 	
     while True:
         print_menu(list_category)
         prompt = raw_input(prompts['categoryprompt'])
         logme('user input ' + prompt)
 
-
+        # checks to make sure that the input is allowed 
         if prompt.isalpha():
 
             if prompt in allowances.quit_allowances:
@@ -115,6 +136,7 @@ def category_prompt():
         if category in range(len(list_category.values())):
         # key is a category name string
         # list_category is an ordered dictionary
+        # dianamically inmports the selected category 
             key = list_category.keys()[category]
             try:
                 if objects[list_category[key]] is None:
@@ -144,13 +166,15 @@ def category_prompt():
             print 'try again'
             continue
 		
+# Formula Selection of Associated Category 
 def formula_prompt(cat):
 
+    # Loops until proper input is taken in 
     while True:
         print_menu(cat.function_list)
         prompt = raw_input(prompts['formulaprompt'])
-        logme('user input ' + prompt)
 
+        # checks input against letters and special characters 
         if prompt.isalpha():
 
             if prompt in allowances.quit_allowances:
@@ -168,30 +192,41 @@ def formula_prompt(cat):
             continue
         
 
-        runFormula = int(prompt) -1
+        # If prompt is equal to a string number convert to integer and  
+        # subtract 1 to handle array offset for formula selection 
+        runFormula = int(prompt) - 1
         #for c in cat.function_list:
         #	print c
         #exit()
+        # checks to make sure that the selection is within range of the 
+        # formula list
         if runFormula in range(len(cat.function_list)):
             promptstr = cat.function_list.keys()[runFormula]
-        #logme('I got the Function List: ' + str(cat.function_list[promptstr]))
+            logme('I got the Function List: ' + str(cat.function_list[promptstr]))
             try:
-                if isinstance (cat.function_list[promptstr], OrderedDict):
-                         formula_prompt(cat.function_list[promptstr])
+                if isinstance(cat.function_list[promptstr], OrderedDict):
+                    formula_prompt(cat.function_list[promptstr])
                 else:
-                #logme('I got the PromptStr ' + cat.function_list[promptstr])
-                    retval = cat.function_list[promptstr]()
-                #logme('I got the RetVal ' + retval)
-                    print "\nAnswer: {} {}\n".format(retval[0], retval[1])
-                #logme('After Print cat.function_list')
-                    prompt = raw_input(prompts['continueprompt'])
+                    # takes in numbers needed for calculation and returns answer 
+                    try:
+                        logme('I got the PromptStr ' + str(cat.function_list[promptstr]))
+                        retval = cat.function_list[promptstr]()
+                        #logme('I got the RetVal ' + str(retval))
+                        print "\nAnswer: {} {}\n".format(retval[0], retval[1])
+                        logme('After Print cat.function_list')
+                        prompt = raw_input(prompts['continueprompt'])
+                    # catches errors that are most likely not in the array for the 
+                    # for loop in the FormulaBase.py
+                    except(Exception) as e:
+                        print "\nThere was an error, please see my.log file"
+                        raw_input(prompts['continueprompt'])
+                        logme("Error: {}".format(e))
             except(Exception) as e:
-                    print e
+                print "Error: {}".format(e)
+                raw_input(prompts['continueprompt'])
 
 		
-#os.system('clear')
+# Starts the Category Menu Selection 
 category_prompt()
-
-#os.system('clear')
 
 print strings['endnote']

@@ -24,8 +24,9 @@
 from FormulaBase import * 
 
 class Culinary(FormulaBase):
-    def __init__(self): 
-        super(Culinary, self).__init__()
+    def __init__(self, name): 
+        super(Culinary, self).__init__(name)
+        self.name = name
         
         self.function_list = OrderedDict(
             [
@@ -249,136 +250,220 @@ class Culinary(FormulaBase):
 
 #{{{___Formula Functions _____________________________________________________________________________
 
-    def portion (self, num, num2, num3, num4, num5):
-            old_yield = float(num) * float(num2)
-            new_yield = float(num3) * float(num4)
-            conversion_factor = new_yield / old_yield
-            result = float(num5) * conversion_factor
-            return (self.prec(result), self.pluralize(result, 'New Quantity')) 
+    def portion (self):
+        title = "Portion Size"
+        old_yield = "Enter Old Yield"
+        orig_size = "Enter Original Serving Size"
+        des_port = "Enter Desired Portions"
+        des_size = "Enter Desired Portion Size"
+        old_quantity = "Enter Old Ingrediant Quantity"
+        argsOut = [title, old_yield, orig_size, des_port, des_size, old_quantity]
+        argsIn = self.prompt(argsOut)
+        old_yield = argsIn[0] * argsIn[1]
+        new_yield = argsIn[2] * argsIn[3]
+        conversion_factor = new_yield / old_yield
+        result = argsIn[4] * conversion_factor
+        return (self.prec(result), self.pluralize(result, 'New Quantity')) 
 
-    def teaspoon (self, num):
-            result = float(num) * .125
-            return (self.prec(result), self.pluralize(result, 'Teaspoon'))
+    def teaspoon (self):
+        title = "Dashes to Teaspoons"
+        dash = "Enter Dashes"
+        argsOut = [title, dash]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .125
+        return (self.prec(result), self.pluralize(result, 'Teaspoon'))
 
-    def tablespoon (self, num):
-            result = float(num) * .333333
-            return (self.prec(result), self.pluralize(result, 'Tablespoon'))
+    def tablespoon (self):
+        title = "Teaspoons to Tablespoons"
+        tea = "Enter Teaspoons"
+        argsOut = [title, tea]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .333333
+        return (self.prec(result), self.pluralize(result, 'Tablespoon'))
 
-    def fl_ounce (self, num):
-            result = float(num) * .5
-            return (self.prec(result), self.pluralize(result, 'Fluid Ounce')) 
+    def fl_ounce (self):
+        title = 'Tablespoons to Fluid Ounces'
+        table = "Enter Tablespoons"
+        argsOut = [title, table]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .5
+        return (self.prec(result), self.pluralize(result, 'Fluid Ounce')) 
 
-    def cups (self, num):
-            result = float(num) * .0625
-            return (self.prec(result), self.pluralize(result, 'Cup'))
+    def cups (self):
+        title = "Tablespoons to Cups"
+        table = "Enter Tablespoons"
+        argsOut = [title, table]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .0625
+        return (self.prec(result), self.pluralize(result, 'Cup'))
 
-    def pints (self, num):
-            result = float(num) * .5
-            return (self.prec(result), self.pluralize(result, 'Pint')) 
+    def pints (self):
+        title = "Cups to Pints"
+        cup = "Enter Cups"
+        argsOut = [title, cup]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .5
+        return (self.prec(result), self.pluralize(result, 'Pint')) 
 
-    def quarts (self, num):
-            result = float(num) * .5
-            return (self.prec(result), self.pluralize(result, 'Quart')) 
+    def quarts (self):
+        title = 'Pints to Quarts'
+        pint = "Enter Pints"
+        argsOut = [title, pint]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .5
+        return (self.prec(result), self.pluralize(result, 'Quart')) 
             
-    def gallons (self, num):
-            result = float(num) * .25
-            return (self.prec(result), self.pluralize(result, 'Gallon')) 
+    def gallons (self):
+        title = "Quarts to Galloons"
+        quart = "Enter Quarts"
+        argsOut = [title, quart]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .25
+        return (self.prec(result), self.pluralize(result, 'Gallon')) 
 
-    def pecks (self, num):
-            result = float(num) * .5
-            return (self.prec(result), self.pluralize(result, 'Peck'))
+    def pecks (self):
+        title = "Gallons to Pecks"
+        gal = "Enter Gallons"
+        argsOut = [title, gal]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0]* .5
+        return (self.prec(result), self.pluralize(result, 'Peck'))
     
-    def bushels (self, num):
-            result = float(num) * .25
-            return (self.prec(result), self.pluralize(result, 'Bushel')) 
+    def bushels (self):
+        title = 'Pecks to Bushels'
+        peck = 'Enter Pecks'
+        argsOut = [title, peck]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .25
+        return (self.prec(result), self.pluralize(result, 'Bushel')) 
 
-    def pounds (self, num):
-            result = float(num) * .0022
-            return (self.prec(result), self.pluralize(result, 'Pound')) 
+    def pounds (self):
+        title = 'Grams to Pounds'
+        gram = "Enter Grams"
+        argsOut = [title, gram]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .0022
+        return (self.prec(result), self.pluralize(result, 'Pound')) 
 
-    def milliliters (self, num):
-            result = float(num) * 5
-            return (self.prec(result), self.pluralize(result, 'Milliliter')) 
+    def milliliters (self):
+        title = "Teaspoons to Milliliters"
+        tea = "Enter Teaspoons"
+        argsOut = [title, tea]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 5
+        return (self.prec(result), self.pluralize(result, 'Milliliter')) 
 
-    def milliliters2 (self, num): 
-            result = float(num) * 15
-            return (self.prec(result), self.pluralize(result, 'Milliliter')) 
+    def milliliters2 (self): 
+        title = "Tablespoons to Milliliters"
+        table = "Enter Tablespoons"
+        argsOut = [title, table]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 15
+        return (self.prec(result), self.pluralize(result, 'Milliliter')) 
 
-    def milliliters3 (self, num):
-            result = float(num) * 28.35
-            return (self.prec(result), self.pluralize(result, 'Milliliter')) 
+    def milliliters3 (self):
+        title = 'Fluid Ounces to Milliliters'
+        flo = "Enter Fluid Ounces"
+        argsOut = [title, flo]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 28.35
+        return (self.prec(result), self.pluralize(result, 'Milliliter')) 
 
-    def liters (self, num):
-            result = float(num) * .24
-            return (self.prec(result), self.pluralize(result, 'Liter')) 
+    def liters (self):
+        title = "Cups to Liters"
+        cup = "Enter Cups"
+        argsOut = [title, cup]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .24
+        return (self.prec(result), self.pluralize(result, 'Liter')) 
 
-    def liters2 (self, num):
-            result = float(num) * 3.8
-            return (self.prec(result), self.pluralize(result, 'Liter')) 
+    def liters2 (self):
+        title = "Gallons to Liters"
+        gal = "Enter Gallons"
+        argsOut = [title, gal]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 3.8
+        return (self.prec(result), self.pluralize(result, 'Liter')) 
 
-    def form_grams(self, num):
-#		argsOut = ['Grams to Ounces', 'Enter Grams']
-#		argsIn = self.prompt(argsOut)
-            result = float(num) * 28.3495
-            return (self.prec(result), self.pluralize(result, 'Ounce'))
+    def form_grams(self):
+        argsOut = ['Grams to Ounces', 'Enter Grams']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 28.3495
+        return (self.prec(result), self.pluralize(result, 'Ounce'))
 
-    def form_kilograms(self, num):
-#		argsOut = ['Kilograms to Pounds', 'Enter Kilograms']
-#		argsIn = self.prompt(argsOut)
-            result = float(num) * 2.2046
-            return (self.prec(result), self.pluralize(result, 'Pound'))
+    def form_kilograms(self):
+        argsOut = ['Kilograms to Pounds', 'Enter Kilograms']
+        argsIn = self.prompt(argsOut)
+        result =  argsIn[0] * 2.2046
+        return (self.prec(result), self.pluralize(result, 'Pound'))
             
-    def form_liters(self, num):
-#		argsOut = ['Liters to Gallons', 'Enter Liters']
-#		argsIn = self.prompt(argsOut)
-            result = float(num) * .2642
-            return (self.prec(result), self.pluralize(result, 'Gallon'))
+    def form_liters(self):
+        argsOut = ['Liters to Gallons', 'Enter Liters']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .2642
+        return (self.prec(result), self.pluralize(result, 'Gallon'))
             
-    def form_liters2(self, num):
-#		argsOut = ['Liters to Pints', 'Enter Liters']
-#		argsIn = self.prompt(argsOut)
-            result = float(num) * 2.1134
-            return (self.prec(result), self.pluralize(result, 'Pint'))
+    def form_liters2(self):
+        argsOut = ['Liters to Pints', 'Enter Liters']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 2.1134
+        return (self.prec(result), self.pluralize(result, 'Pint'))
             
-    def form_liters3(self, num):
-#		argsOut = ['Liters to Quarts', 'Enter Liters']
-#		argsIn = self.prompt(argsOut)
-            result = float(num) * 1.0567
-            return (self.prec(result), self.pluralize(result, 'Quart'))
+    def form_liters3(self):
+        argsOut = ['Liters to Quarts', 'Enter Liters']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.0567
+        return (self.prec(result), self.pluralize(result, 'Quart'))
 
-    def form_ounces(self, num):
-#		argsOut = ['Ounces to Grams', 'Enter Ounces']
-#		argsIn = self.prompt(argsOut)
-            result = float(num) * 28.3495
-            return (self.prec(result), self.pluralize(result, 'Gram'))
+    def form_ounces(self):
+        argsOut = ['Ounces to Grams', 'Enter Ounces']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 28.3495
+        return (self.prec(result), self.pluralize(result, 'Gram'))
             
-    def form_pounds(self, num):
-#		argsOut = ['Pounds to Kilograms', 'Enter Pounds']
-#		argsIn = self.prompt(argsOut)
-            result = float(num) * .4536
-            return (self.prec(result), self.pluralize(result, 'Kilogram'))
+    def form_pounds(self):
+        argsOut = ['Pounds to Kilograms', 'Enter Pounds']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .4536
+        return (self.prec(result), self.pluralize(result, 'Kilogram'))
             
-    def form_pints2(self, num):
-#		argsOut = ['Pfloats to Liters', 'Enter Pfloats']
-#		argsIn = self.prompt(argsOut)
-            result = float(num) * 1.4732
-            return (self.prec(result), self.pluralize(result, 'Liter'))
+    def form_pints2(self):
+        argsOut = ['Pfloats to Liters', 'Enter Pfloats']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.4732
+        return (self.prec(result), self.pluralize(result, 'Liter'))
             
-    def form_quarts(self, num):
-#		argsOut = ['Quarts to Liters', 'Enter Quarts']
-#		argsIn = self.prompt(argsOut)
-            result = float(num) * .9463
-            return (self.prec(result), self.pluralize(result, 'Liter'))
+    def form_quarts(self):
+        argsOut = ['Quarts to Liters', 'Enter Quarts']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .9463
+        return (self.prec(result), self.pluralize(result, 'Liter'))
     
-    def unit (self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec(result), self.pluralize(result, 'Cost per Unit')) 
+    def unit (self):
+        title = 'Unit Cost'
+        units = "Enter Number of Units"
+        purch = "Enter Purchased Cost"
+        argsOut [title, units, purch]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result), self.pluralize(result, 'Cost per Unit')) 
 
-    def recipe (self, num, num2):
-            result = float(num) / float(num2)
-            return (round(result, 2), self.pluralize(result, 'Cost Per Portion')) 
-    def selling (self, num, num2):
-            result = float(num) / (float(num2) / 100)
-            return (round(result, 2), self.pluralize(result, 'Selling Price')) 
+    def recipe (self):
+        title = 'Recipe Cost'
+        total = 'Enter Total Recipe Cost'
+        port = 'Enter Number of Portions'
+        argsOut = [title, total, port]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (round(result, 2), self.pluralize(result, 'Cost Per Portion')) 
+
+    def selling (self):
+        title = 'Selling Price'
+        plate = 'Enter Plate Cost'
+        cost_perc = "Enter Food Cost Percent"
+        argsOut = [title, plate, cost_perc]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / (argsIn[1] / 100)
+        return (round(result, 2), self.pluralize(result, 'Selling Price')) 
 #}}}_________________________________________________________________________________________
 
