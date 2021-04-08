@@ -122,7 +122,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, kel]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.8
-        return (str(self.prec2(result))+'&#65042', self.pluralize(result, 'Rankine')) 
+        return (str(self.prec2(result)), self.pluralize(result, 'Rankine')) 
 
     def kelvin (self):
         title = "Rankine to Kelvin"
@@ -138,7 +138,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, ran]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * -272.594444444
-        return (str(self.prec2(result))+'&#65042', self.pluralize(result, 'Celsius')) 
+        return (str(self.prec2(result)), self.pluralize(result, 'Celsius')) 
 
     def rankin (self):
         title = 'Celsius to Rankine'
@@ -146,7 +146,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, cel]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 493.47
-        return (str(self.prec2(result))+'&#65042', self.pluralize(result, 'Rankine')) 
+        return (str(self.prec2(result)), self.pluralize(result, 'Rankine')) 
 
     def light2 (self):
         title = 'Light Years to Parsecs'

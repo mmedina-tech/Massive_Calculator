@@ -19,13 +19,15 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 #
+# This Module is for Area Formuals 
 
 
 from FormulaBase import *  
 
 class Area (FormulaBase):
-    def __init__(self):
-        super (Area, self).__init__()
+    def __init__(self, name):
+        super (Area, self).__init__(name)
+        self.name = name
 
         self.function_list = OrderedDict(
             [
@@ -392,178 +394,398 @@ class Area (FormulaBase):
             #}}}_________________________________________________________________________________________
         }
 
-    def acre8(self, num):
-        result = float(num) * 4840 * 9
+    def acre8(self):
+        # Acres to Square Feet 
+        title = "Acres to Square Feet"
+        acre = "Enter Acre"
+        argsOut = [title, acre]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 4840 * 9
         return (self.prec2(result), self.pluralize(result, 'Foot<sup>2</sup>'))
 
-    def acre7(self, num):
-        result = float(num) * 640
+    def acre7(self):
+        # Acre to Section 
+        title = "Acre to Section"
+        acre = "Enter Acre"
+        argsOut = [title, acre]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 640
         return (self.prec2(result), self.pluralize(result, 'Section'))
 
-    def section4(self, num):
-        result = float(num) * 36
+    def section4(self):
+        # Section to Township 
+        title = "Section to Township"
+        sec = "Enter Section"
+        argsOut = [title, sec]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 36
         return (self.prec2(result), self.pluralize(result, 'Township'))
 
-    def sqin3(self, num):
-        result = float(num) * 62.73
+    def sqin3(self):
+        # Square Inches to Square Link 
+        title = "Square Inches to Square Link"
+        sqi = "Enter Square Inch"
+        argsOut = [title, sqi]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 62.73
         return (self.prec2(result), self.pluralize(result, 'Link<sup>2</sup>'))
 
-    def sqm(self, num):
-        result = float(num) * 119.6
+    def sqm(self):
+        # Square Meters to Square Yards 
+        title = "Square Meters to Square Yards"
+        sqm = "Enter Square Meter"
+        argsOut = [title, sqm]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 119.6
         return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
 
-    def sqyrd2(self, num):
-        result = float(num) * 20.661157025
+    def sqyrd2(self):
+        # Square Yards to Square Links 
+        title = "Square Yards to Square Links"
+        sqy = "Enter Square Yard"
+        argsOut = [title, sqy]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 20.661157025
         return (self.prec2(result), self.pluralize(result, 'Link<sup>2</sup>'))
 
-    def link3(self, num):
-        result = float(num) * 625
+    def link3(self):
+        # Square Link to Square Pole 
+        title = "Square Link to Square Pole"
+        sql = "Enter Square Link"
+        argsOut = [title, sql]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 625
         return (self.prec2(result), self.pluralize(result, 'Pole<sup>2</sup>'))
 
-    def sqyrd3(self, num):
-        result = float(num) * 30.25
+    def sqyrd3(self):
+        # Square Yard to Square Pole 
+        title = "Square Yard to Square Pole"
+        sqy = "Enter Square Yard"
+        argsOut = [title, sqy]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 30.25
         return (self.prec2(result), self.pluralize(result, 'Pole<sup>2</sup>'))
 
-    def spole4(self, num):
-        result = float(num) * 16
+    def spole4(self):
+        # Square Pole to Square Chain 
+        title = "Square Pole to Square Chain"
+        sqp = "Enter Square Pole"
+        argsOut = [title, sqp]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 16
         return (self.prec2(result), self.pluralize(result, 'Chain<sup>2</sup>'))
 
-    def schain4(self, num):
-        result = float(num) * 10
+    def schain4(self):
+        # Square Chain to Acre 
+        title = "Square Chain to Acre"
+        sqc = "Enter Square Chain"
+        argsOut = [title, sqc]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 10
         return (self.prec2(result), self.pluralize(result, 'Acre'))
 
-    def sqin2(self, num):
-        result = float(num) * 1550
+    def sqin2(self):
+        # Square Inch to Centiare 
+        title = "Square Inch to Centiare"
+        sqi = "Enter Square Inch"
+        argsOut = [title, sqi]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1550
         return (self.prec2(result), self.pluralize(result, 'Centiare'))
 
-    def sqyrd(self, num):
-        result = float(num) * 119.6
+    def sqyrd(self):
+        # Square Yard to Are 
+        title = "Square Yard to Are"
+        sqy = "Enter Square Yard"
+        argsOut = [title, sqy]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 119.6
         return (self.prec2(result), self.pluralize(result, 'Are'))
 
-    def acre6(self, num):
-        result = float(num) * 247.105
+    def acre6(self):
+        # Acre to Square Kilometer 
+        title = "Acre to Square Kilometer"
+        acre = "Enter Acre"
+        argsOut = [title, acre]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 247.105
         return (self.prec2(result), self.pluralize(result, 'Kilometer<sup>2</sup>'))
 
-    def sqkm(self, num):
-        result = float(num) * 2.59000259
+    def sqkm(self):
+        # Square Kilometer to Square Mile 
+        title = "Square Kilometer to Square Mile"
+        sqk = "Enter Square Kilometer"
+        argsOut = [title, sqk]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 2.59000259
         return (self.prec2(result), self.pluralize(result, 'Mile<sup>2</sup>'))
 
-    def sqcm(self, num):
-        result = float(num) * 0.15500031
+    def sqcm(self):
+        # Square Centimeter to Square Inch 
+        title = "Square Centimeter to Square Inch"
+        sqcm = "Enter Square Centimeter"
+        argsOut = [title, sqcm]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.15500031
         return (self.prec2(result), self.pluralize(result, 'Inch<sup>2</sup>'))
 
-    def acre5(self, num):
-        result = float(num) * 0.0002471052
+    def acre5(self):
+        # Acre to Square Mile 
+        title = "Acre to Square Mile"
+        acre = "Enter Acre"
+        argsOut = [title, acre]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.0002471052
         return (self.prec2(result), self.pluralize(result, 'Meter<sup>2</sup>'))
 
-    def section(self, num):
-        result = float(num) * 0.0015625
+    def section(self):
+        # Section to Acre 
+        title = "Section to Acre"
+        sec = "Enter Section"
+        argsOut = [title, sec]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.0015625
         return (self.prec2(result), self.pluralize(result, 'Acre'))
 
-    def section2(self, num):
-        result = float(num) * 0.0015625
+    def section2(self):
+        # Section to Square Mile 
+        title = "Section to Square Mile"
+        sec = "Enter Section"
+        argsOut = [title, sec]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.0015625
         return (self.prec2(result), self.pluralize(result, 'Mile<sup>2</sup>'))
 
-    def section3(self, num):
-        result = float(num) * 1
+    def section3(self):
+        # Section to Square Kilometer 
+        title = "Section to Square Kilometer"
+        sec = "Enter Section"
+        argsOut = [title, sec]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1
         return (self.prec2(result), self.pluralize(result, 'Kilometer<sup>2</sup>'))
 
-    def town(self, num):
-        result = float(num) * 0.027777778
+    def town(self):
+        # Town to Section 
+        title = "Town to Section"
+        town = "Enter Town"
+        argsOut = [title, town]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.027777778
         return (self.prec2(result), self.pluralize(result, 'Section'))
 
-    def town2(self, num):
-        result = float(num) * 0.027777778
+    def town2(self):
+        # Town to Square Mile 
+        title = "Town to Square Mile"
+        town = "Enter Town"
+        argsOut = [title, town]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.027777778
         return (self.prec2(result), self.pluralize(result, 'Mile<sup>2</sup>'))
 
-    def town3(self, num):
-        result = float(num) * 0.010725011
+    def town3(self):
+        # Town to Square Kilometer 
+        title = "Town to Square Kilometer"
+        town = "Enter Town"
+        argsOut = [title, town]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.010725011
         return (self.prec2(result), self.pluralize(result, 'Kilometer<sup>2</sup>'))
 
-    def schain(self, num):
-        result = float(num) * 0.0625
+    def schain(self):
+        # Square Chain to Square Pole 
+        title = "Square Chain to Square Pole"
+        sqc = "Enter Square Chain"
+        argsOut = [title, sqc]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.0625
         return (self.prec2(result), self.pluralize(result, 'Pole<sup>2</sup>'))
 
-    def schain2(self, num):
-        result = float(num) * 0.002066116
+    def schain2(self):
+        # Square Chain to Square Yard 
+        title = "Square Chain to Square Yard"
+        sqc = "Enter Square Chain"
+        argsOut = [title, sqc]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.002066116
         return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
 
-    def schain3(self, num):
-        result = float(num) * 0.002471052
+    def schain3(self):
+        # Square Chain to Square Meter 
+        title = "Square Chain to Square Meter"
+        sqc = "Enter Square Chain"
+        argsOut = [title, sqc]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.002471052
         return (self.prec2(result), self.pluralize(result, 'Meter<sup>2</sup>'))
 
-    def acre3(self, num):
-        result = float(num) * 0.01
+    def acre3(self):
+        # Acre to Square Chain 
+        title = "Acre to Square Chain"
+        acre = "Enter Acre"
+        argsOut = [title, acre]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.01
         return (self.prec2(result), self.pluralize(result, 'Chain<sup>2</sup>'))
 
-    def acre4(self, num):
-        result = float(num) * 0.000206612
+    def acre4(self):
+        # Acre to Square Yard 
+        title = "Acre Square Yard"
+        acre = "Enter Acre"
+        argsOut = [title, acre]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.000206612
         return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
 
-    def spole3(self, num):
-        result = float(num) * 0.039536631
+    def spole3(self):
+        # Square Pole to Square Meter 
+        title = "Square Pole to Square Meter"
+        sqp = "Enter Square Pole"
+        argsOut = [title, sqp]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.039536631
         return (self.prec2(result), self.pluralize(result, 'Meter<sup>2</sup>'))
 
-    def are(self, num):
-        result = float(num) * 0.008361204
+    def are(self):
+        # Are to Square Yard 
+        title = "Are to Square Yard"
+        are = "Enter Are"
+        argsOut = [title, are]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.008361204
         return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
 
-    def cent(self, num):
-        result = float(num) * 0.000645161
+    def cent(self):
+        # Centare to Square Inch 
+        title = "Centare to Square Inch"
+        cent = "Enter Centare"
+        argsOut = [title, cent]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.000645161
         return (self.prec2(result), self.pluralize(result, 'Inch<sup>2</sup>'))
 
-    def ska(self, num):
-        result = float(num) * 0.004046863
+    def ska(self):
+        # Square Kilometer to Acre 
+        title = "Square Kilometer to Acre"
+        sqk = "Enter Square Kilometer"
+        argsOut = [title, sqk]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.004046863
         return (self.prec2(result), self.pluralize(result, 'Acre'))
 
-    def link(self, num):
-        result = float(num) * 0.015941336
+    def link(self):
+        # Square Link to Square Inch 
+        title = "Square Link to Square Inch"
+        sql = "Enter Square Link"
+        argsOut = [title, sql]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.015941336
         return (self.prec2(result), self.pluralize(result, 'Inch<sup>2</sup>'))
 
-    def link2(self, num):
-        result = float(num) * 0.002417052
+    def link2(self):
+        # Square Link to Square Centimeter 
+        title = "Square Link to Square Centimeter"
+        sql = "Enter Square Link"
+        argsOut = [title, sql]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.002417052
         return (self.prec2(result), self.pluralize(result, 'Centimeter<sup>2</sup>'))
 
-    def spole(self, num):
-        result = float(num) * 0.0016
+    def spole(self):
+        # Square Pole to Square Link 
+        title = "Square Pole to Square Linke"
+        sqp = "Enter Square Pole"
+        argsOut = [title, sqp]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.0016
         return (self.prec2(result), self.pluralize(result, 'Link<sup>2</sup>'))
 
-    def spole2(self, num):
-        result = float(num) * 0.033057851
+    def spole2(self):
+        # Square Pole to Square Yard 
+        title = "Square Pole to Square Yard"
+        sqp = "Enter Square Pole"
+        argsOut = [title, sqp]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.033057851
         return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
 
-    def sqft4(self, num):
-        result = float(num) * 0.003673095 * 0.00625
+    def sqft4(self):
+        # Square Feet to Acre 
+        title = "Square Feet to Acre"
+        sqf = "Enter Square Feet"
+        argsOut = [title, sqf]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.003673095 * 0.00625
         return (self.prec4(result), self.pluralize(result, 'Acre'))
 
-    def acre(self, num):
-        result = float(num) * 0.4047
+    def acre(self):
+        # Acre to Hectare 
+        title = "Acre to Hectare"
+        acre = "Enter Acre"
+        argsOut = [title, acre]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.4047
         return (self.prec2(result), self.pluralize(result, 'Hectare'))
 
-    def hect(self, num):
-        result = float(num) * 2.471
+    def hect(self):
+        # Hectare to Acre 
+        title = "Hectare to Acre"
+        hect = "Enter Hectare"
+        argsOut = [title, hect]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 2.471
         return (self.prec2(result), self.pluralize(result, 'Acre'))
 
-    def sqin(self, num):
-        result = float(num) * 0.006944444
+    def sqin(self):
+        # Square Inch to Square Foot 
+        title = "Square Inch to Square Foor"
+        sqi = "Enter Square Inch"
+        argsOut = [title, sqi]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.006944444
         return (self.prec2(result), self.pluralize(result, 'Square Foot'))
 
-    def sqft(self, num):
-        result = float(num) * 0.11111111
+    def sqft(self):
+        # Square Foot to Square Yard 
+        title = "Square Foot to Square Yard"
+        sqf = "Enter Square Foot"
+        argsOut = [title, sqf]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.11111111
         return (self.prec2(result), self.pluralize(result, 'Square Yard'))
 
-    def sqft2(self, num):
-        result = float(num) * 0.003673095
+    def sqft2(self):
+        # Square Foot to Square Rod 
+        title = "Square Foot to Square Rod"
+        sqf = "Enter Square Foot"
+        argsOut = [title, sqf]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.003673095
         return (self.prec2(result), self.pluralize(result, 'Square Rod'))
 
-    def sqrd(self, num):
-        result = float(num) * 0.00625
+    def sqrd(self):
+        # Square Rod to Acre 
+        title = "Square Rod to Acre"
+        sqr = "Enter Square Rod"
+        argsOut = [title, sqr]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.00625
         return (self.prec2(result), self.pluralize(result, 'Acre'))
 
-    def acre2(self, num):
-        result = float(num) * 0.0015625
+    def acre2(self):
+        # Acre to Square Mile 
+        title = "Acre to Square Mile"
+        acre = "Enter Acre"
+        argsOut = [title, acre]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 0.0015625
         return (self.prec2(result), self.pluralize(result, 'Square Mile'))
 
-    def sqft3(self, num):
-        result = float(num) / 5280 / 5280
+    def sqft3(self):
+        # Square Foot to Square Mile 
+        title = "Square Foot to Square Mile"
+        sqf = "Enter Square Foot"
+        argsOut = [title, sqf]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / 5280 / 5280
         return (result, self.pluralize(result, 'Square Mile'))

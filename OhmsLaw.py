@@ -9,7 +9,8 @@ class OhmsLaw(FormulaBase):
         
         self.function_list = OrderedDict(
             [
-                #{{{
+                #{{{___  _____________________________________________________________________________
+                
                 ('Volts using Amps and Resistance', self.form_voltsar),
                 ('Volts using Watts and Amps', self.form_voltswa),
                 ('Volts using Watts and Resistance', self.form_voltswr),
@@ -22,6 +23,7 @@ class OhmsLaw(FormulaBase):
                 ('Watts using Volts and Amps', self.form_wattsva),
                 ('Watts using Resistance and Amps', self.form_wattsra),
                 ('Watts using Volts and Resistance', self.form_wattsvr),
+                #}}}_________________________________________________________________________________________
             ]
         )
 

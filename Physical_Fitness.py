@@ -23,8 +23,9 @@
 from FormulaBase import * 
 
 class Physical_Fitness(FormulaBase):
-    def __init__(self): 
-        super(Physical_Fitness, self).__init__()
+    def __init__(self, name): 
+        super(Physical_Fitness, self).__init__(name)
+        self.name = name
 
 #{{{___ Function List _____________________________________________________________________________
 
@@ -99,25 +100,47 @@ class Physical_Fitness(FormulaBase):
      #       result = (float(num) * 703) / float(num2)) / float(num2)
       #      return (self.prec2(result)+'%', self.pluralize(result, 'Body Mass (estimated)'))
 
-    def work (self, num, num2, num3):
-            result = (((float(num) * 4.448) * cos(float(num2)) * (float(num3) * 3.2808))) * .239
-            result = result * pow(10, -3)
-            return (self.prec4(result), self.pluralize(result, 'Calorie')) 
+    def work (self):
+        title = "Calories burned in Work-Out"
+        weight = "Enter Weight"
+        angle = "Enter Angle"
+        lift = "Enter Distance of Lift"
+        argsOut = [title, weight, angle, lift]
+        argsIn = self.prompt(argsOut)
+        result = (((argsIn[0] * 4.448) * cos(argsIn[1]) * (argsIn[2] * 3.2808))) * .239
+        result = result * pow(10, -3)
+        return (self.prec4(result), self.pluralize(result, 'Calorie')) 
 
-    def calories (self, num):
-            result = float(num) * 4.186
-            return (self.prec4(result), self.pluralize(result, 'Joule')) 
+    def calories (self):
+        title = "Calories to Joules"
+        cal = "Enter Calories"
+        argsOut = [title, cal]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 4.186
+        return (self.prec4(result), self.pluralize(result, 'Joule')) 
 
-    def joules (self, num):
-            result = float(num) * .239
-            return (self.prec2(result), self.pluralize(result, 'Calorie')) 
+    def joules (self):
+        title = "Joules to Calories"
+        joul = "Enter Joules"
+        argsOut = [title, joul]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .239
+        return (self.prec2(result), self.pluralize(result, 'Calorie')) 
     
-    def newtons (self, num):
-            result = float(num) * .2248
-            return (self.prec2(result), self.pluralize(result, 'Pound'))
+    def newtons (self):
+        title = "Newtons to Pounds"
+        newt = "Enter Newtons"
+        argsOut = [title, newt]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .2248
+        return (self.prec2(result), self.pluralize(result, 'Pound'))
 
-    def pounds (self, num):
-            result = float(num) * 4.448
-            return (self.prec2(result), self.pluralize(result, 'Newton')) 
+    def pounds (self):
+        title = "Pounds to Newton"
+        pound = "Enter Pounds"
+        argsOut = [title, pound]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 4.448
+        return (self.prec2(result), self.pluralize(result, 'Newton')) 
 #}}}_________________________________________________________________________________________
 

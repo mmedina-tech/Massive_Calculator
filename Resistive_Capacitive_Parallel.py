@@ -24,8 +24,9 @@ from FormulaBase import *
 from log import *
 
 class Resistive_Capacitive_Parallel(FormulaBase):
-    def __init__(self):
-        super(Resistive_Capacitive_Parallel, self).__init__()
+    def __init__(self, name):
+        super(Resistive_Capacitive_Parallel, self).__init__(name)
+        self.name = name
 
 #{{{___ Function List _____________________________________________________________________________
 
@@ -619,232 +620,357 @@ class Resistive_Capacitive_Parallel(FormulaBase):
 
 #{{{___ Formula Functions _____________________________________________________________________________
 
-    def TAmps(self, num, num2):
-        result = sqrt((float(num)**2) + (float(num2)**2))
+    def TAmps(self):
+        title = "Total Amps using Resistor Amps and Capacitor Amps"
+        ra = "Enter Resistor Amps"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, ra, ca]
+        argsIn = self.prompt(argsOut)
+        result = sqrt((argsIn[0]**2) + (argsIn[1]**2))
         return (self.prec4(result), self.pluralize(result, 'Total Amp'))
 
-    def TAmps2 (self, num, num2):
-        result = float(num) / float(num2)
+    def TAmps2 (self):
+        title = "Total Amps using Total Volts and Impedance"
+        tv = "Enter Total Volts"
+        i = "Enter Impedance"
+        argsOut = [title, tv, i]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Total Amp')) 
 
-    def TAmps3 (self, num, num2): 
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Total Amp')) 
+    def TAmps3 (self): 
+        title = "Total Amps using Volt Amps and Total Volts"
+        va = "Enter Volt Amps"
+        tv = "Enter Total Volts"
+        argsOut = [title, va, tv]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Total Amp')) 
 
-    def TAmps4 (self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Total Amp')) 
+    def TAmps4 (self):
+        title = "Total Amps using Resistor Amps and Power Factor"
+        ra = "Enter Resistor Amps"
+        pf = "Enter Power Factor"
+        argsOut = [title, ra, pf]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Total Amp')) 
 
-    def TAmps5 (self, num, num2):
-            result = sqrt(float(num) / float(num2))
-            return (self.prec4(result), self.pluralize(result, 'Total Amp')) 
+    def TAmps5 (self):
+        title = "Total Amps using Volt Amps and Impedance"
+        va = "Enter Volt Amps"
+        i = "Enter Impedance"
+        argsOut = [title, va, i]
+        argsIn = self.prompt(argsOut)
+        result = sqrt(argsIn[0] / argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Total Amp')) 
 
-    def PFactor (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Power Factor')) 
+    def PFactor (self):
+        title = "Power Factor using Impedance and Resistance"
+        i = "Enter Impedance"
+        r = "Enter Resistance"
+        argsOut = [title, i, r]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Power Factor')) 
 
-    def PFactor2 (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Power Factor')) 
+    def PFactor2 (self):
+        title = "Power Factor using Resistor Amps and Total Amps"
+        ra = "Enter Resistor Amps"
+        ta = "Enter Total Amps"
+        argsOut = [title, ra, ta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Power Factor')) 
 
-    def PFactor3 (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Power Factor')) 
+    def PFactor3 (self):
+        title = "Power Factor using Watts and Volt Amps"
+        w = "Enter Watts"
+        va = "Enter Volt Amps"
+        argsOut = [title, w, va]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Power Factor')) 
 
-    def PFactor4 (self, num, num2):
-           result = float(num) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Power Factor')) 
+    def PFactor4 (self):
+        title = "Power Factor using CoSine and Theta Angle"
+        coS = "Enter CoSine"
+        theta = "Enter Theta Angle"
+        argsOut = [title, coS, theta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Power Factor')) 
 
-    def watts (self, num, num2):
-           result = float(num) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Watt')) 
+    def watts (self):
+        title = "Watts using Resistor Volts and Resistor Amps"
+        rv = "Enter Resistor Volts"
+        ra = "Enter Resistor Amps"
+        argsOut = [title, rv, ra]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Watt')) 
 
-    def watts2 (self, num, num2):
-           result = sqrt((float(num) ** 2) - (float(num2) ** 2))
-           return (self.prec4(result), self.pluralize(result, 'Watt')) 
+    def watts2 (self):
+        title = "Watts using Volt Amps and Power Factor"
+        va = "Enter Volt Amps"
+        pf = "Enter Power Factor"
+        argsOut = [title, va, pf]
+        argsIn = self.prompt(argsOut)
+        result = sqrt((argsIn[0] ** 2) - (argsIn[1] ** 2))
+        return (self.prec4(result), self.pluralize(result, 'Watt')) 
 
-    def watts3 (self, num, num2):
-           result = float(num) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Watt')) 
+    def watts3 (self):
+        title = "Watts using Volt Amps and Capacitor VAR's"
+        va = "Enter Volt Amps"
+        var = "Enter Capacitor VAR's"
+        argsOut = [title, va, var]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Watt')) 
 
-    def watts4 (self, num, num2):
-           result = (float(num) ** 2) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Watt')) 
+    def watts4 (self):
+        title = "Watts using Resistor Volts and Resistance"
+        rv = "Enter Resistor Volts"
+        r = "Enter Resistance"
+        argsOut = [title, rv, r]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0] ** 2) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Watt')) 
 
-    def watts5 (self, num, num2):
-           result = (float(num) ** 2) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Watt')) 
+    def watts5 (self):
+        title = "Watts using Resistor Amps and Resistance"
+        ra = "Enter Resistor Amps"
+        r = "Enter Resistance"
+        argsOut = [title, ra, r]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0] ** 2) * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Watt')) 
 
-    def impedance (self, num, num2):
-           result = 1 / sqrt((float(num) ** 2) + (float(num2) ** 2))
-           return (self.prec4(result), self.pluralize(result, 'Impedance')) 
+    def impedance (self):
+        title = "Impedance using Resiatance and Capacitive Reactance"
+        r = "Enter Resistance"
+        cr = "Enter Capacitive Reactance"
+        argsOut = [title, r, cr]
+        argsIn = self.prompt(argsOut)
+        result = 1 / sqrt((argsIn[0] ** 2) + (argsIn[1] ** 2))
+        return (self.prec4(result), self.pluralize(result, 'Impedance')) 
 
-    def impedance2 (self, num, num2):
-           result = float(num) / (float(num2) ** 2)
-           return (self.prec4(result), self.pluralize(result, 'Impedance')) 
+    def impedance2 (self):
+        title = "Impedance using Volt Amps and Total Amps"
+        va = "Enter Volt Amps"
+        ta = "Enter Total Amps"
+        argsOut = [title, va, ta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / (argsIn[1] ** 2)
+        return (self.prec4(result), self.pluralize(result, 'Impedance')) 
 
-    def impedance3 (self, num, num2): 
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Impedance')) 
+    def impedance3 (self): 
+        title = "Impedance using Total Volts and Total Amps"
+        tv = "Enter Total Volts"
+        ta = "Enter Total Amps"
+        argsOut = [title, tv, ta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Impedance')) 
 
-    def impedance4 (self, num, num2):
-           result = (float(num) ** 2) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Impedance'))
+    def impedance4 (self):
+        title = "Impedance using Total Volts and Volt Amps"
+        tv = "Enter Total Volts"
+        va = "Enter Volt Amps"
+        argsOut = [title, tv, va]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0] ** 2) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Impedance'))
 
-    def impedance5 (self, num, num2): 
-           result = float(num) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Impedance')) 
+    def impedance5 (self): 
+        title = "Impedance using Resistance and Power Factor"
+        r = "Enter Resistance"
+        pf = "Enter Power Factor"
+        argsOut = [title, r, pf]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Impedance')) 
 
-    def RAmps (self, num, num2):
-           result = sqrt((float(num) ** 2) - (float(num2) ** 2))
-           return (self.prec4(result), self.pluralize(result, 'Resistor Amp'))
+    def RAmps (self):
+        title = "Resistor Amps using Total Amps and Capacitor Amps"
+        ta = "Enter Total Amps"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, ta, ca]
+        argsIn = self.prompt(argsOut)
+        result = sqrt((argsIn[0] ** 2) - (argsIn[1] ** 2))
+        return (self.prec4(result), self.pluralize(result, 'Resistor Amp'))
 
-    def RAmps2 (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Resistor Amp')) 
+    def RAmps2 (self):
+        title = "Resistor Amps using Resistor Volts and Resistance"
+        rv = "Enter Resistor Volts"
+        r = "Enter Resistance"
+        argsOut = [title, rv, r]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Amp')) 
 
-    def RAmps3 (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Resistor Amp')) 
+    def RAmps3 (self):
+        title = "Resistor Amps using Watts and Resistor Volts"
+        w = "Enter Watts"
+        rv = "Enter Resistor Volts"
+        argsOut = [title, w, rv]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Amp')) 
 
-    def RAmps4 (self, num, num2):
-           result = sqrt(float(num) / float(num2))
-           return (self.prec4(result), self.pluralize(result, 'Resistor Amp')) 
+    def RAmps4 (self):
+        title = "Resistor Amps using Watts and Resistance"
+        w = "Enter Watts"
+        r = "Enter Resistance"
+        argsOut = [title, w, r]
+        argsIn = self.prompt(argsOut)
+        result = sqrt(argsIn[0] / argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Resistor Amp')) 
 
-    def RAmps5 (self, num, num2):
-           result = float(num) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Resistor Amp')) 
+    def RAmps5 (self):
+        title = "Resistor Amps using Power Factor and Total Amps"
+        pf = "Enter Power Factor"
+        ta = "Enter Total Amps"
+        argsOut = [title, pf, ta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Amp')) 
 
-    def TVolts (self, num, num2):
-           result = float(num) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Total Volt')) 
+    def TVolts (self):
+        title = "Total Volts using Volt Amps and Total Amps"
+        va = "Enter Volt Amps"
+        ta = "Enter Total Amps"
+        argsOut = [title, va, ta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Total Volt')) 
 
-    def TVolts2 (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Total Volt')) 
+    def TVolts2 (self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Total Volt')) 
 
-    def TVolts3 (self, num, num2):
-           result = sqrt(float(num) * float(num2))
-           return (self.prec4(result), self.pluralize(result, 'Total Volt')) 
+    def TVolts3 (self):
+        result = sqrt(argsIn[0] * argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Total Volt')) 
 
-    def VAmps (self, num, num2):
-           result = float(num) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
+    def VAmps (self):
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
 
-    def VAmps2 (self, num, num2):
-           result = (float(num) ** 2) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
+    def VAmps2 (self):
+        result = (argsIn[0] ** 2) * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
 
-    def VAmps3 (self, num, num2):
-           result = (float(num) ** 2) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
+    def VAmps3 (self):
+        result = (argsIn[0] ** 2) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
 
-    def VAmps4 (self, num, num2):
-           result = sqrt((float(num) ** 2) + (float(num2) ** 2))
-           return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
+    def VAmps4 (self):
+        result = sqrt((argsIn[0] ** 2) + (argsIn[1] ** 2))
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
 
-    def VAmps5 (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
+    def VAmps5 (self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
     
-    def RVolts (self, num, num2):
-           result = float(num) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
+    def RVolts (self):
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
-    def RVolts2 (self, num, num2):
-           result = sqrt(float(num) * float(num2))
-           return (self.prec4(result), self.pluralize(result, 'Resistor Volt')) 
+    def RVolts2 (self):
+        result = sqrt(argsIn[0] * argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Resistor Volt')) 
 
-    def RVolts3 (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Resistor Volt')) 
+    def RVolts3 (self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Volt')) 
 
-    def CVolts (self, num, num2):
-           result = float(num) * float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
+    def CVolts (self):
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
-    def CVolts2 (self, num, num2):
-           result = sqrt(float(num) * float(num2))
-           return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
+    def CVolts2 (self):
+        result = sqrt(argsIn[0] * argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
-    def CVolts3 (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Capacitor Volt')) 
+    def CVolts3 (self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Volt')) 
 
-    def Resist (self, num, num2):
-           result = float(num) / float(num2)
-           return (self.prec4(result), self.pluralize(result, 'Resistance'))
+    def Resist (self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
-    def Resist2 (self, num, num2):
-            result = (float(num) ** 2 ) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Resistance')) 
+    def Resist2 (self):
+        result = (argsIn[0] ** 2 ) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistance')) 
 
-    def Resist3 (self, num, num2):
-            result = 1 / sqrt((1/float(num)) ** 2 - (1/float(num2))**2)
-            return (self.prec4(result), self.pluralize(result, "Resistance"))
-
-    def Resist4 (self, num, num2):
-        result = float(num) /  float(num2)**2
+    def Resist3 (self):
+        result = 1 / sqrt((1/argsIn[0]) ** 2 - (1/argsIn[1])**2)
         return (self.prec4(result), self.pluralize(result, "Resistance"))
 
-    def Resist5 (self, num, num2):
-        result = float(num) /  float(num2)
+    def Resist4 (self):
+        result = argsIn[0] /  argsIn[1]**2
         return (self.prec4(result), self.pluralize(result, "Resistance"))
 
-    def CAmps(self, num, num2):
-        result = sqrt(float(num)**2 - float(num2)**2)
+    def Resist5 (self):
+        result = argsIn[0] /  argsIn[1]
+        return (self.prec4(result), self.pluralize(result, "Resistance"))
+
+    def CAmps(self):
+        result = sqrt(argsIn[0]**2 - argsIn[1]**2)
         return (self.prec4(result), self.pluralize(result, "Capacitor Amp"))
 
-    def CAmps2(self, num, num2):
-        result = float(num) / float(num2)
+    def CAmps2(self):
+        result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, "Capacitor Amp"))
 
-    def CAmps3(self, num, num2):
-        result = float(num) / float(num2)
+    def CAmps3(self):
+        result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, "Capacitor Amp"))
 
-    def CAmps4(self, num, num2):
-        result = sqrt(float(num) / float(num2))
+    def CAmps4(self):
+        result = sqrt(argsIn[0] / argsIn[1])
         return (self.prec4(result), self.pluralize(result, "Capacitor Amp"))
 
-    def CReact(self, num, num2):
-        result = 1 / sqrt((1/float(num))**2 - (1/float(num2))**2)
+    def CReact(self):
+        result = 1 / sqrt((1/argsIn[0])**2 - (1/argsIn[1])**2)
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def CReact2(self, num, num2):
-        result = float(num) / float(num2)
+    def CReact2(self):
+        result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def CReact3(self, num, num2):
-        result = float(num) / float(num2)
+    def CReact3(self):
+        result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def CReact4(self, num, num2):
-        result = float(num) / float(num2)
+    def CReact4(self):
+        result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def CReact5(self, num, num2):
-        result = 0.5*3.14*float(num)*float(num2)
+    def CReact5(self):
+        result = 0.5*3.14*argsIn[0]*argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def CRate(self, num, num2):
-        result = 0.5*3.14*float(num)*float(num2)
+    def CRate(self):
+        result = 0.5*3.14*argsIn[0]*argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor Rating'))
 
-    def CVAR(self, num, num2):
-        result = float(num)**2 * float(num2)
+    def CVAR(self):
+        result = argsIn[0]**2 * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor VAR'))
 
-    def CVAR2(self, num, num2):
-        result = float(num)**2 / float(num2)
+    def CVAR2(self):
+        result = argsIn[0]**2 / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor VAR'))
 
-    def CVAR3(self, num, num2):
-        result = float(num) * float(num2)
+    def CVAR3(self):
+        result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor VAR'))
 
-    def CVAR4(self, num, num2):
-        result = sqrt(float(num)**2 - float(num2)**2)
+    def CVAR4(self):
+        result = sqrt(argsIn[0]**2 - argsIn[1]**2)
         return (self.prec4(result), self.pluralize(result, 'Capacitor VAR'))
 #}}}_________________________________________________________________________________________
 

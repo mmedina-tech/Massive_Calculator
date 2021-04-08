@@ -23,8 +23,9 @@
 from FormulaBase import *  
 
 class Mass(FormulaBase):
-    def __init__(self):
-        super (Mass, self).__init__()
+    def __init__(self, name):
+        super (Mass, self).__init__(name)
+        self.name = name
 
 #{{{___ Function List _____________________________________________________________________________
 
@@ -97,32 +98,60 @@ class Mass(FormulaBase):
         
 #{{{___ Formula Functions _____________________________________________________________________________
 
-    def tons(self, num):
-        result = float(num) * 907.18
+    def tons(self):
+        title = "Tons to Kilograms"
+        ton = "Enter Tons"
+        argsOut = [title, ton]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 907.18
         return (self.prec2(result), self.pluralize(result, 'Kilogram'))
 
-    def kilo(self, num):
-        result = float(num) * .001102
+    def kilo(self):
+        title = "Kilograms to Tons"
+        kilo = "Enter Kilograms"
+        argsOut = [title, kilo]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .001102
         return (self.prec2(result), self.pluralize(result, 'Ton'))
 
-    def tons2(self, num):
-        result = float(num) * .90718
+    def tons2(self):
+        title = "Tons to Metric Tons"
+        ton = "Enter Tons"
+        argsOut = [title, ton]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .90718
         return (self.prec2(result), self.pluralize(result, 'Metric Ton'))
 
-    def tons3(self, num):
-        result = float(num) * 1.1023
+    def tons3(self):
+        title = "Metric Tons to Tons"
+        mt = "Enter Metric Tons"
+        argsOut = [title, mt]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.1023
         return (self.prec2(result), self.pluralize(result, 'Ton'))
 
-    def grains(self, num):
-        result = float(num) * .0365764447696
+    def grains(self):
+        title = "Grains to Drams"
+        grain = "Enter Grains"
+        argsOut = [title, grain]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .0365764447696
         return (self.prec2(result), self.pluralize(result, 'Dram'))
 
-    def grains2(self, num):
-        result = float(num) * .00228571
+    def grains2(self):
+        title = "Grains to Ounce"
+        grain = "Enter Grains"
+        argsOut = [title, grain]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .00228571
         return (self.prec2(result), self.pluralize(result, 'Ounce'))
 
-    def grains3(self, num):
-        result = float(num) * 15.43236
+    def grains3(self):
+        title = "Grains to Grams"
+        grain = "Enter Grains"
+        argsOut = [title, grain]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 15.43236
         return (self.prec2(result), self.pluralize(result, 'Gram'))
 #}}}_________________________________________________________________________________________
 

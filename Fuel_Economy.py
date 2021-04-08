@@ -23,8 +23,9 @@
 from FormulaBase import * 
 
 class Fuel_Economy(FormulaBase):
-    def __init__(self): 
-        super(Fuel_Economy, self).__init__()
+    def __init__(self, name): 
+        super(Fuel_Economy, self).__init__(name)
+        self.name = name
 
         self.function_list = OrderedDict(
 #{{{___ Function List _____________________________________________________________________________
@@ -65,13 +66,21 @@ class Fuel_Economy(FormulaBase):
 
 #{{{___ Formula Functions _____________________________________________________________________________
 
-    def miles (self, num):
-            result = float(num) * .42514
-            return (self.prec2(result), self.pluralize(result, 'Kilometers/Liter'))
+    def miles (self):
+        title = "Miles/Gallon to Kilometers/Liter"
+        mpg = "Enter Miles/Gallon"
+        argsOut = [title, mpg]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .42514
+        return (self.prec2(result), self.pluralize(result, 'Kilometers/Liter'))
 
-    def kilo (self, num):
-            result = float(num) * 2.3522
-            return (self.prec2(result), self.pluralize(result, 'Miles/Gal'))
+    def kilo (self):
+        title = "Kilometers/Liter to Miles/Gallon"
+        kpl = "Enter Kilometers/Liter"
+        argsOut = [title, kpl]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 2.3522
+        return (self.prec2(result), self.pluralize(result, 'Miles/Gal'))
 
 #}}}_________________________________________________________________________________________
 

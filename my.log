@@ -808,3 +808,144 @@ I got the PromptStr <bound method Culinary.recipe of <Culinary.Culinary object a
 
 After Print cat.function_list
 
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f644f7c4fd0>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f644f7c4fd0>>
+
+
+After Print cat.function_list
+
+
+user input q
+
+
+user input q
+
+
+user input q
+
+
+user input q
+
+
+user input 1
+
+
+user input 3
+
+
+user input 3
+
+
+user input 4
+
+
+I got the Function List: <bound method Astronomic_units.form_celsius of <Astronomic_units.Astronomic_units object at 0x7fd043273850>>
+
+
+I got the PromptStr <bound method Astronomic_units.form_celsius of <Astronomic_units.Astronomic_units object at 0x7fd043273850>>
+
+
+After Print cat.function_list
+
+
+user input q
+
+
+user input 26
+
+
+I got the Function List: <bound method Torque.form_gramcent of <Torque.Torque object at 0x7f89f7230f90>>
+
+
+I got the PromptStr <bound method Torque.form_gramcent of <Torque.Torque object at 0x7f89f7230f90>>
+
+
+After Print cat.function_list
+
+
+user input 26
+
+
+user input 25
+
+
+user input 1
+
+
+user input 26
+
+
+user input q
+
+
+user input q
+
+
+user input q
+
+
+user input 26
+
+
+user input 1
+
+
+user input q
+
+
+user input 1
+
+
+user input q
+
+
+user input q
+
+
+user input q
+
+
+user input 2
+
+
+user input 2
+
+
+user input 1
+
+
+user input 
+
+
+user input 1
+
+
+user input 1
+
+
+user input w
+
+
+user input 2
+
+
+user input q
+
+
+user input 2
+
+
+user input 3
+
+
+user input 1
+
+
+user input q
+

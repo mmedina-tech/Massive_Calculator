@@ -197,64 +197,139 @@ class GED_Practice (FormulaBase):
 
 #{{{___ Formula Functions _____________________________________________________________________________
 
-    def rect(self, num, num2, num3):
-        result = float(num) * float(num2) + (2*float(num3))
+    def rect(self):
+        title = "Rectangle/Right Prism Surface Area"
+        rect = "Enter Perimeter of Base"
+        height = "Enter Height"
+        area = "Enter Area Base"
+        argsOut = [title, rect, height, area]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1] + (2*argsIn[2])
         return (self.prec(result), self.pluralize(result, 'Surface Area'))
 
-    def rect2(self, num, num2):
-        result = float(num) * float(num2)
+    def rect2(self):
+        title = "Rectangular/Right Prism Volume"
+        rect = "Enter Base"
+        height = "Enter Height"
+        argsOut = [title, rect, height]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
         return (self.prec2(result), self.pluralize(result, 'Rectange / Right Prism Volume'))
 
-    def cyl(self, num, num2):
-        result = (2*3.14*float(num)*float(num2))+(2*3.14*(float(num2)**2))
+    def cyl(self):
+        title = "Cylinder Surface Area"
+        cyl = "Enter Radius"
+        height = "Enter Height"
+        argsOut = [title, cyl, height]
+        argsIn = self.prompt(argsOut)
+        result = (2*3.14*argsIn[0]*argsIn[1])+(2*3.14*(argsIn[1]**2))
         return (self.prec(result), self.pluralize(result, 'Cylinder Surface Area'))
 
-    def cyl2(self, num, num2):
-        result = 3.14*(float(num)**2)*float(num2)
+    def cyl2(self):
+        title = "Cylinder Volume"
+        radius = "Enter Radius"
+        height = "Enter Height"
+        argsOut = [title, radius, height]
+        argsIn = self.prompt(argsOut)
+        result = 3.14*(argsIn[0]**2)*argsIn[1]
         return (self.prec(result), self.pluralize(result, 'Cylinder Volume'))
 
-    def pyr(self, num, num2, num3):
-        result = 0.5*float(num)*float(num2)+float(num3)
+    def pyr(self):
+        title = "Pyramid Surface Area"
+        perm = "Enter Perimeter of Base"
+        slant = "Enter Slant Length"
+        base = "Enter Area of Base"
+        argsOut = [title, perm, slant, base]
+        argsIn = self.prompt(argsOut)
+        result = 0.5*argsIn[0]*argsIn[1]+argsIn[2]
         return (self.prec(result), self.pluralize(result, 'Pyramid Surface Area'))
 
-    def pyr2(self, num, num2):
-        result = (.33333333333*float(num)*float(num2))
+    def pyr2(self):
+        title = "Pyramid Volume"
+        base = "Enter Base"
+        height = "Enter Height"
+        argsOut = [title, base, height]
+        argsIn = self.prompt(argsOut)
+        result = (.33333333333*argsIn[0]*argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Pyramid Volume'))
 
-    def cone(self, num, num2):
-        result = (3.14*float(num)*float(num2))+(3.14*float(num2))
+    def cone(self):
+        title = "Cone Surface Area"
+        radius = "Enter Radius"
+        slant = 'Enter Slant'
+        argsOut = [title, radius, slant]
+        argsIn = self.prompt(argsOut)
+        result = (3.14*argsIn[0]*argsIn[1])+(3.14*argsIn[1])
         return (self.prec(result), self.pluralize(result, 'Cone Surface Area'))
 
-    def cone2(self, num, num2):
-        result = .333333333333333333*(float(num)**2)*float(num2)
+    def cone2(self):
+        title = "Cone Volume"
+        radius = "Enter Radius"
+        height = "Enter Height"
+        argsOut = [title, radius, height]
+        argsIn = self.prompt(argsOut)
+        result = .333333333333333333*(argsIn[0]**2)*argsIn[1]
         return (self.prec(result), self.pluralize(result, 'Cone Volume'))
 
-    def sphere(self, num):
-        result = 4*3.14*float(num)
+    def sphere(self):
+        title = "Sphere Surface Area"
+        radius = "Enter Radius"
+        argsOut = [title, radius]
+        argsIn = self.prompt(argsOut)
+        result = 4*3.14*argsIn[0]
         return (self.prec(result), self.pluralize(result, 'Sphere Surface Area'))
 
     def sphere2(self, num):
-        result = 1.333333333*3.14*float(num)
+        title = "Sphere Volume"
+        radius = "Enter Radius"
+        argsOut = [title, radius]
+        argsIn = self.prompt(argsOut)
+        result = 1.333333333*3.14*argsIn[0]
         return (self.prec(result), self.pluralize(result, 'Sphere Volume'))
 
-    def tri(self, num, num2):
-        result = (0.5*float(num)*float(num2))
+    def tri(self):
+        title = "Triangle Area"
+        base = "Enter Base"
+        height = "Enter Height"
+        argsOut = [title, base, height]
+        argsIn = self.prompt(argsOut)
+        result = (0.5*argsIn[0]*argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Triangle Area'))
 
-    def circle(self, num):
-        result = 3.14 * (float(num)**2)
+    def circle(self):
+        title = "Circle Area"
+        radius = "Enter Radius"
+        argsOut = [title, radius]
+        argsIn = self.prompt(argsOut)
+        result = 3.14 * (argsIn[0]**2)
         return (self.prec2(result), self.pluralize(result, 'Circle Area'))
 
-    def rectangle(self, num, num2):
-        result = float(num) * float(num2)
+    def rectangle(self):
+        title = "Rectangle Area"
+        length = "Enter Length"
+        width = "Enter Width"
+        argsOut = [title, length, width]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
         return (self.prec2(result), self.pluralize(result, 'Rectangle Area'))
 
-    def para(self, num, num2):
-        result = float(num) * float(num2)
+    def para(self):
+        title = "Parallelogram Area"
+        base = "Enter Base"
+        height = "Enter Height"
+        argsOut = [title, base, height]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
         return (self.prec2(result), self.pluralize(result, 'Parallelogram Area'))
 
-    def trap(self, num, num2, num3):
-        result = 0.5*float(num)*(float(num2)+float(num3))
+    def trap(self):
+        title = "Trapazoid Area"
+        height = "Enter Height"
+        base1 = "Enter Base 1"
+        base2 = "Enter Base 2"
+        argsOut = [title, height, base1, base2]
+        argsIn = self.prompt(argsOut)
+        result = 0.5*argsIn[0]*(argsIn[1]+argsIn[2])
         return (self.prec4(result), self.pluralize(result, 'Trapezoid Area'))
 #}}}_________________________________________________________________________________________
 

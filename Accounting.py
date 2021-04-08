@@ -21,14 +21,13 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 #
+# This Module is for Accounting Formulas 
 
 from FormulaBase import *
 
 class Accounting(FormulaBase):
     def __init__(self, name):
         """
-        
-        
         name -- Accounting
         """
         super(Accounting, self).__init__(name)
@@ -58,7 +57,7 @@ class Accounting(FormulaBase):
 
     def equity_ratio(self):
         """
-        
+        The Equity Ratio
         """
         title = "The Equity Ratio"
         stock_equity = "Enter Stockholder's Equity"
@@ -70,7 +69,7 @@ class Accounting(FormulaBase):
 
     def trend_percent(self):
         """
-        
+        Trend Percentage
         """
         title = 'Trend Percentage'
         current_amount = 'Enter Current Year Amount'
@@ -82,7 +81,7 @@ class Accounting(FormulaBase):
 
     def current_ratio(self):
         """
-        
+        Current Ratio
         """
         title = 'Current Ratio'
         current_assets = 'Enter Current Assets'
@@ -94,7 +93,7 @@ class Accounting(FormulaBase):
 
     def gross_margin(self):
         """
-        
+        Gross Margin Percentage
         """
         title = 'Gross Margin Percentage'
         cost = 'Enter cost of goods sold'
@@ -106,7 +105,7 @@ class Accounting(FormulaBase):
 
     def gross_ratio(self):
         """
-        
+        Gross Margin Ratio
         """
         title = 'Gross Margin Ratio'
         gross_profit = 'Enter Gross Profit'
@@ -118,7 +117,7 @@ class Accounting(FormulaBase):
 
     def inventory(self):
         """
-        
+        Inventory Turn-Over Ratio
         """
         title = 'Inventory Turn-Over Ratio'
         cost = 'Enter Cost of Goods Sold'
@@ -130,7 +129,7 @@ class Accounting(FormulaBase):
 
     def quick(self):
         """
-        
+        The Quick Ratio
         """
         title = 'The Quick Ratio'
         cash = 'Enter Cash'
@@ -145,9 +144,9 @@ class Accounting(FormulaBase):
 
     def accounts_recieve(self):
         """
-        
+        Accounts Recievable Turn-Over
         """
-        title = 'Accoutn Recievable Turn-Over'
+        title = 'Accounts Recievable Turn-Over'
         net_credit = 'Enter Net Credit Sales'
         avg_accounts = 'Enter Average Accounts'
         argsOut = [title, net_credit, avg_accounts]
@@ -157,7 +156,7 @@ class Accounting(FormulaBase):
 
     def number_days(self):
         """
-        
+        Number of Days Sales in Accounts Recievable
         """
         title = 'Number of Days Sales in Accounts Recievable'
         sales = 'Enter Sales'
@@ -169,7 +168,7 @@ class Accounting(FormulaBase):
 
     def return_rate(self):
         """
-        
+        Rate of Return on Operating Assets
         """
         title = 'Rate of Return on Operating Assets'
         net_income = 'Enter Net Income'
@@ -181,7 +180,7 @@ class Accounting(FormulaBase):
         
     def total_asset(self):
         """
-        
+        Total Asset Turn-Over
         """
         title = 'Total Asset Turn-Over'
         net_sales = 'Enter Net Sales'
@@ -193,7 +192,7 @@ class Accounting(FormulaBase):
 
     def per_share(self):
         """
-        
+        Earnings Per Share and Price Earnings Ratio
         """
         title = 'Earnings Per Share and Price Earnings Ratio'
         income = 'Enter Income Available to Common Stockholders'
@@ -205,9 +204,9 @@ class Accounting(FormulaBase):
 
     def dividend(self):
         """
-        
+        Dividend Yield on Common Stock
         """
-        title = 'Dividend Yeild on Common Stock'
+        title = 'Dividend Yield on Common Stock'
         dividend_per_share = 'Enter Dividend Per Share on Common Stock'
         market = 'Enter Current Market Price per Share'
         argsOut = [title, dividend_per_share, market]
@@ -217,7 +216,7 @@ class Accounting(FormulaBase):
 
     def payout(self):
         """
-        
+        Payout Ratio on Common Stock
         """
         title = 'Payout Ratio on Common Stock'
         per_share = 'Enter Dividend Per Share on Common Stock'
@@ -229,7 +228,7 @@ class Accounting(FormulaBase):
 
     def quick2(self):
         """
-        
+        The Quick Ratio 2
         """
         title = 'The Quick Ratio using Total Current Assets, Inventory, Prepaid Expenses, and Current Liabilities'
         total_current = 'Enter Total Current Asstes'
@@ -243,7 +242,7 @@ class Accounting(FormulaBase):
 
     def gross_margin3(self):
         """
-        
+        Gross Margin Ratio using Revenue and Cost of Goods Sold
         """
         title = 'Gross Margin Ratio using Revenue and Cost of Goods Sold'
         revenue = 'Enter Revenue'
@@ -255,7 +254,7 @@ class Accounting(FormulaBase):
 
     def cash2equity(self):
         """
-        
+        Cash to Equity
         """
         title = 'Cash to Equity'
         cmpy_worth = 'Enter Company Worth'
@@ -267,7 +266,7 @@ class Accounting(FormulaBase):
 
     def comp_equity(self):
         """
-        
+        Company Equity
         """
         title = 'Company Equity'
         cash = 'Enter Cash Amount Asking'

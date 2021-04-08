@@ -47,9 +47,10 @@ list_category = OrderedDict(
         ('Resistive Inductance (Parallel)', 'Resistive_Inductive_parallel'),
         ('Resistive Inductance (Series)', 'Resistive_Inductive_series'),
         ('Torque', 'Torque'),
-        ('Velocity', 'Velocity')
+        ('Velocity', 'Velocity'),
     ]
 )
+
 
 objects = {}
 menu = {}

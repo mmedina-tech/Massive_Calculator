@@ -8,8 +8,10 @@ class Maritime_Measurements(FormulaBase):
     This class represents Converting Maritime Measurements
     """
 
-    def __init__(self):
-        super(Maritime_Measurements, self).__init__()
+    def __init__(self, name):
+        super(Maritime_Measurements, self).__init__(name)
+        self.name = name
+
 #{{{___ Function List _____________________________________________________________________________
 
         self.function_list = OrderedDict(
@@ -145,67 +147,131 @@ class Maritime_Measurements(FormulaBase):
 #{{{___ Formula Functions _____________________________________________________________________________
 
     def ff(self, num):
-        result = float(num) * 6
+        title = "Fathoms to Feet"
+        fath = "Enter Fathoms"
+        argsOut = [title, fath]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 6
         return (self.prec2(result), self.pluralize(result, "Foot"))
 
-    def cf(self, num):
-        result = float(num) * .01
+    def cf(self):
+        title = "Cables to Fathoms"
+        cb = "Enter Cables"
+        argsOut = [title, cb]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .01
         return (self.prec2(result) , self.pluralize(result, "Fathom"))
 
-    def nmf(self, num):
-        result = float(num) * 6076
+    def nmf(self):
+        title = "Nautical Miles to Feet"
+        nm = "Enter Nautical Miles"
+        argsOut = [title, nm]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 6076
         return (self.prec2(result), self.pluralize(result, "Foot"))
 
-    def fm(self, num):
-        result = float(num) * .546448087
+    def fm(self):
+        title = "Fathoms to Meters"
+        fath = "Enter Fathoms"
+        argsOut = [title, fath]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .546448087
         return (self.prec2(result), self.pluralize(result, "Meter"))
 
-    def nmc(self, num):
-        result = float(num) * 10
+    def nmc(self):
+        title = "Nautical Miles to Cables"
+        nm = "Enter Nautical Miles"
+        argsOut = [title, nm]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 10
         return (self.prec2(result), self.pluralize(result, "Cable"))
 
-    def nmm(self, num):
-        result = float(num) * 1852
+    def nmm(self):
+        title = "Nautical Miles to Meters"
+        nm = "Enter Nautical Miles"
+        argsOut = [title, nm]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1852
         return (self.prec2(result), self.pluralize(result, "Meter"))
 
-    def nmsm(self, num):
-        result = float(num) * 1.15
+    def nmsm(self):
+        title = "Nautical Miles to Statute Miles"
+        nm = "Enter Nautical Miles"
+        argsOut = [title, nm]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.15
         return (self.prec2(result), self.pluralize(result, "Statute Mile"))
 
-    def knots(self, num):
-        result = float(num) * 1
+    def knots(self):
+        title = "Knots to Nautical Miles"
+        knot = "Enter Knots"
+        argsOut = [title, knot]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1
         return (self.prec2(result), self.pluralize(result, "Nautical Mile"))
 
-    def mf(self, num):
-        result = float(num) * 1.83
+    def mf(self):
+        title = "Meters to Fathoms"
+        m = "Enter Meters"
+        argsOut = [title, m]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.83
         return (self.prec2(result), self.pluralize(result, "Fathom"))
 
-    def nmk(self, num):
-        result = float(num) * .539956803456
+    def nmk(self):
+        title = "Nautical Miles to Kilometers"
+        nm = "Enter Nautical Miles"
+        argsOut = [title, nm]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .539956803456
         return (self.prec2(result), self.pluralize(result, "Kilometer"))
 
-    def knm(self, num):
-        result = float(num) * 1.852
+    def knm(self):
+        title = "Kilometers to Nautical Miels"
+        k = "Enter Kilometers"
+        argsOut = [title, k]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.852
         return (self.prec2(result), self.pluralize(result, "Nautical Mile"))
 
-    def Mnm(self, num):
-        result = float(num) * 1.150774477122
+    def Mnm(self):
+        title = "Miles to Nautical Miles"
+        M = "Enter Miles"
+        argsOut = [title, M]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.150774477122
         return (self.prec2(result), self.pluralize(result, "Nautical Mile"))
 
-    def Kkph(self, num):
-        result = float(num) * 1.93968964967
+    def Kkph(self):
+        title = "Kilometers to Kilometers per Hour"
+        K = "Enter Kilometers"
+        argsOut = [title, K]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.93968964967
         return (self.prec2(result), self.pluralize(result, "Kilometer per Hour"))
 
-    def kphK(self, num):
-        result = float(num) * .515546391749
+    def kphK(self):
+        title = "Kilometers per Hour to Knots"
+        kph = "Enter Kilometers per Hour"
+        argsOut = [title, kph]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .515546391749
         return (self.prec2(result), self.pluralize(result, "Knot"))
 
-    def Kmph(self, num):
-        result = float(num) * .59
+    def Kmph(self):
+        title = "Knots to Miles per Hour"
+        K = "Enter Knots"
+        argsOut = [title, K]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .59
         return (self.prec2(result), self.pluralize(result, "Mile per Hour"))
 
-    def mphK(self, num):
-        result = float(num) * 1.69491525424
+    def mphK(self):
+        title = "Miles per Hour to Knots"
+        mph = "Enter Miles per Hour"
+        argsOut = [title, mph]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.69491525424
         return (self.prec2(result), self.pluralize(result, "Knot"))
 #}}}_________________________________________________________________________________________
 

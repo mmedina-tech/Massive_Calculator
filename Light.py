@@ -23,8 +23,10 @@
 from FormulaBase import * 
 
 class Light(FormulaBase):
-    def __init__(self): 
-        super(Light, self).__init__()
+    def __init__(self, name): 
+        super(Light, self).__init__(name)
+        self.name = name
+
 #{{{___ Function List _____________________________________________________________________________
 
         self.function_list = OrderedDict(
@@ -60,12 +62,20 @@ class Light(FormulaBase):
 
 #{{{___ Formula Functions _____________________________________________________________________________
 
-    def foot (self, num):
-            result = float(num) * 10.76
-            return (self.prec2(result), self.pluralize(result, 'Lumens/Meter<sup>2</sup>'))
+    def foot (self):
+        title = "Foot Candles to Lumens/Meter Squared"
+        fc = "Enter Foot Candles"
+        argsOut = [title, fc]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 10.76
+        return (self.prec2(result), self.pluralize(result, 'Lumens/Meter<sup>2</sup>'))
 
-    def lumens (self, num):
-            result = float(num) * .0929
-            return (self.prec2(result), self.pluralize(result, 'Foot Candle'))
+    def lumens (self):
+        title = "Lumens/Meter Squared to Foot Candles"
+        lms = "Enter Lumens/Meter Squared"
+        argsOut = [title, lms]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .0929
+        return (self.prec2(result), self.pluralize(result, 'Foot Candle'))
 #}}}_________________________________________________________________________________________
 
