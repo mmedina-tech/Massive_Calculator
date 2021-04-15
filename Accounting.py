@@ -32,28 +32,26 @@ class Accounting(FormulaBase):
         """
         super(Accounting, self).__init__(name)
         self.name = name
-        self.function_list = OrderedDict(
-                [
-                    ('The Equity Ratio', self.equity_ratio),
-                    ('Trend Percentage', self.trend_percent),
-                    ('Current Ratio', self.current_ratio),
-                    ('Gross Margin Percentage', self.gross_margin),
-                    ('Gross Margin Ratio', self.gross_ratio),
-                    ('Inventory Turn-Over Ratio', self.inventory),
-                    ('The Quick Ratio', self.quick),
-                    ('Accounts Recievable Turn-Over', self.accounts_recieve),
-                    ('Number of Days Sales in Accounts Recievable', self.number_days),
-                    ('Rate of Return on Operating Assets', self.return_rate),
-                    ('Total Asset Turn-Over', self.total_asset),
-                    ('Earnings Per Share and Price Earnings Ratio', self.per_share),
-                    ('Dividend Yield on Common Stock', self.dividend),
-                    ('Payout Ratio on Common Stock', self.payout),
-                    ('The Quick Ratio using Total Current Assets, Inventory, Prepaid Expenses, and Current Liabilities', self.quick2),
-                    ('Gross Margin Ratio using Revenue and Cost of Goods Sold', self.gross_margin3),
-                    ('Company Equity', self.comp_equity),
-                    ('Cash to Equity', self.cash2equity),
-                ]
-            )
+        self.function_list = {
+            'The Equity Ratio': self.equity_ratio,
+            'Trend Percentage': self.trend_percent,
+            'Current Ratio': self.current_ratio,
+            'Gross Margin Percentage': self.gross_margin,
+            'Gross Margin Ratio': self.gross_ratio,
+            'Inventory Turn-Over Ratio': self.inventory,
+            'The Quick Ratio': self.quick,
+            'Accounts Recievable Turn-Over': self.accounts_recieve,
+            'Number of Days Sales in Accounts Recievable': self.number_days,
+            'Rate of Return on Operating Assets': self.return_rate,
+            'Total Asset Turn-Over': self.total_asset,
+            'Earnings Per Share and Price Earnings Ratio': self.per_share,
+            'Dividend Yield on Common Stock': self.dividend,
+            'Payout Ratio on Common Stock': self.payout,
+            'The Quick Ratio using Total Current Assets, Inventory, Prepaid Expenses, and Current Liabilities': self.quick2,
+            'Gross Margin Ratio using Revenue and Cost of Goods Sold': self.gross_margin3,
+            'Company Equity': self.comp_equity,
+            'Cash to Equity': self.cash2equity,
+        }
 
     def equity_ratio(self):
         """

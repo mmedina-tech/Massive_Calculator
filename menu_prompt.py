@@ -20,44 +20,45 @@ strings = {
 	'tryagain' : 'Please Try Again'
 		}
 # Category Module list for Menu list 
-list_category = OrderedDict(
-    [
-        ('Acceleration', 'Acceleration'),
-        ('Accounting', 'Accounting'),
-        ('Area', 'Area'),
-        ('Astronomic Units', 'Astronomic_units'),
-        ('Budget', 'Budget'),
-        ('Culinary', 'Culinary'),
-        ('Energy or Work', 'Energy_or_Work'),
-        ('Fuel Economy', 'Fuel_Economy'),
-        ('GED Practice', 'GED_Practice'),
-        ('Imperial to Imperial', 'Imperial_to_Imperial'),
-        ('Imperial to Metric', 'Imperial_to_Metric'),
-        ('Light', 'Light'),
-        ('Maritime Measurements', 'Maritime_Measurements'),
-        ('Mass', 'Mass'),
-        ('Metric To Imperial', 'Metric_to_Imperial'),
-        ('Ohms Law', 'OhmsLaw'),
-        ('Physical Fitness', 'Physical_Fitness'),
-        ('Plane Angle', 'PlaneAngle'),
-        ('Power', 'Power'),
-        ('Pressure', 'Pressure'),
-        ('Resistive Capacitance (Parallel)', 'Resistive_Capacitive_Parallel'),
-        ('Resistive Capacitance (Series)', 'Resistive_Capacitive_Series'),
-        ('Resistive Inductance (Parallel)', 'Resistive_Inductive_parallel'),
-        ('Resistive Inductance (Series)', 'Resistive_Inductive_series'),
-        ('Torque', 'Torque'),
-        ('Velocity', 'Velocity'),
-    ]
-)
-
+old_list_category = {
+    'Acceleration': 'Acceleration',
+    'Accounting': 'Accounting',
+    'Area': 'Area',
+    'Astronomic Units': 'Astronomic_units',
+    'Budget': 'Budget',
+    'Culinary': 'Culinary',
+    'Energy or Work': 'Energy_or_Work',
+    'Fuel Economy': 'Fuel_Economy',
+    'GED Practice': 'GED_Practice',
+    'Imperial to Imperial': 'Imperial_to_Imperial',
+    'Imperial to Metric': 'Imperial_to_Metric',
+    'Light': 'Light',
+    'Maritime Measurements': 'Maritime_Measurements',
+    'Mass': 'Mass',
+    'Metric To Imperial': 'Metric_to_Imperial',
+    'Ohms Law': 'OhmsLaw',
+    'Physical Fitness': 'Physical_Fitness',
+    'Plane Angle': 'PlaneAngle',
+    'Power': 'Power',
+    'Pressure': 'Pressure',
+    'Resistive Capacitance (Parallel)': 'Resistive_Capacitance_Parallel',
+    'Resistive Capacitance (Series)': 'Resistive_Capacitive_Series',
+    'Resistive Inductance (Parallel)': 'Resistive_Inductive_parallel',
+    'Resistive Inductance (Series)': 'Resistive_Inductive_series',
+    'Torque': 'Torque',
+    'Velocity': 'Velocity',
+}
 
 objects = {}
 menu = {}
+list_category = sorted(old_list_category.items())
+list_category = OrderedDict(list_category)
+#print list_category.items()
+#exit()
 
 # log function 
 def logme(msg):
-	fp = open('my.log', 'a')
+	fp = open('Log/my.log', 'a')
 	fp.write('\n'+msg+'\n\n')
 	fp.close()
        
@@ -157,6 +158,8 @@ def category_prompt():
             finally:
                 #print objects[key].functions_list.keys(); exit()
                 cnt = 0
+                objects[key].function_list = sorted(objects[key].function_list.items())
+                objects[key].function_list = OrderedDict(objects[key].function_list)
                 for funct in objects[key].function_list.keys():
                     print '\n{} {}'.format(cnt,funct)
                     cnt += 1
@@ -196,9 +199,6 @@ def formula_prompt(cat):
         # If prompt is equal to a string number convert to integer and  
         # subtract 1 to handle array offset for formula selection 
         runFormula = int(prompt) - 1
-        #for c in cat.function_list:
-        #	print c
-        #exit()
         # checks to make sure that the selection is within range of the 
         # formula list
         if runFormula in range(len(cat.function_list)):

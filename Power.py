@@ -1,4 +1,28 @@
-#!/usr/bin/env python
+#!/usr/bin/python
+# SYNOPSIS: Power Module for Massive Calculator
+# 
+# Power.py
+#
+# Author: Marcus Medina,,,
+# Date: Thu 15 Apr 2021 08:18:08 AM PDT
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or 
+# (at your option) any later version.
+#
+# This Program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABLILITY of FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+#
+# You Should have recieved a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+#
+#
+#
 
 from FormulaBase import *
 from collections import OrderedDict
@@ -8,15 +32,13 @@ class Power(FormulaBase):
 		super(Power, self).__init__(name)
 		self.name = name 
 		
-		self.function_list = OrderedDict(
-		[
-			('BTU per Hour to Watts', self.form_btuhour),
-			('Horse Power to Foot/Pounds per Minute', self.form_hpftlbsm),
-			('Horse Power to Foot/Pounds per Second', self.form_hpftlbss),
-			('Horse Power to Watts', self.form_hpw),
-			('Kilo Watts to Horse Power', self.form_kwhp)
-		]
-	)
+		self.function_list = {
+                    'BTU per Hour to Watts': self.form_btuhour,
+                    'Horse Power to Foot/Pounds per Minute': self.form_hpftlbsm,
+                    'Horse Power to Foot/Pounds per Second': self.form_hpftlbss,
+                    'Horse Power to Watts': self.form_hpw,
+                    'Kilo Watts to Horse Power': self.form_kwhp
+                }
 		
 	def form_btuhour(self):
 		argsOut = ['BTU per Hour to Watts', 'Enter BTUs']

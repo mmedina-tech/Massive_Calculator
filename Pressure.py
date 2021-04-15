@@ -23,25 +23,23 @@
 from FormulaBase import * 
 
 class Pressure(FormulaBase):
-    def __init__(self): 
-        super(Pressure, self).__init__()
+    def __init__(self, name): 
+        super(Pressure, self).__init__(name)
 
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = OrderedDict(
-            [
-                ('Bars to KiloPascals', self.bars),
-                ('Bars to PSI', self.bars2),
-                ('Inches of Mercury to KiloPascals', self.InHg),
-                ('Inches of Water to KiloPascals', self.InH2O),
-                ('KiloPascals to Bars', self.kbars),
-                ('KiloPascals to Inches of Mercury', self.KpHg),
-                ('KiloPascals to PSI', self.KpPSI),
-                ('Pascals to Pounds per Square Foot', self.pascal),
-                ('Pounds per Square Foot to Pascals', self.psf),
-                ('PSI to KiloPascals', self.PSI),
-            ]
-        )
+        self.function_list = {
+            'Bars to KiloPascals': self.bars,
+            'Bars to PSI': self.bars2,
+            'Inches of Mercury to KiloPascals': self.InHg,
+            'Inches of Water to KiloPascals': self.InH2O,
+            'KiloPascals to Bars': self.kbars,
+            'KiloPascals to Inches of Mercury': self.KpHg,
+            'KiloPascals to PSI': self.KpPSI,
+            'Pascals to Pounds per Square Foot': self.pascal,
+            'Pounds per Square Foot to Pascals': self.psf,
+            'PSI to KiloPascals': self.PSI,
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________
@@ -118,44 +116,84 @@ class Pressure(FormulaBase):
 
 #{{{___ Formula Functions _____________________________________________________________________________
 
-    def InHg (self, num):
-            result = float(num) * 3.377
-            return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
+    def InHg (self):
+        title = "Inches of Mercury to KiloPascals"
+        InHg = "Enter Inches of Mercury"
+        argsOut = [title, InHg]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 3.377
+        return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
 
-    def KpHg (self, num):
-            result = float(num) * .2961
-            return (self.prec4(result), self.pluralize(result, 'Inches of Mercury'))
+    def KpHg (self):
+        title = "KiloPascals to Inches of Mercury"
+        Kp = "Enter KiloPascals"
+        argsOut = [title, Kp]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .2961
+        return (self.prec4(result), self.pluralize(result, 'Inches of Mercury'))
 
-    def PSI (self, num):
-            result = float(num) * 6.895
-            return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
+    def PSI (self):
+        title = "PSI to KiloPascals"
+        psi = "Enter PSI"
+        argsOut = [title, psi]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 6.895
+        return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
 
-    def KpPSI (self, num):
-            result = float(num) * .145
-            return (self.prec4(result), self.pluralize(result, 'PSI'))
+    def KpPSI (self):
+        title = "KiloPascals to PSI"
+        Kp = "Enter KiloPascals"
+        argsOut = [title, Kp]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .145
+        return (self.prec4(result), self.pluralize(result, 'PSI'))
     
-    def InH2O (self, num):
-            result = float(num) * .2488
-            return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
+    def InH2O (self):
+        title = "Inches of Water to KiloPascals"
+        InH2O = "Enter Inches of Water"
+        argsOut = [title, InH2O]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .2488
+        return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
 
-    def bars (self, num):
-            result = float(num) * 100
-            return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
+    def bars (self):
+        title = "Bars to KiloPascals"
+        bar = "Enter Bars"
+        argsOut = [title, bar]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 100
+        return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
 
-    def kbars (self, num):
-            result = float(num) * .01
-            return (self.prec4(result), self.pluralize(result, 'Bar'))
+    def kbars (self):
+        title = "KiloPascals to Bars"
+        Kp = "Enter KiloPascals"
+        argsOut = [title, Kp]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .01
+        return (self.prec4(result), self.pluralize(result, 'Bar'))
 
-    def psf (self, num):
-            result = float(num) * 47.88
-            return (self.prec4(result), self.pluralize(result, 'Pascal'))
+    def psf (self):
+        title = "Pounds per Square Foot to Pascals"
+        psf = "Enter Pounds per Square Foot"
+        argsOut = [title, psf]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 47.88
+        return (self.prec4(result), self.pluralize(result, 'Pascal'))
 
-    def pascal (self, num):
-            result = float(num) * .02088
-            return (self.prec4(result), self.pluralize(result, 'Pounds per Square Foot'))
+    def pascal (self):
+        title = "Pascal to Pounds per Square Foot"
+        pas = "Enter Pascal"
+        argsOut = [title, pas]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .02088
+        return (self.prec4(result), self.pluralize(result, 'Pounds per Square Foot'))
 
-    def bars2 (self, num):
-            result = (float(num) * 100) * .145
-            return (self.prec4(result), self.pluralize(result, 'PSI'))
+    def bars2 (self):
+        title = "Bars to PSI"
+        bar = "Enter Bars"
+        argsOut = [title, bar]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0] * 100) * .145
+        return (self.prec4(result), self.pluralize(result, 'PSI'))
 #}}}_________________________________________________________________________________________
 

@@ -29,18 +29,16 @@ class Velocity (FormulaBase):
 
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = OrderedDict(
-            [
-                ('Miles/hr to Kilometers/hr', self.mph),
-                ('Kilometers/hr to Miles/hr', self.kph),
-                ('Feet/Sec to Meters/Sec', self.ftmt),
-                ('Meters/Sec to Feet/Sec', self.mtft),
-                ('Kilometers/hr to Meters/Sec', self.kphmt),
-                ('Meters/Sec to Kilometers/hr', self.mtkph),
-                ('Miles/hr to Meters/Sec', self.mphmt),
-                ('Meters/Sec to Miles/hr', self.mtmph),
-            ]
-        )
+        self.function_list = {
+            'Miles/hr to Kilometers/hr': self.mph,
+            'Kilometers/hr to Miles/hr': self.kph,
+            'Feet/Sec to Meters/Sec': self.ftmt,
+            'Meters/Sec to Feet/Sec': self.mtft,
+            'Kilometers/hr to Meters/Sec': self.kphmt,
+            'Meters/Sec to Kilometers/hr': self.mtkph,
+            'Miles/hr to Meters/Sec': self.mphmt,
+            'Meters/Sec to Miles/hr': self.mtmph,
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________

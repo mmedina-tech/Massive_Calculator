@@ -29,12 +29,10 @@ class Light(FormulaBase):
 
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = OrderedDict(
-            [
-                ('Foot Candles to Lumens/Meter Squared', self.foot),
-                ('Lumens/Meter Squared to Foot Candles', self.lumens),
-            ]
-        )
+        self.function_list = {
+            'Foot Candles to Lumens/Meter Squared': self.foot,
+            'Lumens/Meter Squared to Foot Candles': self.lumens,
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________

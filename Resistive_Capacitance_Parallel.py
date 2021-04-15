@@ -21,76 +21,73 @@
 
 
 from FormulaBase import * 
-from log import *
 
-class Resistive_Capacitive_Parallel(FormulaBase):
+class Resistive_Capacitance_Parallel(FormulaBase):
     def __init__(self, name):
-        super(Resistive_Capacitive_Parallel, self).__init__(name)
+        super(Resistive_Capacitance_Parallel, self).__init__(name)
         self.name = name
 
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = OrderedDict(
-            [
-                ('Total Amps using Resistor Amps and Capacitor Amps', self.TAmps),
-                ('Total Amps using Total Volts and Impedance', self.TAmps2),
-                ('Total Amps using Volt Amps and Total Volts', self.TAmps3),
-                ('Total Amps using Resistor Amps and Power Factor', self.TAmps4),
-                ('Total Amps using Volt Amps and Impedance', self.TAmps5),
-                ('Power Factor using Impedance and Resistance', self.PFactor),
-                ('Power Factor using Resistor Amps and Total Amps', self.PFactor2),
-                ('Power Factor using Watts and Volt Amps', self.PFactor3),
-                ('Power Factor using CoSine and Theta Angle', self.PFactor4),
-                ('Watts using Resistor Volts and Resistor Amps', self.watts),
-                ('Watts using Volt Amps and Power Factor', self.watts2),
-                ("Watts using Volt Amps and Capacitor VAR's", self.watts3),
-                ('Watts using Resistor Volts and Resistance', self.watts4),
-                ('Watts using Resistor Amps and Resistance', self.watts5),
-                ('Impedance using Resistance and Capacitive Reactance', self.impedance),
-                ('Impedance using Volt Amps and Total Amps', self.impedance2),
-                ('Impedance using Total Volts and Total Amps', self.impedance3),
-                ('Impedance using Total Volts and Volt Amps', self.impedance4),
-                ('Impedance using Resistance and Power Factor', self.impedance5),
-                ('Resistor Amps using Total Amps and Capacitor Amps', self.RAmps),
-                ('Resistor Amps using Resistor Volts and Resistance', self.RAmps2),
-                ('Resistor Amps using Watts and Resistor Volts', self.RAmps3),
-                ('Resistor Amps using Watts and Resistance', self.RAmps4),
-                ('Resistor Amps using Power Factor and Total Amps', self.RAmps5),
-                ('Total Volts using Volt Amps and Total Amps', self.TVolts),
-                ('Total Volts using Volt Amps and Impedance', self.TVolts2),
-                ('Total Volts using Total Amps and Impedance', self.TVolts3),
-                ('Volt Amps using Total Volts and Total Amps', self.VAmps),
-                ('Volt Amps using Total Amps and Impedance', self.VAmps2),
-                ('Volt Amps using Total Volts and Impedance', self.VAmps3),
-                ("Volt Amps uisng Watts and Capacitor VAR's", self.VAmps4),
-                ('Volt Amps using Watts and Power Factor', self.VAmps5),
-                ('Resistor Volts using Resistor Amps and Resistance', self.RVolts),
-                ('Resistor Volts using Watts and Resistance', self.RVolts2),
-                ('Resistor Volts using Watts and Resistor Amps', self.RVolts3),
-                ('Capacitor Volts using Capacitor Amps and Capacitive Reactance', self.CVolts),
-                ("Capacitor Volts using Capacitor VAR's and Capacitive Reactance", self.CVolts2),
-                ("Capacitor Volts using Capacitor VAR's and Capacittor Amps", self.CVolts3),
-                ('Resistance using Resistor Volts and Resistor Amps', self.Resist),
-                ('Resistance using Resistor Volts and Watts', self.Resist2),
-                ('Resistance using Impedance and Capacitive Reactance', self.Resist3),
-                ('Resistance using Watts and Resistor Amps', self.Resist4),
-                ('Resistance using Impedance and Power Factor', self.Resist5),
-                ('Capacitor Amps using Total Amps and Resistor Amps', self.CAmps),
-                ('Capacitor Amps using Capacitor Volts and Capacitive Reactance', self.CAmps2),
-                ("Capacitor Amps using Capacitor VAR's and Capacitor Volts", self.CAmps3),
-                ("Capacitor Amps using Capacotor VAR's and Capacitivie Reactance", self.CAmps4),
-                ('Capacitive Reactance using Impedance and Resistance', self.CReact),
-                ('Capacitive Reactance using Capacitor Volts and Capacitor Amps', self.CReact2),
-                ("Capacitive Reactance using Capacitor Volts and Capacitor VAR's", self.CReact3),
-                ("Capacitive Reactance using Capacitor VAR's and Capacitor Amps", self.CReact4),
-                ('Capacitive Reactance using Frequency and Capacitor Rating', self.CReact5),
-                ('Capacitor Rating using Frequency and Capacitive Reactance', self.CRate),
-                ("Capacitor VAR's using Capacitor Amps and Capacitive Reactance", self.CVAR),
-                ("Capacitor VAR's using Capacitor Volts and Capacitive Reactance", self.CVAR2),
-                ("Capactior VAR's using Capacitor Volts and Capacitor Amps", self.CVAR3),
-                ("Capacitor VAR's using Volt Amps and Watts", self.CVAR4)
-            ]
-        )
+        self.function_list = {
+            'Total Amps using Resistor Amps and Capacitor Amps': self.TAmps,
+            'Total Amps using Total Volts and Impedance': self.TAmps2,
+            'Total Amps using Volt Amps and Total Volts': self.TAmps3,
+            'Total Amps using Resistor Amps and Power Factor': self.TAmps4,
+            'Total Amps using Volt Amps and Impedance': self.TAmps5,
+            'Power Factor using Impedance and Resistance': self.PFactor,
+            'Power Factor using Resistor Amps and Total Amps': self.PFactor2,
+            'Power Factor using Watts and Volt Amps': self.PFactor3,
+            'Power Factor using CoSine and Theta Angle': self.PFactor4,
+            'Watts using Resistor Volts and Resistor Amps': self.watts,
+            'Watts using Volt Amps and Power Factor': self.watts2,
+            "Watts using Volt Amps and Capacitor VAR's": self.watts3,
+            'Watts using Resistor Volts and Resistance': self.watts4,
+            'Watts using Resistor Amps and Resistance': self.watts5,
+            'Impedance using Resistance and Capacitive Reactance': self.impedance,
+            'Impedance using Volt Amps and Total Amps': self.impedance2,
+            'Impedance using Total Volts and Total Amps': self.impedance3,
+            'Impedance using Total Volts and Volt Amps': self.impedance4,
+            'Impedance using Resistance and Power Factor': self.impedance5,
+            'Resistor Amps using Total Amps and Capacitor Amps': self.RAmps,
+            'Resistor Amps using Resistor Volts and Resistance': self.RAmps2,
+            'Resistor Amps using Watts and Resistor Volts': self.RAmps3,
+            'Resistor Amps using Watts and Resistance': self.RAmps4,
+            'Resistor Amps using Power Factor and Total Amps': self.RAmps5,
+            'Total Volts using Volt Amps and Total Amps': self.TVolts,
+            'Total Volts using Volt Amps and Impedance': self.TVolts2,
+            'Total Volts using Total Amps and Impedance': self.TVolts3,
+            'Volt Amps using Total Volts and Total Amps': self.VAmps,
+            'Volt Amps using Total Amps and Impedance': self.VAmps2,
+            'Volt Amps using Total Volts and Impedance': self.VAmps3,
+            "Volt Amps uisng Watts and Capacitor VAR's": self.VAmps4,
+            'Volt Amps using Watts and Power Factor': self.VAmps5,
+            'Resistor Volts using Resistor Amps and Resistance': self.RVolts,
+            'Resistor Volts using Watts and Resistance': self.RVolts2,
+            'Resistor Volts using Watts and Resistor Amps': self.RVolts3,
+            'Capacitor Volts using Capacitor Amps and Capacitive Reactance': self.CVolts,
+            "Capacitor Volts using Capacitor VAR's and Capacitive Reactance": self.CVolts2,
+            "Capacitor Volts using Capacitor VAR's and Capacittor Amps": self.CVolts3,
+            'Resistance using Resistor Volts and Resistor Amps': self.Resist,
+            'Resistance using Resistor Volts and Watts': self.Resist2,
+            'Resistance using Impedance and Capacitive Reactance': self.Resist3,
+            'Resistance using Watts and Resistor Amps': self.Resist4,
+            'Resistance using Impedance and Power Factor': self.Resist5,
+            'Capacitor Amps using Total Amps and Resistor Amps': self.CAmps,
+            'Capacitor Amps using Capacitor Volts and Capacitive Reactance': self.CAmps2,
+            "Capacitor Amps using Capacitor VAR's and Capacitor Volts": self.CAmps3,
+            "Capacitor Amps using Capacotor VAR's and Capacitivie Reactance": self.CAmps4,
+            'Capacitive Reactance using Impedance and Resistance': self.CReact,
+            'Capacitive Reactance using Capacitor Volts and Capacitor Amps': self.CReact2,
+            "Capacitive Reactance using Capacitor Volts and Capacitor VAR's": self.CReact3,
+            "Capacitive Reactance using Capacitor VAR's and Capacitor Amps": self.CReact4,
+            'Capacitive Reactance using Frequency and Capacitor Rating': self.CReact5,
+            'Capacitor Rating using Frequency and Capacitive Reactance': self.CRate,
+            "Capacitor VAR's using Capacitor Amps and Capacitive Reactance": self.CVAR,
+            "Capacitor VAR's using Capacitor Volts and Capacitive Reactance": self.CVAR2,
+            "Capactior VAR's using Capacitor Volts and Capacitor Amps": self.CVAR3,
+            "Capacitor VAR's using Volt Amps and Watts": self.CVAR4
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________
@@ -846,130 +843,290 @@ class Resistive_Capacitive_Parallel(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'Total Volt')) 
 
     def TVolts2 (self):
+        title = "Total Volts using Volt Amps and Impedance"
+        va = "Enter Volt Amps"
+        i = "Enter Impedance"
+        argsOut = [title, var, i]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Total Volt')) 
 
     def TVolts3 (self):
+        title = "Total Volts using Total Amps and Impedance"
+        ta = "Enter Total Amps"
+        i = "Enter Impedance"
+        argsOut = [title, ta, i]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] * argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Total Volt')) 
 
     def VAmps (self):
+        title = "Volt Amps using Total Volts and Total Amps"
+        tv = "Enter Total Volts"
+        ta = "Enter Total Amps"
+        argsOut = [title, tv, ta]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
 
     def VAmps2 (self):
+        title = "Volt Amps using Total Amps and Impedance"
+        ta = "Enter Total Amps"
+        i = "Enter Impedance"
+        argsOut = [title, ta, i]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0] ** 2) * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
 
     def VAmps3 (self):
+        title = "Volt Amps using Total Volts and Impedance"
+        tv = "Enter Total Volts"
+        i = "Enter Impedance"
+        argsOut = [title, tv, i]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0] ** 2) / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
 
     def VAmps4 (self):
+        title = "Volt Amps using Watts and Capacitor VAR's"
+        w = "Enter Watts"
+        cvar = "Enter Capacitor VAR's"
+        argsOut = [title, w, cvar]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0] ** 2) + (argsIn[1] ** 2))
         return (self.prec4(result), self.pluralize(result, 'Volt Amp')) 
 
     def VAmps5 (self):
+        title = "Volt Amps using Watts and Power Factor"
+        w = "Enter Watts"
+        pw = "Enter Power Factor"
+        argsOut = [title, w, pw]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
     
     def RVolts (self):
+        title = "Resistor Volts using Resistor Amps and Resistance"
+        ra = "Enter Resistor Amps"
+        r = "Enter Resistance"
+        argsOut = [title, ra, r]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
     def RVolts2 (self):
+        title = "Resistor Volts using Watts and Resistance"
+        w = "Enter Watts"
+        r = "Enter Resistance"
+        argsOut = [title, w, r]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] * argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Resistor Volt')) 
 
     def RVolts3 (self):
+        title = "Resistor Volts using Watts and Resistor Amps"
+        w = "Enter Watts"
+        ra = "Enter Resistor Amps"
+        argsOut = [title, w, ra]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistor Volt')) 
 
     def CVolts (self):
+        title = "Capacitor Volts using Capacitor Amps and Capacitive Reactance"
+        ca = "Enter Capacitor Amps"
+        cr = "Enter Capacitor Reactance"
+        argsOut = [title, ca, cr]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
     def CVolts2 (self):
+        title = "Capacitor Volts using Capacitor VAR's and Capacitive Reactance"
+        cvar = "Enter Capacitor VAR's"
+        cr = "Enter Capacitive Reactance"
+        argsOut = [title, cvar, cr]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] * argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
     def CVolts3 (self):
+        title = "Capacitor Volts using Capacitor VAR's and Capacitor Amps"
+        cvar = "Enter Capacitor VAR's"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, cvar, ca]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor Volt')) 
 
     def Resist (self):
+        title = "Resistance using Resistor Volts and Resistor Amps"
+        rv = "Enter Resistor Volts"
+        ra = "Enter Resistor Amps"
+        argsOut = [title, rv, ra]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
     def Resist2 (self):
+        title = "Resistance using Resistor Volts and Watts"
+        rv = "Enter Resistor Volts"
+        w = "Enter Watts"
+        argsOut = [title, rv, w]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0] ** 2 ) / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistance')) 
 
     def Resist3 (self):
+        title = "Resistance using Impedance and Capacitive Reactance"
+        i = "Enter Impedance"
+        cr = "Enter Capacitive Reactance"
+        argsOut = [title, i, cr]
+        argsIn = self.prompt(argsOut)
         result = 1 / sqrt((1/argsIn[0]) ** 2 - (1/argsIn[1])**2)
         return (self.prec4(result), self.pluralize(result, "Resistance"))
 
     def Resist4 (self):
+        title = "Resistance using Watts and Resistor Amps"
+        w = "Enter Watts"
+        ra = "Enter Resistor Amps"
+        argsOut = [title, w, ra]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] /  argsIn[1]**2
         return (self.prec4(result), self.pluralize(result, "Resistance"))
 
     def Resist5 (self):
+        title = "Resistance using Impedance and Power Factor"
+        i = "Enter Impedance"
+        pw = "Enter Power Factor"
+        argsOut = [title, i, pw]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] /  argsIn[1]
         return (self.prec4(result), self.pluralize(result, "Resistance"))
 
     def CAmps(self):
+        title = "Capacitor Amps using Total Amps and Resistor Amps"
+        ta = "Enter Total Amps"
+        ra = "Enter Resistor Amps"
+        argsOut = [title, ta, ra]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0]**2 - argsIn[1]**2)
         return (self.prec4(result), self.pluralize(result, "Capacitor Amp"))
 
     def CAmps2(self):
+        title = "Capacitor Amps using Capacitor Volts and Capacitive Reactance"
+        cv = "Enter Capacitor Volts"
+        cr = "Enter Capacitive Reactance"
+        argsOut = [title, cv, cr]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, "Capacitor Amp"))
 
     def CAmps3(self):
+        title = "Capacitor Amps using Capacitor VAR's and Capacitor Volts"
+        cvar = "Enter Capacitor VAR's"
+        cv = "Enter Capacitor Volts"
+        argsOut = [title, cvar, cv]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, "Capacitor Amp"))
 
     def CAmps4(self):
+        title = "Capacitor Amps using Capacitor VAR's and Capacitive Reactance"
+        cvar = "Enter Capacitor VAR's"
+        cr = "Enter Capacitive Reactance"
+        argsOut = [title, cvar, cr]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] / argsIn[1])
         return (self.prec4(result), self.pluralize(result, "Capacitor Amp"))
 
     def CReact(self):
+        title = "Capacitive Reactance using Impedance and Resistance"
+        i = "Enter Impedance"
+        r = "Enter Resistance"
+        argsOut = [title, i, r]
+        argsIn = self.prompt(argsOut)
         result = 1 / sqrt((1/argsIn[0])**2 - (1/argsIn[1])**2)
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def CReact2(self):
+        title = "Capacitive Reactance using Capacitor Volts and Capacitor Amps"
+        cv = "Enter Capacitor Volts"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, cv, ca]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def CReact3(self):
+        title = "Capacitive Reactance using Capacitor Volts and Capacitor VAR's"
+        cv = "Enter Capacitor Volts"
+        cvar = "Enter Capacitor VAR's"
+        argsOut = [title, cv, cvar]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def CReact4(self):
+        title = "Capacitive Reactance using Capacitor VAR's and Capacitor Amps"
+        cvar = "Enter Capacitor VAR's"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, cvar, ca]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def CReact5(self):
+        title = "Capacitive Reactance using Frequency and Capacitor Rating"
+        f = "Enter Frequency"
+        crate = "Enter Capacitor Rating"
+        argsOut = [title, f, crate]
+        argsIn = self.prompt(argsOut)
         result = 0.5*3.14*argsIn[0]*argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def CRate(self):
+        title = "Capacitor Rating using Frequency and Capacitive Reactance"
+        f = "Enter Frequency"
+        cr = "Enter Capacitive Reactance"
+        argsOut = [title, f, cr]
+        argsIn = self.prompt(argsOut)
         result = 0.5*3.14*argsIn[0]*argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor Rating'))
 
     def CVAR(self):
+        title = "Capacitor VAR's using Capacitor Amps and Capacitive Reactance"
+        ca = "Enter Capacitor Amps"
+        cr = "Enter Capacitive Reactance"
+        argsOut = [title, ca, cr]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0]**2 * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor VAR'))
 
     def CVAR2(self):
+        title = "Capacitor VAR's using Capacitor Volts and Capacitive Reactance"
+        cv = "Enter Capacitor Volts"
+        cr = "Enter Capacitive Reactance"
+        argsOut = [title, cv, cr]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0]**2 / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor VAR'))
 
     def CVAR3(self):
+        title = "Capacitor VAR's using Capacitor Volts and Capacitor Amps"
+        cv = "Enter Capacitor Volts"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, cv, ca]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor VAR'))
 
     def CVAR4(self):
+        title = "Capacitor VAR's using Volt Amps and Watts"
+        va = "Enter Volt Amps"
+        w = "Enter Watts"
+        argsOut = [title, va, w]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0]**2 - argsIn[1]**2)
         return (self.prec4(result), self.pluralize(result, 'Capacitor VAR'))
 #}}}_________________________________________________________________________________________

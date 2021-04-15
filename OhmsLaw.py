@@ -1,4 +1,23 @@
 #!/usr/bin/python
+#
+# OhmsLaw.py
+#
+# Copyright 2020 Marcus Medina <mmedina@src.com>
+#
+# This program is a free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+#
 
 from FormulaBase import *
 
@@ -7,25 +26,23 @@ class OhmsLaw(FormulaBase):
         super(OhmsLaw, self).__init__(name)
         self.name = name 
         
-        self.function_list = OrderedDict(
-            [
-                #{{{___  _____________________________________________________________________________
+        self.function_list = {
+#{{{___  _____________________________________________________________________________
                 
-                ('Volts using Amps and Resistance', self.form_voltsar),
-                ('Volts using Watts and Amps', self.form_voltswa),
-                ('Volts using Watts and Resistance', self.form_voltswr),
-                ('Amps using Volts and Resistance', self.form_ampsvr),
-                ('Amps using Watts and Volts', self.form_ampswv),
-                ('Amps using Watts and Resistance', self.form_ampswr),
-                ('Resistance using Volts and Amps', self.form_resisva),
-                ('Resistance using Watts and Amps', self.form_resiswa),
-                ('Resistance using Volts and Watts', self.form_resisvw),
-                ('Watts using Volts and Amps', self.form_wattsva),
-                ('Watts using Resistance and Amps', self.form_wattsra),
-                ('Watts using Volts and Resistance', self.form_wattsvr),
-                #}}}_________________________________________________________________________________________
-            ]
-        )
+            'Volts using Amps and Resistance': self.form_voltsar,
+            'Volts using Watts and Amps': self.form_voltswa,
+            'Volts using Watts and Resistance': self.form_voltswr,
+            'Amps using Volts and Resistance': self.form_ampsvr,
+            'Amps using Watts and Volts': self.form_ampswv,
+            'Amps using Watts and Resistance': self.form_ampswr,
+            'Resistance using Volts and Amps': self.form_resisva,
+            'Resistance using Watts and Amps': self.form_resiswa,
+            'Resistance using Volts and Watts': self.form_resisvw,
+            'Watts using Volts and Amps': self.form_wattsva,
+            'Watts using Resistance and Amps': self.form_wattsra,
+            'Watts using Volts and Resistance': self.form_wattsvr,
+#}}}_________________________________________________________________________________________
+        }
 
     def form_voltsar(self):
             argsOut = ['Volts Using Amps and Resistance', 'Enter Amps', 'Enter Resistance']

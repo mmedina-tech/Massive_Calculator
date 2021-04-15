@@ -29,17 +29,15 @@ class Mass(FormulaBase):
 
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = OrderedDict(
-                [
-                    ('Tons to Kilograms', self.tons),
-                    ('Kilograms to Tons', self.kilo),
-                    ('Tons to Metric Tons', self.tons2),
-                    ('Metric Tons to Tons', self.tons3),
-                    ('Grains to Drams', self.grains),
-                    ('Grains to Ounces', self.grains2),
-                    ('Grains to Grams', self.grains3),
-                ]
-            )
+        self.function_list = {
+            'Tons to Kilograms': self.tons,
+            'Kilograms to Tons': self.kilo,
+            'Tons to Metric Tons': self.tons2,
+            'Metric Tons to Tons': self.tons3,
+            'Grains to Drams': self.grains,
+            'Grains to Ounces': self.grains2,
+            'Grains to Grams': self.grains3,
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________

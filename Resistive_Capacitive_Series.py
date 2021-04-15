@@ -23,69 +23,68 @@
 from FormulaBase import * 
 
 class Resistive_Capacitive_Series(FormulaBase):
-    def __init__(self):
-        super(Resistive_Capacitive_Series, self).__init__()
+    def __init__(self, name):
+        super(Resistive_Capacitive_Series, self).__init__(name)
+        self.name = name
 
 #{{{___ Function List _____________________________________________________________________________
-        self.function_list = OrderedDict(
-            [
-                ("Capacitive Reactance using Capacitor VAR's and Capacitor Amps", self.form_CReact2),
-                ('Capacitive Reactance using Capacitor Volts and Capacitor Amps', self.form_CReact),
-                ("Capacitive Reactance using Capacitor Volts and Capacitor VAR's", self.form_CReact4),
-                ('Capacitive Reactance using Frequency and Capacitor Rating', self.form_CReact5),
-                ('Capacitive Reactance using Impedance and Resistance', self.form_CReact3),
-                ("Capacitor Amps using Capacitor VAR's and Capacitor Volts", self.form_CAmps),
-                ("Capacitor Amps using Capacitor VAR's and Capacitive Reactance", self.form_CAmps2),
-                ('Capacitor Amps using Capacitor Volts and Capacitive Reactance', self.form_CAmps3),
-                ('Capacitor Rating using Frequency and Capacitive Reactance', self.form_CRate),
-                ("Capacitor VAR's using Volt Amps and Watts", self.form_CVAR), 
-                ("Capacitor VAR's using Capacitor Amps and Capacitive Reactance", self.form_CVAR3),
-                ("Capacitor VAR's using Capacitor Volts and Capacitive Reactance", self.form_CVAR4),
-                ("Capacitor VAR's using Capacitor Volts and Capacitor Amps", self.form_CVAR2),
-                ('Capacitor Volts using Capacitor Amps and Capacitive Reactance', self.form_CVolts),
-                ('Capacitor Volts using Total Volts and Resistor Volts', self.form_CVolts2),
-                ("Capacitor Volts using Capacitor VAR's and Capacitive Reactance", self.form_CVolts3),
-                ("Capacitor Volts using Capacitor VAR's and Capacitor Amps", self.form_CVolts4),
-                ('Impedance using Resistance and Capacitive Reactance', self.form_Impedance),
-                ('Impedance using Total Volts and Total Amps', self.form_Impedance2),
-                ('Impedance using Volt Amps and Total Amps', self.form_Impedance3),
-                ('Impedance using Resistance and Power Factor', self.form_Impedance4),
-                ('Impedance using Total Volts and Volt Amps', self.form_Impedance5),
-                ('Power Factor using Resistance and Impedance', self.form_Power),
-                ('Power Factor using Watts and Volt Amps', self.form_Power2),
-                ('Power Factor using Resistor Volts and Total Volts', self.form_Power3),
-                ('Power Factor using CoSine and Theta Angle', self.form_Power4),
-                ('Resistance using Watts and Resistor Amps', self.form_Resistance),
-                ('Resistance using Impedance and Capacitive Reactance', self.form_Resistance2),
-                ('Resistance using Resistor Volts and Watts', self.form_Resistance3),
-                ('Resistance using Impedance and Power Factor', self.form_Resistance4),
-                ('Resistance using Resistor Volts and Resistor Amps', self.form_Resistance5),
-                ('Resistor Amps using Resistor Volts and Resistance', self.form_RAmps),
-                ('Resistor Amps using Watts and Resistor Volts', self.form_RAmps2),
-                ('Resistor Amps using Watts and Resistance', self.form_RAmps3),
-                ('Resistor Volts using Total Volts and Capacitor Volts', self.form_RVolts),
-                ('Resistor Volts using Total Volts and Power Factor', self.form_RVolts2),
-                ('Resistor Volts using Resistor Amps and Resistance', self.form_RVolts3),
-                ('Resistor Volts using Watts and Resistance', self.form_RVolts4),
-                ('Resistor Volts using Watts and Resistor Amps', self.form_RVolts5),
-                ('Total Amps using Total Volts and Impedance', self.form_TAmps),
-                ('Total Amps using Volt Amps and Total Volts', self.form_TAmps2),
-                ('Total Volts using Resistor Volts and Capacitor Volts', self.form_TVolts),
-                ('Total Volts using Total Amps and Impedance', self.form_TVolts2),
-                ('Total Volts using Volt Amps and Total Amps', self.form_TVolts3),
-                ('Total Volts using Resistor Volts and Power Factor', self.form_TVolts4),
-                ('Volt Amps using Total Volts and Total Amps', self.form_VAmps),
-                ('Volt Amps using Total Amps and Impedance', self.form_VAmps2),
-                ('Volt Amps using Total Volts and Impedance', self.form_VAmps3),
-                ("Volt Amps using Watts and Capacitor VAR's", self.form_VAmps4),
-                ('Volt Amps using Watts and Power Factor', self.form_VAmps5),
-                ('Watts using Resistor Volts and Resistor Amps', self.form_Watts),
-                ("Watts using Volt Amps and Capacitor VAR's", self.form_Watts2),
-                ('Watts using Resistor Volts and Resistance', self.form_Watts3),
-                ('Watts using Resistor Amps and Resistance', self.form_Watts4),
-                ('Watts using Volt Amps and Power Factor', self.form_Watts5),
-            ]
-        )
+        self.function_list = {
+            'Watts using Volt Amps and Power Factor': self.form_Watts5,
+            "Capacitive Reactance using Capacitor VAR's and Capacitor Amps": self.form_CReact2,
+            'Capacitive Reactance using Capacitor Volts and Capacitor Amps': self.form_CReact,
+            "Capacitive Reactance using Capacitor Volts and Capacitor VAR's": self.form_CReact4,
+            'Capacitive Reactance using Frequency and Capacitor Rating': self.form_CReact5,
+            'Capacitive Reactance using Impedance and Resistance': self.form_CReact3,
+            "Capacitor Amps using Capacitor VAR's and Capacitor Volts": self.form_CAmps,
+            "Capacitor Amps using Capacitor VAR's and Capacitive Reactance": self.form_CAmps2,
+            'Capacitor Amps using Capacitor Volts and Capacitive Reactance': self.form_CAmps3,
+            'Capacitor Rating using Frequency and Capacitive Reactance': self.form_CRate,
+            "Capacitor VAR's using Volt Amps and Watts": self.form_CVAR, 
+            "Capacitor VAR's using Capacitor Amps and Capacitive Reactance": self.form_CVAR3,
+            "Capacitor VAR's using Capacitor Volts and Capacitive Reactance": self.form_CVAR4,
+            "Capacitor VAR's using Capacitor Volts and Capacitor Amps": self.form_CVAR2,
+            'Capacitor Volts using Capacitor Amps and Capacitive Reactance': self.form_CVolts,
+            'Capacitor Volts using Total Volts and Resistor Volts': self.form_CVolts2,
+            "Capacitor Volts using Capacitor VAR's and Capacitive Reactance": self.form_CVolts3,
+            "Capacitor Volts using Capacitor VAR's and Capacitor Amps": self.form_CVolts4,
+            'Impedance using Resistance and Capacitive Reactance': self.form_Impedance,
+            'Impedance using Total Volts and Total Amps': self.form_Impedance2,
+            'Impedance using Volt Amps and Total Amps': self.form_Impedance3,
+            'Impedance using Resistance and Power Factor': self.form_Impedance4,
+            'Impedance using Total Volts and Volt Amps': self.form_Impedance5,
+            'Power Factor using Resistance and Impedance': self.form_Power,
+            'Power Factor using Watts and Volt Amps': self.form_Power2,
+            'Power Factor using Resistor Volts and Total Volts': self.form_Power3,
+            'Power Factor using CoSine and Theta Angle': self.form_Power4,
+            'Resistance using Watts and Resistor Amps': self.form_Resistance,
+            'Resistance using Impedance and Capacitive Reactance': self.form_Resistance2,
+            'Resistance using Resistor Volts and Watts': self.form_Resistance3,
+            'Resistance using Impedance and Power Factor': self.form_Resistance4,
+            'Resistance using Resistor Volts and Resistor Amps': self.form_Resistance5,
+            'Resistor Amps using Resistor Volts and Resistance': self.form_RAmps,
+            'Resistor Amps using Watts and Resistor Volts': self.form_RAmps2,
+            'Resistor Amps using Watts and Resistance': self.form_RAmps3,
+            'Resistor Volts using Total Volts and Capacitor Volts': self.form_RVolts,
+            'Resistor Volts using Total Volts and Power Factor': self.form_RVolts2,
+            'Resistor Volts using Resistor Amps and Resistance': self.form_RVolts3,
+            'Resistor Volts using Watts and Resistance': self.form_RVolts4,
+            'Resistor Volts using Watts and Resistor Amps': self.form_RVolts5,
+            'Total Amps using Total Volts and Impedance': self.form_TAmps,
+            'Total Amps using Volt Amps and Total Volts': self.form_TAmps2,
+            'Total Volts using Resistor Volts and Capacitor Volts': self.form_TVolts,
+            'Total Volts using Total Amps and Impedance': self.form_TVolts2,
+            'Total Volts using Volt Amps and Total Amps': self.form_TVolts3,
+            'Total Volts using Resistor Volts and Power Factor': self.form_TVolts4,
+            'Volt Amps using Total Volts and Total Amps': self.form_VAmps,
+            'Volt Amps using Total Amps and Impedance': self.form_VAmps2,
+            'Volt Amps using Total Volts and Impedance': self.form_VAmps3,
+            "Volt Amps using Watts and Capacitor VAR's": self.form_VAmps4,
+            'Volt Amps using Watts and Power Factor': self.form_VAmps5,
+            'Watts using Resistor Volts and Resistor Amps': self.form_Watts,
+            "Watts using Volt Amps and Capacitor VAR's": self.form_Watts2,
+            'Watts using Resistor Volts and Resistance': self.form_Watts3,
+            'Watts using Resistor Amps and Resistance': self.form_Watts4,
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________
@@ -595,224 +594,364 @@ class Resistive_Capacitive_Series(FormulaBase):
 #}}}_________________________________________________________________________________________
 
 #{{{___ Formula Functions _____________________________________________________________________________
-    def form_TVolts(self, num, num2):
-            result = sqrt((float(num)**2) + (float(num2)**2))
-            return (self.prec4(result), self.pluralize(result, 'Total Volt'))
+    def form_TVolts(self):
+        title = "Total Volts using Resistor Volts and Capacitor Volts"
+        rv = "Enter Resistor Volts"
+        cv = "Enter Capacitor Volts"
+        argsOut = [title, rv, cv]
+        argsIn = self.prompt(argsOut)
+        result = sqrt((argsIn[0]**2) + (argsIn[1]**2))
+        return (self.prec4(result), self.pluralize(result, 'Total Volt'))
 
-    def form_TVolts2(self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Total Volt'))
+    def form_TVolts2(self):
+        title = "Total Volts using Total Amps and Impedance"
+        ta = "Enter Total Amps"
+        i = "Enter Impedance"
+        argsOut = [title, ta, i]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Total Volt'))
 
-    def form_TVolts3(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Total Volt'))
+    def form_TVolts3(self):
+        title = "Total Volts using Volt Amps and Total Amps"
+        va = "Enter Volt Amps"
+        ta = "Enter Total Amps"
+        argsOut = [title, va, ta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Total Volt'))
 
-    def form_TVolts4(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Total Volt'))
+    def form_TVolts4(self):
+        title = "Total Volts using Resistor Volts and Power Factor"
+        rv = "Enter Resistor Volts"
+        pw = "Enter Power Factor"
+        argsOut = [title, rv, pw]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Total Volt'))
 
-    def form_Power(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Power Factor'))
+    def form_Power(self):
+        title = "Power Factor using Resistance and Impedance"
+        r = "Enter Resistance"
+        i = "Enter Impedance"
+        argsOut = [title, r, i]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Power Factor'))
 
-    def form_Power2(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Power Factor'))
+    def form_Power2(self):
+        title = "Power Factor using Watts and Volt Amps"
+        w = "Enter Watts"
+        va = "Enter Volt Amps"
+        argsOut = [title, w, va]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Power Factor'))
 
-    def form_Power3(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Power Factor'))
+    def form_Power3(self):
+        title = "Power Factor using Resistor Volts and Total Volts"
+        rv = "Enter Resistor Volts"
+        tv = "Enter Total Volts"
+        argsOut = [title, rv, tv]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Power Factor'))
 
-    def form_Power4(self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Power Factor'))
+    def form_Power4(self):
+        title = "Power Factor using CoSine and Theta Angle"
+        coS = "Enter CoSine"
+        theta = "Enter Theta Angle"
+        argsOut = [title, coS, theta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Power Factor'))
 
-    def form_TAmps(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Total Amp'))
+    def form_TAmps(self):
+        title = "Total Amps using Total Volts and Impedance"
+        tv = "Enter Total Volts"
+        i = "Enter Impedance"
+        argsOut = [title, tv, i]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Total Amp'))
 
-    def form_TAmps2(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Total Amp'))
+    def form_TAmps2(self):
+        title = "Total Amps using Volt Amps and Total Volts"
+        va = "Enter Volt Amps"
+        tv = "Enter Total Volts"
+        argsOut = [title, va, tv]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Total Amp'))
 
-    def form_VAmps(self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
+    def form_VAmps(self):
+        title = "Volt Amps using Total Volts and Total Amps"
+        tv = "Enter Total Volts"
+        ta = "Enter Total Amps"
+        argsOut = [title, tv, ta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
 
-    def form_VAmps2(self, num, num2):
-            result = (float(num)**2) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
+    def form_VAmps2(self):
+        title = "Volt Amps using Total Amps and Impedance"
+        ta = "Enter Total Amps"
+        i = "Enter Impedance"
+        argsOut = [title, ta, i]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0]**2) * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
 
-    def form_VAmps3(self, num, num2):
-            result = (float(num)**2) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
+    def form_VAmps3(self):
+        title = "Volt Amps using Total Volts and Impedance"
+        tv = "Enter Total Volts"
+        i = "Enter Impedance"
+        argsOut = [title, tv, i]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
 
-    def form_VAmps4(self, num, num2):
-            result = sqrt((float(num)**2) + (float(num2)**2))
-            return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
+    def form_VAmps4(self):
+        title = "Volt Amps using Watts and Capacitor VAR's"
+        w = "Enter Watts"
+        cvar = "Enter Capacitor VAR's"
+        argsOut = [title, w, cvar]
+        argsIn = self.prompt(argsOut)
+        result = sqrt((argsIn[0]**2) + (argsIn[1]**2))
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
 
-    def form_VAmps5(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
+    def form_VAmps5(self):
+        title = "Volt Amps using Watts and Power Factor"
+        w = "Enter Watts"
+        pw = "Enter Power Factor"
+        argsOut = [title, w, pw]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Volt Amp'))
 
-    def form_Impedance(self, num, num2):
-            result = sqrt((float(num)**2) + (float(num2)**2))
-            return (self.prec4(result), self.pluralize(result, 'Impedance'))
+    def form_Impedance(self):
+        title = "Impedance using Resistance and Capacitive Reactance"
+        r = "Enter Resistance"
+        cr = "Enter Capacitive Reactance"
+        argsOut = [title, r, cr]
+        argsIn = self.prompt(argsOut)
+        result = sqrt((argsIn[0]**2) + (argsIn[1]**2))
+        return (self.prec4(result), self.pluralize(result, 'Impedance'))
 
-    def form_Impedance2(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Impedance'))
+    def form_Impedance2(self):
+        title = "Impedance using Total Volts and Total Amps"
+        tv = "Enter Total Volts"
+        ta = "Enter Total Amps"
+        argsOut = [title, tv, ta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Impedance'))
 
-    def form_Impedance3(self, num, num2):
-            result = float(num) / (float(num2)**2)
-            return (self.prec4(result), self.pluralize(result, 'Impedance'))
+    def form_Impedance3(self):
+        title = "Impedance using Volt Amps and Total Amps"
+        va = "Enter Volt Amps"
+        ta = "Enter Total Amps"
+        argsOut = [title, va, ta]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / (argsIn[1]**2)
+        return (self.prec4(result), self.pluralize(result, 'Impedance'))
 
-    def form_Impedance4(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Impedance'))
+    def form_Impedance4(self):
+        title = "Impedance using Resistance and Power Factor"
+        r = "Enter Resistance"
+        pw = "Enter Power Factor"
+        argsOut = [title, r, pw]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Impedance'))
 
-    def form_Impedance5(self, num, num2):
-            result = (float(num)**2) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Impedance'))
+    def form_Impedance5(self):
+        title = "Impedance using Total Volts and Volt Amps"
+        tv = "Enter Total Volts"
+        va = "Enter Volt Amps"
+        argsOut = [title, tv, va]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Impedance'))
 
-    def form_RAmps(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Resistor Amp'))
+    def form_RAmps(self):
+        title = "Resistor Amps using Resistor Volts and Resistance"
+        rv = "Enter Resistor Volts"
+        r = "Enter Resistance"
+        argsOut = [title, rv, r]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Amp'))
 
-    def form_RAmps2(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Resistor Amp'))
+    def form_RAmps2(self):
+        title = "Resistor Amps using Watts and Resistor Volts"
+        w = "Enter Watts"
+        rv = "Enter Resistor Volts"
+        argsOut = [title, w, rv]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Amp'))
 
-    def form_RAmps3(self, num, num2):
-            result = sqrt(float(num) / float(num2))
-            return (self.prec4(result), self.pluralize(result, 'Resistor Amp'))
+    def form_RAmps3(self):
+        title = "Resistor Amps using Watts and Resistance"
+        w = "Enter Watts"
+        r = "Enter Resistance"
+        argsOut = [title, w, r]
+        argsIn = self.prompt(argsOut)
+        result = sqrt(argsIn[0] / argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Resistor Amp'))
 
-    def form_Watts(self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Watt'))
+    def form_Watts(self):
+        title = "Watts using Resistor Volts and Resistor Amps"
+        rv = "Enter Resistor Volts"
+        ra = "Enter Resistor Amps"
+        argsOut = [title, rv, ra]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Watt'))
 
-    def form_Watts2(self, num, num2):
-            result = sqrt((float(num)**2) - (float(num2)**2))
-            return (self.prec4(result), self.pluralize(result, 'Watt'))
+    def form_Watts2(self):
+        title = "Watts using Volt Amps and Capacitor VAR's"
+        va = "Enter Volt Amps"
+        cvar = "Enter Capacitor VAR's"
+        argsOut = [title, va, cvar]
+        argsIn = self.prompt(argsOut)
+        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
+        return (self.prec4(result), self.pluralize(result, 'Watt'))
 
-    def form_Watts3(self, num, num2):
-            result = (float(num)**2) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Watt'))
+    def form_Watts3(self):
+        title = "Watts using Resistor Volts and Resistance"
+        rv = "Enter Resistor Volts"
+        r = "Enter Resistance"
+        argsOut = [title, rv, r]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Watt'))
 
-    def form_Watts4(self, num, num2):
-            result = (float(num)**2) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Watt'))
+    def form_Watts4(self):
+        title = "Watts using Resistor Amps and Resistance"
+        ra = "Enter Resistor Amps"
+        r = "Enter Resistance"
+        argsOut = [title, ra, r]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0]**2) * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Watt'))
 
-    def form_Watts5(self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Watt'))
+    def form_Watts5(self):
+        title = "Watts using Volt Amps and Power Factor"
+        va = "Enter Volt Amps"
+        pw = "Enter Power Factor"
+        argsOut = [title, va, pw]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Watt'))
 
-    def form_CAmps(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Capacitor Amp'))
-            
-    def form_CAmps2(self, num, num2): 
-            result = sqrt(float(num) / float(num2))
-            return (self.prec4(result), self.pluralize(result, 'Capacitor Amp'))
+    def form_CAmps(self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Amp'))
+        
+    def form_CAmps2(self): 
+        result = sqrt(argsIn[0] / argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Amp'))
 
-    def form_CAmps3(self, num, num2): 
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Capacitor Amp'))
+    def form_CAmps3(self): 
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Amp'))
 
-    def form_CVAR (self, num, num2): 
-            result = sqrt((float(num)**2) - (float(num2)**2))
-            return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
+    def form_CVAR (self): 
+        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
+        return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
 
-    def form_CVAR2 (self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
+    def form_CVAR2 (self):
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
 
-    def form_CVAR3 (self, num, num2):
-            result = (float(num)**2) * float(num2)
-            return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
+    def form_CVAR3 (self):
+        result = (argsIn[0]**2) * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
 
-    def form_CVAR4 (self, num, num2):
-            result = (float(num)**2) / float(num2)
-            return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
+    def form_CVAR4 (self):
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
 
-    def form_RVolts (self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
+    def form_RVolts (self):
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
-    def form_RVolts2 (self, num, num2):
-            result = sqrt(float(num) * float(num2))
-            return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
+    def form_RVolts2 (self):
+        result = sqrt(argsIn[0] * argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
-    def form_RVolts3 (self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
+    def form_RVolts3 (self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
-    def form_RVolts4 (self, num, num2):
-            result = sqrt((float(num)**2) - (float(num2)**2))
-            return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
+    def form_RVolts4 (self):
+        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
+        return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
-    def form_RVolts5 (self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
+    def form_RVolts5 (self):
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
-    def form_Resistance (self, num, num2):
-            result = float(num) / (float(num2)**2)
-            return (self.prec4(result), self.pluralize(result, 'Resistance'))
+    def form_Resistance (self):
+        result = argsIn[0] / (argsIn[1]**2)
+        return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
-    def form_Resistance2 (self, num, num2):
-            result = sqrt((float(num)**2) - (float(num2)**2))
-            return (self.prec4(result), self.pluralize(result, 'Resistance'))
+    def form_Resistance2 (self):
+        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
+        return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
-    def form_Resistance3 (self, num, num2):
-            result = (float(num)**2) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Resistance'))
+    def form_Resistance3 (self):
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
-    def form_Resistance4 (self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Resistance'))
+    def form_Resistance4 (self):
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
-    def form_Resistance5 (self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Resistance'))
+    def form_Resistance5 (self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
-    def form_CReact(self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
+    def form_CReact(self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def form_CReact2(self, num, num2):
-            result = float(num) / (float(num2)**2)
-            return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
+    def form_CReact2(self):
+        result = argsIn[0] / (argsIn[1]**2)
+        return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def form_CReact3 (self, num, num2):
-            result = sqrt((float(num)**2) - (float(num2)**2))
-            return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
+    def form_CReact3 (self):
+        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
+        return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def form_CReact4 (self, num, num2):
-            result = (float(num)**2) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
+    def form_CReact4 (self):
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def form_CReact5 (self, num, num2):
-            result = 1 / (2 * 3.14 * float(num) * float(num2))
-            return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
+    def form_CReact5 (self):
+        result = 1 / (2 * 3.14 * argsIn[0] * argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
-    def form_CRate (self, num, num2):
-            result = 1 / (2 * 3.14 * float(num) * float(num2))
-            return (self.prec4(result), self.pluralize(result, 'Capacitor Rating'))
+    def form_CRate (self):
+        result = 1 / (2 * 3.14 * argsIn[0] * argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Rating'))
 
-    def form_CVolts (self, num, num2):
-            result = float(num) * float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
+    def form_CVolts (self):
+        result = argsIn[0] * argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
-    def form_CVolts2 (self, num, num2):
-            result = sqrt((float(num)**2) - (float(num2)**2))
-            return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
+    def form_CVolts2 (self):
+        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
-    def form_CVolts3 (self, num, num2):
-            result = sqrt(float(num) * float(num2))
-            return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
+    def form_CVolts3 (self):
+        result = sqrt(argsIn[0] * argsIn[1])
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
-    def form_CVolts4 (self, num, num2):
-            result = float(num) / float(num2)
-            return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
+    def form_CVolts4 (self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 #}}}_________________________________________________________________________________________
 

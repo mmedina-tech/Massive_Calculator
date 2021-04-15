@@ -29,17 +29,13 @@ class Physical_Fitness(FormulaBase):
 
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = OrderedDict(
-            [
-            #    ('Body Mass Index', self.bmi),
-                ('Calories burned in Work-Out', self.work),
-                ('Calories to Joules', self.calories),
-                ('Joules to Calories', self.joules),
-                ('Newtons to Pounds', self.newtons),
-                ('Pounds to Newtons', self.pounds),
-
-            ]
-        )
+        self.function_list = {
+            'Calories burned in Work-Out': self.work,
+            'Calories to Joules': self.calories,
+            'Joules to Calories': self.joules,
+            'Newtons to Pounds': self.newtons,
+            'Pounds to Newtons': self.pounds,
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________

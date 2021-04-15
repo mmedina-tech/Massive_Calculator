@@ -1,4 +1,23 @@
-#!/usr/bin/env python
+#!/usr/bin/python
+#
+# Torque.py
+#
+# Copyright 2020 Marcus Medina <mmedina@src.com>
+#
+# This program is a free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+#
 
 from FormulaBase import *
 from collections import OrderedDict
@@ -8,16 +27,14 @@ class Torque(FormulaBase):
 		super(Torque, self).__init__(name)
 		self.name = name
 		
-		self.function_list = OrderedDict(
-		[
-			('Gram-Centimeters to Ounce-Inches', self.form_gramcent),
-			('Newton-Meters to Pound-Feet', self.form_newtmeter),
-			('Newton-Meters to Pound-Inches', self.form_newtmeter2),
-			('Ounce-Inches to Gram-Centimeters', self.form_ouncein),
-			('Pound-Feet to Newton-Meters', self.form_poundfeet),
-			('Pound-Inhces to Newton-Meters', self.form_poundinch)
-		]
-	)
+		self.function_list = {
+                    'Gram-Centimeters to Ounce-Inches': self.form_gramcent,
+                    'Newton-Meters to Pound-Feet': self.form_newtmeter,
+                    'Newton-Meters to Pound-Inches': self.form_newtmeter2,
+                    'Ounce-Inches to Gram-Centimeters': self.form_ouncein,
+                    'Pound-Feet to Newton-Meters': self.form_poundfeet,
+                    'Pound-Inhces to Newton-Meters': self.form_poundinch
+                }
 		
 	def form_gramcent(self):
 		argsOut = ['Gram-Centimeters to Ounce-Inches', 'Enter Gram-Centimeters']

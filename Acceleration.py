@@ -31,14 +31,12 @@ class Acceleration(FormulaBase):
         super(Acceleration, self).__init__(name)
         self.name = name
 
-        self.function_list = OrderedDict(
-            [
-                ('Feet/Sec Squared to Meters/Sec Squared', self.feet),
-                ('Inches/Sec Squared to Meters/Sec Squared', self.inch),
-                ('Meters/Sec Squared to Feet/Sec Squared', self.meters),
-                ('Meters/Sec Squared to Inches/Sec Squared', self.meters2),
-            ]
-        )
+        self.function_list = {
+            'Feet/Sec Squared to Meters/Sec Squared': self.feet,
+            'Inches/Sec Squared to Meters/Sec Squared': self.inch,
+            'Meters/Sec Squared to Feet/Sec Squared': self.meters,
+            'Meters/Sec Squared to Inches/Sec Squared': self.meters2,
+        }
 #{{{
         self.functionInputs = {
             'Feet/Sec Squared to Meters/Sec Squared':{

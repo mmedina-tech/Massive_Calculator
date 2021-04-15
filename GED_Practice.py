@@ -23,30 +23,29 @@
 from FormulaBase import *  
 
 class GED_Practice (FormulaBase):
-    def __init__(self):
-        super (GED_Practice, self).__init__()
+    def __init__(self, name):
+        super (GED_Practice, self).__init__(name)
+        self.name = name
 
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = OrderedDict(
-                [
-                    ('Triangle', self.tri),
-                    ('Circle', self.circle),
-                    ('Rectangle', self.rectangle),
-                    ('Parallelogram', self.para),
-                    ('Trapazoid', self.trap),
-                    ('Rectangular/Right Prism Surface Area', self.rect),
-                    ('Rectangular/Right Prism Volume', self.rect2),
-                    ('Cylinder Surface Area', self.cyl),
-                    ('Cylinder Volume', self.cyl2),
-                    ('Pyramid Surface Area', self.pyr),
-                    ('Pyramid Volume', self.pyr2),
-                    ('Cone Surface Area', self.cone),
-                    ('Cone Volume', self.cone2),
-                    ('Sphere Surface Area', self.sphere),
-                    ('Sphere Volume', self.sphere2),
-                ]
-            )
+        self.function_list = {
+            'Triangle': self.tri,
+            'Circle': self.circle,
+            'Rectangle': self.rectangle,
+            'Parallelogram': self.para,
+            'Trapazoid': self.trap,
+            'Rectangular/Right Prism Surface Area': self.rect,
+            'Rectangular/Right Prism Volume': self.rect2,
+            'Cylinder Surface Area': self.cyl,
+            'Cylinder Volume': self.cyl2,
+            'Pyramid Surface Area': self.pyr,
+            'Pyramid Volume': self.pyr2,
+            'Cone Surface Area': self.cone,
+            'Cone Volume': self.cone2,
+            'Sphere Surface Area': self.sphere,
+            'Sphere Volume': self.sphere2,
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________

@@ -29,20 +29,18 @@ class Astronomic_units(FormulaBase):
         super(Astronomic_units, self).__init__(name)
         self.name = name
         
-        self.function_list = OrderedDict(
-            [
-                ('Celsius to Kelvin', self.form_celsius),
-                ('Fahrenheit to Kelvin', self.form_fahrenheit),
-                ('Light Years to Astronomical Units', self.light),
-                ('Astronomical Units to Light Years', self.astro),
-                ('Light Years to Parsecs', self.light2),
-                ('Parsecs to Light Years', self.parsec),
-                ('Celsius to Rankine', self.rankin),
-                ('Rankine to Celsius', self.celsius),
-                ('Rankine to Kelvin', self.kelvin),
-                ('Kelvin to Rankine', self.rankin2),
-            ]
-        )
+        self.function_list = {
+            'Celsius to Kelvin': self.form_celsius,
+            'Fahrenheit to Kelvin': self.form_fahrenheit,
+            'Light Years to Astronomical Units': self.light,
+            'Astronomical Units to Light Years': self.astro,
+            'Light Years to Parsecs': self.light2,
+            'Parsecs to Light Years': self.parsec,
+            'Celsius to Rankine': self.rankin,
+            'Rankine to Celsius': self.celsius,
+            'Rankine to Kelvin': self.kelvin,
+            'Kelvin to Rankine': self.rankin2,
+        }
 #{{{
         self.functionInputs = {
             'Fahrenheit to Kelvin' : {

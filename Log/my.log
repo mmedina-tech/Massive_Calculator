@@ -949,3 +949,219 @@ user input 1
 
 user input q
 
+
+user input 1
+
+
+user input 2
+
+
+user input 3
+
+
+user input 21
+
+
+user input 21
+
+
+user input 1
+
+
+user input 21
+
+
+user input 2
+
+
+I got the Function List: <bound method Accounting.equity_ratio of <Accounting.Accounting object at 0x7f9deef4e590>>
+
+
+I got the PromptStr <bound method Accounting.equity_ratio of <Accounting.Accounting object at 0x7f9deef4e590>>
+
+
+Error: could not convert string to float: b
+
+
+user input 20
+
+
+user input 20
+
+
+user input 16
+
+
+user input q
+
+
+user input 16
+
+
+user input 16
+
+
+user input 16
+
+
+user input 16
+
+
+user input 16
+
+
+user input 16
+
+
+user input 21
+
+
+user input 16
+
+
+user input 16
+
+
+user input 16
+
+
+user input 21
+
+
+user input 21
+
+
+user input 21
+
+
+user input 21
+
+
+user input 
+
+
+user input 22
+
+
+user input 22
+
+
+user input 22
+
+
+user input 22
+
+
+user input 1
+
+
+user input 1
+
+
+user input 1
+
+
+user input 2
+
+
+user input 3
+
+
+user input 9
+
+
+user input 10
+
+
+user input 11
+
+
+user input 12
+
+
+user input 13
+
+
+user input 14
+
+
+user input 17
+
+
+user input 18
+
+
+user input 19
+
+
+user input 22
+
+
+user input 22
+
+
+user input 22
+
+
+I got the Function List: <bound method Resistive_Capacitance_Parallel.CReact4 of <Resistive_Capacitance_Parallel.Resistive_Capacitance_Parallel object at 0x7f724ac3f590>>
+
+
+I got the PromptStr <bound method Resistive_Capacitance_Parallel.CReact4 of <Resistive_Capacitance_Parallel.Resistive_Capacitance_Parallel object at 0x7f724ac3f590>>
+
+
+After Print cat.function_list
+
+
+user input 22
+
+
+I got the Function List: <bound method Resistive_Capacitance_Parallel.CReact4 of <Resistive_Capacitance_Parallel.Resistive_Capacitance_Parallel object at 0x7ff23bd0e590>>
+
+
+I got the PromptStr <bound method Resistive_Capacitance_Parallel.CReact4 of <Resistive_Capacitance_Parallel.Resistive_Capacitance_Parallel object at 0x7ff23bd0e590>>
+
+
+After Print cat.function_list
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7feda94e1f50>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7feda94e1f50>>
+
+
+After Print cat.function_list
+
+
+user input 21
+
+
+user input 21
+
+
+user input 21
+
+
+I got the Function List: <bound method Resistive_Capacitance_Parallel.CReact4 of <Resistive_Capacitance_Parallel.Resistive_Capacitance_Parallel object at 0x7f1f3fab2590>>
+
+
+I got the PromptStr <bound method Resistive_Capacitance_Parallel.CReact4 of <Resistive_Capacitance_Parallel.Resistive_Capacitance_Parallel object at 0x7f1f3fab2590>>
+
+
+After Print cat.function_list
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fcc8e01fc50>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fcc8e01fc50>>
+
+
+After Print cat.function_list
+

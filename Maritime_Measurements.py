@@ -1,5 +1,24 @@
 #!/usr/bin/python
 #SYNOPSIS: Converting Maritime Measurements to statute/metric
+#
+# Maritime_Measurements.py
+#
+# Copyright 2020 Marcus Medina <mmedina@src.com>
+#
+# This program is a free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+#
 
 from FormulaBase import * 
 
@@ -14,26 +33,24 @@ class Maritime_Measurements(FormulaBase):
 
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = OrderedDict(
-            [
-                ("Fathoms to Feet", self.ff),
-                ("Cable to Fathom", self.cf),
-                ("Nautical Miles to Feet", self.nmf),
-                ("Fathoms to Meters", self.fm),
-                ("Nautical Miles to Cables", self.nmc),
-                ("Nautical Miles to Meters", self.nmm),
-                ("Nautical Miles to Statute Miles", self.nmsm),
-                ("Knots to Nautical Miles per Hour", self.knots),
-                ("Meters to Fathoms", self.mf),
-                ("Nautical Miles to Kilometers", self.nmk),
-                ("Kilometers to Nautical Miles", self.knm),
-                ("Miles to Nautical Miles", self.Mnm),
-                ("Knots to Kilometers per Hour", self.Kkph),
-                ("Kilometers per Hour to Knots", self.kphK),
-                ("Knots to Miles per Hour", self.Kmph),
-                ("Miles per Hour to Knots", self.mphK),
-            ]
-        )
+        self.function_list = {
+            "Fathoms to Feet": self.ff,
+            "Cable to Fathom": self.cf,
+            "Nautical Miles to Feet": self.nmf,
+            "Fathoms to Meters": self.fm,
+            "Nautical Miles to Cables": self.nmc,
+            "Nautical Miles to Meters": self.nmm,
+            "Nautical Miles to Statute Miles": self.nmsm,
+            "Knots to Nautical Miles per Hour": self.knots,
+            "Meters to Fathoms": self.mf,
+            "Nautical Miles to Kilometers": self.nmk,
+            "Kilometers to Nautical Miles": self.knm,
+            "Miles to Nautical Miles": self.Mnm,
+            "Knots to Kilometers per Hour": self.Kkph,
+            "Kilometers per Hour to Knots": self.kphK,
+            "Knots to Miles per Hour": self.Kmph,
+            "Miles per Hour to Knots": self.mphK,
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________

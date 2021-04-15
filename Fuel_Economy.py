@@ -27,16 +27,13 @@ class Fuel_Economy(FormulaBase):
         super(Fuel_Economy, self).__init__(name)
         self.name = name
 
-        self.function_list = OrderedDict(
+        self.function_list = {
 #{{{___ Function List _____________________________________________________________________________
-
-            [
-                ('Miles/Gal to Kilometers/Liter', self.miles),
-                ('Kilometers/Liter to Miles/Gal', self.kilo),
-            ]
+            'Miles/Gal to Kilometers/Liter': self.miles,
+            'Kilometers/Liter to Miles/Gal': self.kilo,
 #}}}_________________________________________________________________________________________
 
-        )
+        }
 
         self.functionInputs = {
 #{{{___ Inputs _____________________________________________________________________________
