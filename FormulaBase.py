@@ -24,6 +24,7 @@
 import os
 from collections import OrderedDict
 from math import *
+from modules.formats import commas, money
 
 class FormulaBase(object):
 	def __init__(self, name=None):
@@ -47,8 +48,8 @@ class FormulaBase(object):
 		argList = []
 		print "\nRunning... "+args[0]
 		for arg in args[1:]:
-                    userStr = raw_input("\t"+arg+": ")
-                    argList.append(float(userStr))
+				userStr = raw_input("\t"+arg+": ")
+            	argList.append(float(userStr))
 		return argList
 		
 	def pluralize(self, a, b):
@@ -61,8 +62,9 @@ class FormulaBase(object):
 		'Square Foot' : 'Square Feet',
 		'Cubic Foot' : 'Cubic Feet',
 		'Inch' : 'Inches',
-		'Ounce/Inch' : 'Ounce/Inches',
-		'Pound/Foot' : 'Pound/Feet',
+		'Ounce-Inch' : 'Ounce-Inches',
+		'Pound-Foot' : 'Pound-Feet',
+                'Pound-Inch' : 'Pound-Inches',
 		'Horse Power' : 'Horse Power',
 		'Foot/Pounds per Minute' : 'Foot/Pounds per Minute',
 		'Foot/Pounds per Second' : 'Foot/Pounds per Second',

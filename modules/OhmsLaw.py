@@ -43,6 +43,47 @@ class OhmsLaw(FormulaBase):
             'Watts using Volts and Resistance': self.form_wattsvr,
 #}}}_________________________________________________________________________________________
         }
+        
+#{{{___ Formula List _____________________________________________________________________________
+        self.formula_list = {
+            'Volts Using Amps and Resistance':{
+                '' : 'Amps * Resistance'
+            },
+            'Volts Using Watts and Amps':{
+                '' : 'Watts / Amps'
+            },
+            'Volts Using Watts and Resistance':{
+                '' : 'sqrt(Watts * Resistance)'
+            },
+            'Amps Using Volts and Resistance':{
+                '' : 'Volts / Resistance'
+            },
+            'Amps Using Watts and Volts':{
+                '' : 'Watts / Volts'
+            },
+            'Amps Using Watts and Resistance':{
+                '' : 'sqrt(Watts / Resistance)'
+            },
+            'Resistance Using Volts and Amps':{
+                '' : 'Volts / Amps'
+            },
+            'Resistance Using Watts and Amps':{
+                '' : 'sqrt(Watts / Amps<sup>2</sup>)'
+            },
+            'Resistance Using Volts and Watts':{
+                '' : 'Volts<sup>2</sup> / Watts'
+            },
+            'Watts Using Volts and Amps':{
+                '' : 'Volts * Amps'
+            },
+            'Watts Using Resistance and Amps':{
+                '' : 'Resistance * Amps<sup>2</sup>'
+            },
+            'Watts Using Volts and Resistance':{
+                '' : 'Volts<sup>2</sup> / Resistance'
+            },
+        }
+#}}}_________________________________________________________________________________________
 
     def form_voltsar(self):
             argsOut = ['Volts Using Amps and Resistance', 'Enter Amps', 'Enter Resistance']

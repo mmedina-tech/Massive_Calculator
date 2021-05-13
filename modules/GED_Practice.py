@@ -146,19 +146,19 @@ class GED_Practice (FormulaBase):
 #{{{___ Formula List _____________________________________________________________________________
 
         self.formula_list = {
-            'Triangle':{
+            'Triangle Area':{
                 '' : '(0.5 * Base) * Height'
             },
-            'Circle':{
+            'Circle Area':{
                 '' : '3.14 * (Radius<sup>2</sup>)'
             },
-            'Rectangle':{
+            'Rectangle Area':{
                 '' : 'Length * Width'
             },
-            'Parallelogram':{
+            'Parallelogram Area':{
                 '' : 'Base * Height'
             },
-            'Trapazoid':{
+            'Trapazoid Area':{
                 '' : '0.5 * Height * (Base 1 + Base 2)'
             },
             'Rectangular/Right Prism Surface Area':{

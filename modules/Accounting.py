@@ -32,6 +32,9 @@ class Accounting(FormulaBase):
         """
         super(Accounting, self).__init__(name)
         self.name = name
+
+        #{{{___ Function List _____________________________________________________________________________
+        
         self.function_list = {
             'The Equity Ratio': self.equity_ratio,
             'Trend Percentage': self.trend_percent,
@@ -40,7 +43,7 @@ class Accounting(FormulaBase):
             'Gross Margin Ratio': self.gross_ratio,
             'Inventory Turn-Over Ratio': self.inventory,
             'The Quick Ratio': self.quick,
-            'Accounts Recievable Turn-Over': self.accounts_recieve,
+            'Accounts Receivable Turn-Over': self.accounts_receive,
             'Number of Days Sales in Accounts Recievable': self.number_days,
             'Rate of Return on Operating Assets': self.return_rate,
             'Total Asset Turn-Over': self.total_asset,
@@ -52,6 +55,69 @@ class Accounting(FormulaBase):
             'Company Equity': self.comp_equity,
             'Cash to Equity': self.cash2equity,
         }
+        #}}}_________________________________________________________________________________________
+        
+#{{{___ Formula List _____________________________________________________________________________
+
+        self.formula_list = {
+            'The Equity Ratio':{
+                'Formula:<br>': "Stockholders Equity / Total Equity"
+            },
+            'Trend Percentage':{
+                'Formula:<br>': 'Current Year Amount / Base Year Amount'
+            },
+            'Current Ratio':{
+                'Formula:<br>': 'Current Assets / Current Liabilities'
+            },
+            'Gross Margin Percentage':{
+                'Formula:<br>': '((Cost of Goods Sold - Revenue) / Revenue)* 100'
+            },
+            'Gross Margin Ratio using Gross Profit and Revenue':{
+                'Formula:<br>': 'Gross Profit / Revenue'
+            },
+            'Inventory Turn-Over Ratio':{
+                'Formula:<br>': 'Cost of Goods Sold / Average Inventory'
+            },
+            'The Quick Ratio using Cash, Cash Equivalants, Short Term Investments, etc.':{
+                'Formula:<br>': '(Cash + Cash Equivalants + Short Term Investments + Current Receivables) / Current Liabilities'
+            },
+            'Accounts Receivable Turn-Over':{
+                'Formula:<br>': 'Net Credit Sales / Average Accounts'
+            },
+            "Number of Days' Sales in Accounts Receivable":{
+                'Formula:<br>': '365 / (Sales / Account Receivable)'
+            },
+            'Rate of Return on Operating Assets':{
+                'Formula:<br>': 'Net Income / Operating Assets'
+            },
+            'Total Asset Turn-Over':{
+                'Formula:<br>': 'Net Sales / Average Total Assets'
+            },
+            'Earnings Per Share and Price Earnings Ratio':{
+                'Formula:<br>': 'Income Available to Common Stockholders / Weighted-Average Number of Common Shares Outstanding'
+            },
+            'Dividend Yield on Common Stock':{
+                'Formula:<br>': 'Dividend Per Share of Common Stock / Current Market Price per Share'
+             },
+            'Payout Ratio on Common Stock':{
+                'Formula:<br>': 'Dividend per Share of Common Stock / Earnings Per Share (EPS)'
+            },
+            'The Quick Ratio using Total Current Assets, Inventory, Prepaid Expenses, and Current Liabilities':{
+                'Formula:<br>': '(Total Current Assets - Inventory - Prepaid Expenses) / Current Liabilities'
+            },
+            'Gross Margin Ratio using Revenue and Cost of Goods Sold':{
+                'Formula:<br>': '(Revenue - Cost of Goods Sold) / Cost of Goods Sold'
+            },
+            'Company Equity':{
+                'Formula:<br>': 'Cash Amount Asking / (Amount of Equity Given * (10^-2))'
+            },
+            'Cash to Equity':{
+                'Formula:<br>': 'Company Worth / But in Amount'
+            },
+        }
+        #}}}_________________________________________________________________________________________
+        
+#{{{___ Formula Functions _____________________________________________________________________________
 
     def equity_ratio(self):
         """
@@ -140,17 +206,17 @@ class Accounting(FormulaBase):
         result = (argsIn[0] + argsIn[1] + argsIn[2] + argsIn[3]) / argsIn[4]
         return (self.prec2(result)+'/1', self.pluralize(result, 'Quick Ratio'))
 
-    def accounts_recieve(self):
+    def accounts_receive(self):
         """
         Accounts Recievable Turn-Over
         """
-        title = 'Accounts Recievable Turn-Over'
+        title = 'Accounts Receivable Turn-Over'
         net_credit = 'Enter Net Credit Sales'
         avg_accounts = 'Enter Average Accounts'
         argsOut = [title, net_credit, avg_accounts]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return (result, self.pluralize(result, 'Accounts Recievable'))
+        return (result, self.pluralize(result, 'Accounts Receivable'))
 
     def number_days(self):
         """
@@ -273,3 +339,6 @@ class Accounting(FormulaBase):
         argsIn = self.prompt(argsOut)
         result = (argsIn[0] / argsIn[1])
         return ('$'+self.prec2(result), self.pluralize(result, 'Company Valuation'))
+
+    #}}}_________________________________________________________________________________________
+    

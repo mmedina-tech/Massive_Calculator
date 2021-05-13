@@ -90,7 +90,7 @@ class Astronomic_units(FormulaBase):
             'Light Years to Astronomical Units':{
                 'Formula:<br>' : 'Light Years * 63241.88'
             },
-            'Astronomic Units to Light Years':{
+            'Astronomical Units to Light Years':{
                 'Formula:<br>' : 'Astronomic Units * 0.000015813'
             },
             'Light Years to Parsecs':{

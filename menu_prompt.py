@@ -146,9 +146,9 @@ def category_prompt():
             except(NameError, KeyError) as e:
                 subkey = list_category[key]
                 
-                ret = import_module(list_category[key])
+                ret = import_module("modules."+list_category[key])
                 try:
-                        ret = import_module(list_category[key])
+                        ret = import_module("modules."+list_category[key])
                 except(Exception) as e:
                         print e; exit()
                 

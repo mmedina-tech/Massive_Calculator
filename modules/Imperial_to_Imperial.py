@@ -36,6 +36,29 @@ class Imperial_to_Imperial(FormulaBase):
             'Tons to Pounds': self.form_tons,
             'Yards to Miles': self.form_yards
         }
+#{{{___ Formula List _____________________________________________________________________________
+
+        self.formula_list = {
+            'Feet to Miles':{
+                '' : 'Feet * 0.0001894'
+            },
+            'Miles to Feet':{
+                '' : 'Miles * 5280'
+            },
+            'Ounces to Pounds':{
+                '' : 'Ounces * 0.0625'
+            },
+            'Pounds to Ounces':{
+                '' : 'Pounds * 16'
+            },
+            'Tons to Pounds':{
+                '' : 'Tons * 2000'
+            },
+            'Yards to Miles':{
+                '' : 'Yards * 0.0005682'
+            },
+        }
+#}}}_________________________________________________________________________________________
     
     def form_feet(self):
             argsOut = ['Feet to Miles', 'Enter Feet']

@@ -29,9 +29,16 @@ class Budget(FormulaBase):
         self.function_list = {
             'Monthly Budget': self.form_budgeting
         }
+        self.formula_list = {
+            'Monthly Income':OrderedDict(
+                [
+                    ('', '(Hourly Wages * Monthly Hours) - (Rent/Mortgage + Cable + <br>Electrical + Phone + <br>Groceries + Health Care + <br>Clothing Expenses + Car Expenses + <br<Cost of Supervision + Program Cost + <br>Recreation Expenses + Any Other Expenses)'),
+                ]
+            )
+        }
 
     def form_budgeting(self):
-        title = 'Budgeting'
+        title = 'Monthly Income'
         wage = 'Enter Hourly Wage'
         hourly = 'Enter Hours'
         rent = 'Enter Rent/Mortgage Bill'

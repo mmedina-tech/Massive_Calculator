@@ -847,110 +847,245 @@ class Resistive_Capacitive_Series(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'Watt'))
 
     def form_CAmps(self):
+        title = "Capacitor Amps using Capacitor VAR's and Capacitor Volts"
+        cvar = "Enter Capacitor VAR's"
+        cv = "Enter Capacitor Volts"
+        argsOut = [title, cvar, cv]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor Amp'))
         
     def form_CAmps2(self): 
+        title = "Capacitor Amps using Capacitor VAR's and Capacitive Reactance"
+        cvar = "Enter Capacitor VAR's"
+        creact = "Enter Capacitive Reactance"
+        argsOut = [title, cvar, creact]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] / argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Capacitor Amp'))
 
     def form_CAmps3(self): 
+        title = "Capacitor Amps using Capacitor Volts and Capacitive Reactance"
+        cv = "Enter Capacitor Volts"
+        creact = "Enter Capacitive Reactance"
+        argsOut = [title, cv, creact]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor Amp'))
 
     def form_CVAR (self): 
+        title = "Capacitor VAR's using Volt Amps and Watts"
+        va = "Enter Volt Amps"
+        w = "Enter Watts"
+        argsOut = [title, va, w]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
         return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
 
     def form_CVAR2 (self):
+        title = "Capacitor VAR's using Capacitor Volts and Capacitor Amps"
+        cv = "Enter Capacitor Volts"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, cv, ca]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
 
     def form_CVAR3 (self):
+        title = "Capacitor VAR's using Capacitor Amps and Capacitive Reactance"
+        ca = "Enter Capacitor Amps"
+        creact = "Enter Capacitive Reactance"
+        argsOut = [title, ca, creact]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0]**2) * argsIn[1]
         return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
 
     def form_CVAR4 (self):
+        title = "Capacitor VAR's using Capcacitor Volts and Capacitive Reactance"
+        cv = "Enter Capacitor Volts"
+        creact = "Enter Capacitive Reactance"
+        argsOut = [title, cv, creact]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0]**2) / argsIn[1]
         return (self.prec4(result), self.pluralize(result, "Capacitor VAR'"))
 
     def form_RVolts (self):
+        title = "Resistor Volts using Total Volts and Capacitor Volts"
+        tv = "Enter Total Volts"
+        cv = "Enter Capacitor Volts"
+        argsOut = [title, tv, cv]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
     def form_RVolts2 (self):
+        title = "Resistor Volts using Total Volts and Power Factor"
+        tv = "Enter Total Volts"
+        pwf = "Enter Power Factor"
+        argsOut = [title, tv, pwf]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] * argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
     def form_RVolts3 (self):
+        title = "Resistor Volts using Resistor Amps and Resistance"
+        ra = "Enter Resistor Amps"
+        r = "Enter Resistance"
+        argsOut = [title, ra, r]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
     def form_RVolts4 (self):
+        title = "Resistor Volts using Watts and Resistance"
+        w = "Enter Watts"
+        r = "Enter Resistance"
+        argsOut = [title, w, r]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
         return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
     def form_RVolts5 (self):
+        title = "Resistor Volts using Watts and Resistor Amps"
+        w = "Enter Watts"
+        ra = "Enter Resistor Amps"
+        argsOut = [title, w, ra]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistor Volt'))
 
     def form_Resistance (self):
+        title = "Resistance using Watts and Resistor Amps"
+        w = "Enter Watts"
+        ra = "Enter Resistor Amps"
+        argsOut = [title, w, ra]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / (argsIn[1]**2)
         return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
     def form_Resistance2 (self):
+        title = "Resistance using Impedance and Capacitive Reactance"
+        i = "Enter Impedance"
+        creact = "Enter Capacitive Reactance"
+        argsOut = [title, i, creact]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
         return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
     def form_Resistance3 (self):
+        title = "Resistance usin Resistor Volts and Watts"
+        rv = "Enter Resistor Volts"
+        w = "Enter Watts"
+        argsOut = [title, rv, w]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0]**2) / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
     def form_Resistance4 (self):
+        title = "Resistance using Impedance and Power Factor"
+        imp = "Enter Impedance"
+        pwf = "Enter Power Factor"
+        argsOut = [title, imp, pwf]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
     def form_Resistance5 (self):
+        title = "Resistance using Resistor Volts and Resistor Amps"
+        rv = "Enter Resistor Volts"
+        ra = "Enter Resistor Amps"
+        argsOut = [title, rv, ra]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Resistance'))
 
     def form_CReact(self):
+        title = "Capacitive Reactance using Capacitor Volts and Capacitor Amps"
+        cv = "Enter Capacitor Volts"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, cv, ca]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def form_CReact2(self):
+        title = "Capacitive Reactance using Capacitor VAR's and Capacitor Amps"
+        cvar = "Enter Capacitor VAR's"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, cvar, ca]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / (argsIn[1]**2)
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def form_CReact3 (self):
+        title = "Capacitive Reactance using Impedance and Resistance"
+        imp = "Enter Impedance"
+        r = "Enter Resistance"
+        argsOut = [title, imp, r]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def form_CReact4 (self):
+        title = "Capacitive Reactance using Capacitor Volts and Capacitor VAR's"
+        cv = "Enter Capacitor Volts"
+        cvar = "Enter Capacitor VAR's"
+        argsOut = [title, cv, cvar]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0]**2) / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def form_CReact5 (self):
+        title = "Capacitive Reactance using Frequency and Capacitor Rating"
+        freq = "Enter Frequency"
+        crate = "Enter Capacitor Rating"
+        argsOut = [title, freq, crate]
+        argsIn = self.prompt(argsOut)
         result = 1 / (2 * 3.14 * argsIn[0] * argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Capacitive Reactance'))
 
     def form_CRate (self):
+        title = "Capacitor Rating using Frequency and Capacitive Reactance"
+        freq = "Enter Frequency"
+        creact = "Enter Capacitive Reactance"
+        argsOut = [title, freq, creact]
+        argsIn = self.prompt(argsOut)
         result = 1 / (2 * 3.14 * argsIn[0] * argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Capacitor Rating'))
 
     def form_CVolts (self):
+        title = "Capacitor Volts using Capacitor Amps and Capacitive Reactance"
+        ca = "Enter Capacitor Amps"
+        creat = "Enter Capacitive Reactance"
+        argsOut = [title, ca, creact]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
     def form_CVolts2 (self):
+        title = "Capacitor Volts using Total Volts and Resistor Volts"
+        tv = "Enter Total Volts"
+        rv = "Enter Resistor Volts"
+        argsOut = [title, tv, rv]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
         return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
     def form_CVolts3 (self):
+        title = "Capacitor Volts using Capacitor VAR's and Capacitive Reactance"
+        cvar = "Enter Capacitor VAR's"
+        creact = "Enter Capacititve Reactance"
+        argsOut = [title, cvar, creact]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] * argsIn[1])
         return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 
     def form_CVolts4 (self):
+        title = "Capacitor Volts using Capacitor VAR's and Capacitor Amps"
+        cvar = "Enter Capacitor VAR's"
+        ca = "Enter Capacitor Amps"
+        argsOut = [title, cvar, ca]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec4(result), self.pluralize(result, 'Capacitor Volt'))
 #}}}_________________________________________________________________________________________

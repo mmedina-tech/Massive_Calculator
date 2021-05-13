@@ -1165,3 +1165,504 @@ I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleratio
 
 After Print cat.function_list
 
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fdbb7344c50>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fdbb7344c50>>
+
+
+Error: 'Acceleration' object has no attribute 'formual_list'
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fee1ffbbed0>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fee1ffbbed0>>
+
+
+Error: could not convert string to float: q
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f64522d3cd0>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f64522d3cd0>>
+
+
+Error: 'Acceleration' object has no attribute 'show_formula'
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fd55983bf50>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fd55983bf50>>
+
+
+After Print cat.function_list
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fd81d860cd0>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fd81d860cd0>>
+
+
+After Print cat.function_list
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f1fb7fafcd0>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f1fb7fafcd0>>
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f3147451cd0>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f3147451cd0>>
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.inch of <Acceleration.Acceleration object at 0x7f41586dccd0>>
+
+
+I got the PromptStr <bound method Acceleration.inch of <Acceleration.Acceleration object at 0x7f41586dccd0>>
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f59dbabaf50>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f59dbabaf50>>
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f2a19103cd0>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f2a19103cd0>>
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f6e83617cd0>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f6e83617cd0>>
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f0876886cd0>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7f0876886cd0>>
+
+
+After Print cat.function_list
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fa034d3ff50>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <Acceleration.Acceleration object at 0x7fa034d3ff50>>
+
+
+user input 2
+
+
+I got the Function List: <bound method Accounting.accounts_recieve of <Accounting.Accounting object at 0x7f5576ce7e50>>
+
+
+I got the PromptStr <bound method Accounting.accounts_recieve of <Accounting.Accounting object at 0x7f5576ce7e50>>
+
+
+Error: 'Accounting' object has no attribute 'formula_list'
+
+
+I got the Function List: <bound method Accounting.cash2equity of <Accounting.Accounting object at 0x7f5576ce7e50>>
+
+
+I got the PromptStr <bound method Accounting.cash2equity of <Accounting.Accounting object at 0x7f5576ce7e50>>
+
+
+Error: 'Accounting' object has no attribute 'formula_list'
+
+
+user input 2
+
+
+I got the Function List: <bound method Accounting.accounts_recieve of <Accounting.Accounting object at 0x7f3414da0e50>>
+
+
+I got the PromptStr <bound method Accounting.accounts_recieve of <Accounting.Accounting object at 0x7f3414da0e50>>
+
+
+Error: 'Accounts Recievable Turn-Over'
+
+
+user input 2
+
+
+I got the Function List: <bound method Accounting.accounts_recieve of <Accounting.Accounting object at 0x7fcf57ca8e50>>
+
+
+I got the PromptStr <bound method Accounting.accounts_recieve of <Accounting.Accounting object at 0x7fcf57ca8e50>>
+
+
+Error: 'Accounts Recievable Turn-Over'
+
+
+user input 2
+
+
+I got the Function List: <bound method Accounting.accounts_receive of <Accounting.Accounting object at 0x7fd44eb2ce50>>
+
+
+I got the PromptStr <bound method Accounting.accounts_receive of <Accounting.Accounting object at 0x7fd44eb2ce50>>
+
+
+Error: 'Accounts Recievable Turn-Over'
+
+
+user input 2
+
+
+I got the Function List: <bound method Accounting.accounts_receive of <Accounting.Accounting object at 0x7fbb33522e50>>
+
+
+I got the PromptStr <bound method Accounting.accounts_receive of <Accounting.Accounting object at 0x7fbb33522e50>>
+
+
+After Print cat.function_list
+
+
+user input 2
+
+
+I got the Function List: <bound method Accounting.cash2equity of <Accounting.Accounting object at 0x7f61cfe6de50>>
+
+
+I got the PromptStr <bound method Accounting.cash2equity of <Accounting.Accounting object at 0x7f61cfe6de50>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Accounting.comp_equity of <Accounting.Accounting object at 0x7f61cfe6de50>>
+
+
+I got the PromptStr <bound method Accounting.comp_equity of <Accounting.Accounting object at 0x7f61cfe6de50>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Accounting.current_ratio of <Accounting.Accounting object at 0x7f61cfe6de50>>
+
+
+I got the PromptStr <bound method Accounting.current_ratio of <Accounting.Accounting object at 0x7f61cfe6de50>>
+
+
+After Print cat.function_list
+
+
+user input 3
+
+
+I got the Function List: <bound method Area.acre7 of <Area.Area object at 0x7f61cfe00d90>>
+
+
+I got the PromptStr <bound method Area.acre7 of <Area.Area object at 0x7f61cfe00d90>>
+
+
+After Print cat.function_list
+
+
+I got the Function List: <bound method Area.acre3 of <Area.Area object at 0x7f61cfe00d90>>
+
+
+I got the PromptStr <bound method Area.acre3 of <Area.Area object at 0x7f61cfe00d90>>
+
+
+After Print cat.function_list
+
+
+user input 3
+
+
+user input 4
+
+
+I got the Function List: <bound method Astronomic_units.astro of <Astronomic_units.Astronomic_units object at 0x7f61cfd31090>>
+
+
+I got the PromptStr <bound method Astronomic_units.astro of <Astronomic_units.Astronomic_units object at 0x7f61cfd31090>>
+
+
+Error: 'Astronomical Units to Light Years'
+
+
+I got the Function List: <bound method Astronomic_units.form_celsius of <Astronomic_units.Astronomic_units object at 0x7f61cfd31090>>
+
+
+I got the PromptStr <bound method Astronomic_units.form_celsius of <Astronomic_units.Astronomic_units object at 0x7f61cfd31090>>
+
+
+After Print cat.function_list
+
+
+user input 4
+
+
+I got the Function List: <bound method Astronomic_units.astro of <Astronomic_units.Astronomic_units object at 0x7f4170147f10>>
+
+
+I got the PromptStr <bound method Astronomic_units.astro of <Astronomic_units.Astronomic_units object at 0x7f4170147f10>>
+
+
+After Print cat.function_list
+
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f417011e550>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f417011e550>>
+
+
+Error: 'Budget' object has no attribute 'formula_list'
+
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f3b086500d0>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f3b086500d0>>
+
+
+Error: 'Budgeting'
+
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f18a74180d0>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <Budget.Budget object at 0x7f18a74180d0>>
+
+
+After Print cat.function_list
+
+
+user input 6
+
+
+I got the Function List: <bound method Culinary.liters of <Culinary.Culinary object at 0x7f18a7418390>>
+
+
+I got the PromptStr <bound method Culinary.liters of <Culinary.Culinary object at 0x7f18a7418390>>
+
+
+After Print cat.function_list
+
+
+user input 7
+
+
+I got the Function List: <bound method Energy_or_Work.form_btu of <Energy_or_Work.Energy_or_Work object at 0x7f18a7418550>>
+
+
+I got the PromptStr <bound method Energy_or_Work.form_btu of <Energy_or_Work.Energy_or_Work object at 0x7f18a7418550>>
+
+
+Error: 'Energy_or_Work' object has no attribute 'formula_list'
+
+
+user input 7
+
+
+I got the Function List: <bound method Energy_or_Work.form_btu of <Energy_or_Work.Energy_or_Work object at 0x7f014a916110>>
+
+
+I got the PromptStr <bound method Energy_or_Work.form_btu of <Energy_or_Work.Energy_or_Work object at 0x7f014a916110>>
+
+
+Error: 'BTU to Foot-Pounds'
+
+
+user input 7
+
+
+I got the Function List: <bound method Energy_or_Work.form_btu of <Energy_or_Work.Energy_or_Work object at 0x7f415b65ee90>>
+
+
+I got the PromptStr <bound method Energy_or_Work.form_btu of <Energy_or_Work.Energy_or_Work object at 0x7f415b65ee90>>
+
+
+Error: 'BTU to Foot-Pounds'
+
+
+user input 7
+
+
+I got the Function List: <bound method Energy_or_Work.form_btu of <Energy_or_Work.Energy_or_Work object at 0x7fcbd1ccce90>>
+
+
+I got the PromptStr <bound method Energy_or_Work.form_btu of <Energy_or_Work.Energy_or_Work object at 0x7fcbd1ccce90>>
+
+
+After Print cat.function_list
+
+
+user input 8
+
+
+I got the Function List: <bound method Fuel_Economy.kilo of <Fuel_Economy.Fuel_Economy object at 0x7ffa5b66ced0>>
+
+
+I got the PromptStr <bound method Fuel_Economy.kilo of <Fuel_Economy.Fuel_Economy object at 0x7ffa5b66ced0>>
+
+
+Error: 'Kilometers/Liter to Miles/Gallon'
+
+
+user input 8
+
+
+I got the Function List: <bound method Fuel_Economy.kilo of <Fuel_Economy.Fuel_Economy object at 0x7fb105297ed0>>
+
+
+I got the PromptStr <bound method Fuel_Economy.kilo of <Fuel_Economy.Fuel_Economy object at 0x7fb105297ed0>>
+
+
+After Print cat.function_list
+
+
+user input 9
+
+
+I got the Function List: <bound method GED_Practice.circle of <GED_Practice.GED_Practice object at 0x7fb105297fd0>>
+
+
+I got the PromptStr <bound method GED_Practice.circle of <GED_Practice.GED_Practice object at 0x7fb105297fd0>>
+
+
+Error: 'Circle Area'
+
+
+user input 9
+
+
+I got the Function List: <bound method GED_Practice.circle of <GED_Practice.GED_Practice object at 0x7fd3ab1c4f90>>
+
+
+I got the PromptStr <bound method GED_Practice.circle of <GED_Practice.GED_Practice object at 0x7fd3ab1c4f90>>
+
+
+After Print cat.function_list
+
+
+user input 10
+
+
+I got the Function List: <bound method Imperial_to_Imperial.form_feet of <Imperial_to_Imperial.Imperial_to_Imperial object at 0x7fd3ab158310>>
+
+
+I got the PromptStr <bound method Imperial_to_Imperial.form_feet of <Imperial_to_Imperial.Imperial_to_Imperial object at 0x7fd3ab158310>>
+
+
+Error: 'Imperial_to_Imperial' object has no attribute 'formula_list'
+
+
+user input 10
+
+
+I got the Function List: <bound method Imperial_to_Imperial.form_feet of <Imperial_to_Imperial.Imperial_to_Imperial object at 0x7fe93e88aed0>>
+
+
+I got the PromptStr <bound method Imperial_to_Imperial.form_feet of <Imperial_to_Imperial.Imperial_to_Imperial object at 0x7fe93e88aed0>>
+
+
+After Print cat.function_list
+
+
+user input 11
+
+
+I got the Function List: <bound method Imperial_to_Metric.form_cuyards of <Imperial_to_Metric.Imperial_to_Metric object at 0x7fe93e860210>>
+
+
+I got the PromptStr <bound method Imperial_to_Metric.form_cuyards of <Imperial_to_Metric.Imperial_to_Metric object at 0x7fe93e860210>>
+
+
+Error: 'Imperial_to_Metric' object has no attribute 'formula_list'
+
+
+user input 1
+
+
+user input 1
+
+
+user input 1
+
+
+user input 2
+
+
+user input 3
+
+
+user input 1
+
+
+user input 2
+
+
+I got the Function List: <bound method Accounting.accounts_receive of <modules.Accounting.Accounting object at 0x7ff0184dc550>>
+
+
+I got the PromptStr <bound method Accounting.accounts_receive of <modules.Accounting.Accounting object at 0x7ff0184dc550>>
+
+
+After Print cat.function_list
+

@@ -64,15 +64,15 @@ class Fuel_Economy(FormulaBase):
 #{{{___ Formula Functions _____________________________________________________________________________
 
     def miles (self):
-        title = "Miles/Gallon to Kilometers/Liter"
-        mpg = "Enter Miles/Gallon"
+        title = "Miles/Gal to Kilometers/Liter"
+        mpg = "Enter Miles/Gal"
         argsOut = [title, mpg]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .42514
         return (self.prec2(result), self.pluralize(result, 'Kilometers/Liter'))
 
     def kilo (self):
-        title = "Kilometers/Liter to Miles/Gallon"
+        title = "Kilometers/Liter to Miles/Gal"
         kpl = "Enter Kilometers/Liter"
         argsOut = [title, kpl]
         argsIn = self.prompt(argsOut)

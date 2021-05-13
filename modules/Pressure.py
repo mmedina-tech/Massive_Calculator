@@ -25,6 +25,7 @@ from FormulaBase import *
 class Pressure(FormulaBase):
     def __init__(self, name): 
         super(Pressure, self).__init__(name)
+        self.name = name
 
 #{{{___ Function List _____________________________________________________________________________
 

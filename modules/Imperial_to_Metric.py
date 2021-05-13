@@ -45,6 +45,57 @@ class Imperial_to_Metric(FormulaBase):
             'Sqaure Yards to Square Meters': self.form_sqyards,
             'Yards to Meters': self.form_yards
         }
+
+#{{{___ Formula List _____________________________________________________________________________
+
+        self.formula_list = {
+            'Fahrenheit to Celsius':{
+                '' : '(Fahrenheit - 32) * 5/9'
+            },
+            'Cubic Yards to Cubic Meters':{
+                '' : 'Cubic Yards * 0.7646'
+            },
+            'Feet to Meters':{
+                '' : 'Feet * 0.3048'
+            },
+            'Gallons to Liters':{
+                '' : 'Gallons * 3.7853'
+            },
+            'Inches to Centimeters':{
+                '' : 'Inches * 2.54'
+            },
+            'Miles to Kilometers':{
+                '' : 'Miles * 1.6093'
+            },
+            'Inches to Millimeters':{
+                '' : 'Inches * 25.4'
+            },
+            'Ounces to Grams':{
+                '' : 'Ounces * 28.3495'
+            },
+            'Pounds to Kilograms':{
+                '' : 'Pounds * 0.4536'
+            },
+            'Pfloats to Liters':{
+                '' : 'Pfloats * 1.4732'
+            },
+            'Quarts to Liters':{
+                '' : 'Quarts * 0.9463'
+            },
+            'Square Feet to Square Meters':{
+                '' : 'Square Feet * 0.929'
+            },
+            'Square Miles to Square Kilometers':{
+                '' : 'Square Miles * 2.59'
+            },
+            'Square Yards to Square Meters':{
+                '' : 'Square Yards * 0.8361'
+            },
+            'Yards to Meters':{
+                '' : 'Yards * 0.9144'
+            },
+        }
+#}}}_________________________________________________________________________________________
             
     def form_fahrenheit(self):
             argsOut = ['Fahrenheit to Celsius', 'Enter Fahrenheit']
