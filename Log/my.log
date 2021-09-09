@@ -1666,3 +1666,78 @@ I got the PromptStr <bound method Accounting.accounts_receive of <modules.Accoun
 
 After Print cat.function_list
 
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f77902ab9d0>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f77902ab9d0>>
+
+
+Error: list index out of range
+
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f1eb8a349d0>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f1eb8a349d0>>
+
+
+Error: list index out of range
+
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f33ed46f9d0>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f33ed46f9d0>>
+
+
+Error: list index out of range
+
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f7f5d14b750>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f7f5d14b750>>
+
+
+After Print cat.function_list
+
+
+user input q
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <modules.Acceleration.Acceleration object at 0x7fe42b0e3c50>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <modules.Acceleration.Acceleration object at 0x7fe42b0e3c50>>
+
+
+After Print cat.function_list
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <modules.Acceleration.Acceleration object at 0x7f08e3856d10>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <modules.Acceleration.Acceleration object at 0x7f08e3856d10>>
+
+
+After Print cat.function_list
+

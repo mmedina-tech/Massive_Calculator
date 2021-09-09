@@ -1,9 +1,11 @@
-#!/usr/bin python
+#!/usr/bin/python
 
 import os
 from collections import OrderedDict
 from FormulaBase import *
 from importlib import import_module
+from allowances import *
+
 
 
 # Sets up prompt strings 
@@ -20,7 +22,7 @@ strings = {
 	'tryagain' : 'Please Try Again'
 		}
 # Category Module list for Menu list 
-old_list_category = {
+list_category = {
     'Acceleration': 'Acceleration',
     'Accounting': 'Accounting',
     'Area': 'Area',
@@ -51,7 +53,7 @@ old_list_category = {
 
 objects = {}
 menu = {}
-list_category = sorted(old_list_category.items())
+list_category = sorted(list_category.items())
 list_category = OrderedDict(list_category)
 #print list_category.items()
 #exit()
@@ -62,31 +64,6 @@ def logme(msg):
 	fp.write('\n'+msg+'\n\n')
 	fp.close()
        
-# Allowances class for allowable inputs other than numbers 
-class allowances(object):
-
-    def __init__(self):
-        self.quit_allowances()
-        self.back_allowances()
-        self.help_allowances()
-        self.cat_allowances()
-        self.form_allowances()
-
-    def quit_allowances(self):
-        self.quit_allowances = ['q', 'Q']
-
-    def back_allowances(self):
-        self.back_allowances = ['b', 'B']
-
-    def help_allowances(self):
-        self.help_allowances = ['h', 'H']
-
-    def cat_allowances(self):
-        self.cat_allowances = []
-
-    def form_allowances(self):
-        self.form_allowances = []
-
 allowances = allowances()
 
 #  Prints the Menus
@@ -146,9 +123,9 @@ def category_prompt():
             except(NameError, KeyError) as e:
                 subkey = list_category[key]
                 
-                ret = import_module("modules."+list_category[key])
+                ret = import_module("modules."+subkey)
                 try:
-                        ret = import_module("modules."+list_category[key])
+                        ret = import_module("modules."+subkey)
                 except(Exception) as e:
                         print e; exit()
                 
