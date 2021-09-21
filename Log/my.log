@@ -1741,3 +1741,54 @@ I got the PromptStr <bound method Acceleration.feet of <modules.Acceleration.Acc
 
 After Print cat.function_list
 
+
+user input q
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.feet of <modules.Acceleration.Acceleration object at 0x7f2358f67dd0>>
+
+
+I got the PromptStr <bound method Acceleration.feet of <modules.Acceleration.Acceleration object at 0x7f2358f67dd0>>
+
+
+After Print cat.function_list
+
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f2358ee6950>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f2358ee6950>>
+
+
+After Print cat.function_list
+
+
+user input 5
+
+
+I got the Function List: <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f9cd8e37790>>
+
+
+I got the PromptStr <bound method Budget.form_budgeting of <modules.Budget.Budget object at 0x7f9cd8e37790>>
+
+
+After Print cat.function_list
+
+
+user input 1
+
+
+I got the Function List: <bound method Acceleration.inch of <modules.Acceleration.Acceleration object at 0x7f63d7fa5ed0>>
+
+
+I got the PromptStr <bound method Acceleration.inch of <modules.Acceleration.Acceleration object at 0x7f63d7fa5ed0>>
+
+
+Error: could not convert string to float: q
+

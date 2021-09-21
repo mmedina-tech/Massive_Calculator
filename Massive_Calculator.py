@@ -28,17 +28,17 @@ from modules.allowances import *
 
 # Sets up prompt strings 
 prompts = {
-	'categoryprompt' : "\nEnter Category - 'h' for Help or 'q' to Quit: ",
-	'formulaprompt' : "\nEnter Formula or 'b' to go back, or 'q' to Quit: ",
-	'continueprompt' : 'Press Enter to Continue'
-		}
-# strings for titles, exit messages, error messages, and help strings		
+    'categoryprompt' : "\nEnter Category - 'h' for Help or 'q' to Quit: ",
+    'formulaprompt' : "\nEnter Formula or 'b' to go back, or 'q' to Quit: ",
+    'continueprompt' : 'Press Enter to Continue'
+        }
+# strings for titles, exit messages, error messages, and help strings        
 strings = {
-	'mainmenutitle' : '\nThe Massive Calculator\n',
-	'endnote' : '\nThank you for using the Massive Calculator\n',
-	'cathelpstring' : '\nPress the number of the formula or conversion you want\n',
-	'tryagain' : 'Please Try Again'
-		}
+    'mainmenutitle' : '\nThe Massive Calculator\n',
+    'endnote' : '\nThank you for using the Massive Calculator\n',
+    'cathelpstring' : '\nPress the number of the formula or conversion you want\n',
+    'tryagain' : 'Please Try Again'
+        }
 # Category Module list for Menu list 
 list_category = {
     'Acceleration': 'Acceleration',
@@ -78,9 +78,9 @@ list_category = OrderedDict(list_category)
 
 # log function 
 def logme(msg):
-	fp = open('Log/my.log', 'a')
-	fp.write('\n'+msg+'\n\n')
-	fp.close()
+    fp = open('Log/my.log', 'a')
+    fp.write('\n'+msg+'\n\n')
+    fp.close()
        
 allowances = allowances()
 
@@ -96,17 +96,16 @@ def print_menu(list_category):
 
 # Prints the help message 
 def print_help():
-	print strings['cathelpstring']
-	raw_input(prompts['continueprompt'])
+    print strings['cathelpstring']
+    raw_input(prompts['continueprompt'])
         
 # Category Selection 
 def category_prompt():
 
-    # Loops until a proper selection is made 	
+    # Loops until a proper selection is made     
     while True:
         print_menu(list_category)
         prompt = raw_input(prompts['categoryprompt'])
-        logme('user input ' + prompt)
 
         # checks to make sure that the input is allowed 
         if prompt.isalpha():
@@ -164,13 +163,11 @@ def category_prompt():
         else:
             print 'try again'
             continue
-		
+        
 # Formula Selection of Associated Category 
 def formula_prompt(cat):
 
     # Loops until proper input is taken in 
-    while True:
-        print_menu(cat.function_list)
         prompt = raw_input(prompts['formulaprompt'])
 
         # checks input against letters and special characters 
@@ -198,30 +195,24 @@ def formula_prompt(cat):
         # formula list
         if runFormula in range(len(cat.function_list)):
             promptstr = cat.function_list.keys()[runFormula]
-            logme('I got the Function List: ' + str(cat.function_list[promptstr]))
             try:
                 if isinstance(cat.function_list[promptstr], OrderedDict):
                     formula_prompt(cat.function_list[promptstr])
                 else:
                     # takes in numbers needed for calculation and returns answer 
                     try:
-                        logme('I got the PromptStr ' + str(cat.function_list[promptstr]))
                         retval = cat.function_list[promptstr]()
-                        #logme('I got the RetVal ' + str(retval))
                         print "\nAnswer: {} {}\n".format(retval[0], retval[1])
-                        logme('After Print cat.function_list')
                         prompt = raw_input(prompts['continueprompt'])
                     # catches errors that are most likely not in the array for the 
                     # for loop in the FormulaBase.py
                     except(Exception) as e:
                         print "\nThere was an error, please see my.log file"
                         raw_input(prompts['continueprompt'])
-                        logme("Error: {}".format(e))
             except(Exception) as e:
-                print "Error: {}".format(e)
                 raw_input(prompts['continueprompt'])
 
-		
+        
 # Starts the Category Menu Selection 
 category_prompt()
 

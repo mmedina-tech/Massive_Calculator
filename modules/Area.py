@@ -466,7 +466,7 @@ class Area (FormulaBase):
         argsOut = [title, acre]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 4840 * 9
-        return (self.prec2(result), self.pluralize(result, 'Foot<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Foot<sup>2</sup>'))
 
     def acre7(self):
         # Acre to Section 
@@ -475,7 +475,7 @@ class Area (FormulaBase):
         argsOut = [title, acre]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 640
-        return (self.prec2(result), self.pluralize(result, 'Section'))
+        return (result, self.pluralize(result, 'Section'))
 
     def section4(self):
         # Section to Township 
@@ -484,7 +484,7 @@ class Area (FormulaBase):
         argsOut = [title, sec]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 36
-        return (self.prec2(result), self.pluralize(result, 'Township'))
+        return (result, self.pluralize(result, 'Township'))
 
     def sqin3(self):
         # Square Inches to Square Link 
@@ -493,7 +493,7 @@ class Area (FormulaBase):
         argsOut = [title, sqi]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 62.73
-        return (self.prec2(result), self.pluralize(result, 'Link<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Link<sup>2</sup>'))
 
     def sqm(self):
         # Square Meters to Square Yards 
@@ -502,7 +502,7 @@ class Area (FormulaBase):
         argsOut = [title, sqm]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 119.6
-        return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Yard<sup>2</sup>'))
 
     def sqyrd2(self):
         # Square Yards to Square Links 
@@ -511,7 +511,7 @@ class Area (FormulaBase):
         argsOut = [title, sqy]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 20.661157025
-        return (self.prec2(result), self.pluralize(result, 'Link<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Link<sup>2</sup>'))
 
     def link3(self):
         # Square Link to Square Pole 
@@ -520,7 +520,7 @@ class Area (FormulaBase):
         argsOut = [title, sql]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 625
-        return (self.prec2(result), self.pluralize(result, 'Pole<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Pole<sup>2</sup>'))
 
     def sqyrd3(self):
         # Square Yard to Square Pole 
@@ -529,7 +529,7 @@ class Area (FormulaBase):
         argsOut = [title, sqy]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 30.25
-        return (self.prec2(result), self.pluralize(result, 'Pole<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Pole<sup>2</sup>'))
 
     def spole4(self):
         # Square Pole to Square Chain 
@@ -538,7 +538,7 @@ class Area (FormulaBase):
         argsOut = [title, sqp]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 16
-        return (self.prec2(result), self.pluralize(result, 'Chain<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Chain<sup>2</sup>'))
 
     def schain4(self):
         # Square Chain to Acre 
@@ -547,7 +547,7 @@ class Area (FormulaBase):
         argsOut = [title, sqc]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 10
-        return (self.prec2(result), self.pluralize(result, 'Acre'))
+        return (result, self.pluralize(result, 'Acre'))
 
     def sqin2(self):
         # Square Inch to Centiare 
@@ -556,7 +556,7 @@ class Area (FormulaBase):
         argsOut = [title, sqi]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1550
-        return (self.prec2(result), self.pluralize(result, 'Centiare'))
+        return (result, self.pluralize(result, 'Centiare'))
 
     def sqyrd(self):
         # Square Yard to Are 
@@ -565,7 +565,7 @@ class Area (FormulaBase):
         argsOut = [title, sqy]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 119.6
-        return (self.prec2(result), self.pluralize(result, 'Are'))
+        return (result, self.pluralize(result, 'Are'))
 
     def acre6(self):
         # Acre to Square Kilometer 
@@ -574,7 +574,7 @@ class Area (FormulaBase):
         argsOut = [title, acre]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 247.105
-        return (self.prec2(result), self.pluralize(result, 'Kilometer<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Kilometer<sup>2</sup>'))
 
     def sqkm(self):
         # Square Kilometer to Square Mile 
@@ -583,7 +583,7 @@ class Area (FormulaBase):
         argsOut = [title, sqk]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 2.59000259
-        return (self.prec2(result), self.pluralize(result, 'Mile<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Mile<sup>2</sup>'))
 
     def sqcm(self):
         # Square Centimeter to Square Inch 
@@ -592,7 +592,7 @@ class Area (FormulaBase):
         argsOut = [title, sqcm]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.15500031
-        return (self.prec2(result), self.pluralize(result, 'Inch<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Inch<sup>2</sup>'))
 
     def acre5(self):
         # Acre to Square Mile 
@@ -601,7 +601,7 @@ class Area (FormulaBase):
         argsOut = [title, acre]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.0002471052
-        return (self.prec2(result), self.pluralize(result, 'Meter<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Meter<sup>2</sup>'))
 
     def section(self):
         # Section to Acre 
@@ -610,7 +610,7 @@ class Area (FormulaBase):
         argsOut = [title, sec]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.0015625
-        return (self.prec2(result), self.pluralize(result, 'Acre'))
+        return (result, self.pluralize(result, 'Acre'))
 
     def section2(self):
         # Section to Square Mile 
@@ -619,7 +619,7 @@ class Area (FormulaBase):
         argsOut = [title, sec]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.0015625
-        return (self.prec2(result), self.pluralize(result, 'Mile<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Mile<sup>2</sup>'))
 
     def section3(self):
         # Section to Square Kilometer 
@@ -628,7 +628,7 @@ class Area (FormulaBase):
         argsOut = [title, sec]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1
-        return (self.prec2(result), self.pluralize(result, 'Kilometer<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Kilometer<sup>2</sup>'))
 
     def town(self):
         # Town to Section 
@@ -637,7 +637,7 @@ class Area (FormulaBase):
         argsOut = [title, town]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.027777778
-        return (self.prec2(result), self.pluralize(result, 'Section'))
+        return (result, self.pluralize(result, 'Section'))
 
     def town2(self):
         # Town to Square Mile 
@@ -646,7 +646,7 @@ class Area (FormulaBase):
         argsOut = [title, town]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.027777778
-        return (self.prec2(result), self.pluralize(result, 'Mile<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Mile<sup>2</sup>'))
 
     def town3(self):
         # Town to Square Kilometer 
@@ -655,7 +655,7 @@ class Area (FormulaBase):
         argsOut = [title, town]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.010725011
-        return (self.prec2(result), self.pluralize(result, 'Kilometer<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Kilometer<sup>2</sup>'))
 
     def schain(self):
         # Square Chain to Square Pole 
@@ -664,7 +664,7 @@ class Area (FormulaBase):
         argsOut = [title, sqc]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.0625
-        return (self.prec2(result), self.pluralize(result, 'Pole<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Pole<sup>2</sup>'))
 
     def schain2(self):
         # Square Chain to Square Yard 
@@ -673,7 +673,7 @@ class Area (FormulaBase):
         argsOut = [title, sqc]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.002066116
-        return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Yard<sup>2</sup>'))
 
     def schain3(self):
         # Square Chain to Square Meter 
@@ -682,7 +682,7 @@ class Area (FormulaBase):
         argsOut = [title, sqc]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.002471052
-        return (self.prec2(result), self.pluralize(result, 'Meter<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Meter<sup>2</sup>'))
 
     def acre3(self):
         # Acre to Square Chain 
@@ -691,7 +691,7 @@ class Area (FormulaBase):
         argsOut = [title, acre]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.01
-        return (self.prec2(result), self.pluralize(result, 'Chain<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Chain<sup>2</sup>'))
 
     def acre4(self):
         # Acre to Square Yard 
@@ -700,7 +700,7 @@ class Area (FormulaBase):
         argsOut = [title, acre]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.000206612
-        return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Yard<sup>2</sup>'))
 
     def spole3(self):
         # Square Pole to Square Meter 
@@ -709,7 +709,7 @@ class Area (FormulaBase):
         argsOut = [title, sqp]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.039536631
-        return (self.prec2(result), self.pluralize(result, 'Meter<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Meter<sup>2</sup>'))
 
     def are(self):
         # Are to Square Yard 
@@ -718,7 +718,7 @@ class Area (FormulaBase):
         argsOut = [title, are]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.008361204
-        return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Yard<sup>2</sup>'))
 
     def cent(self):
         # Centare to Square Inch 
@@ -727,7 +727,7 @@ class Area (FormulaBase):
         argsOut = [title, cent]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.000645161
-        return (self.prec2(result), self.pluralize(result, 'Inch<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Inch<sup>2</sup>'))
 
     def ska(self):
         # Square Kilometer to Acre 
@@ -736,7 +736,7 @@ class Area (FormulaBase):
         argsOut = [title, sqk]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.004046863
-        return (self.prec2(result), self.pluralize(result, 'Acre'))
+        return (result, self.pluralize(result, 'Acre'))
 
     def link(self):
         # Square Link to Square Inch 
@@ -745,7 +745,7 @@ class Area (FormulaBase):
         argsOut = [title, sql]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.015941336
-        return (self.prec2(result), self.pluralize(result, 'Inch<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Inch<sup>2</sup>'))
 
     def link2(self):
         # Square Link to Square Centimeter 
@@ -754,7 +754,7 @@ class Area (FormulaBase):
         argsOut = [title, sql]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.002417052
-        return (self.prec2(result), self.pluralize(result, 'Centimeter<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Centimeter<sup>2</sup>'))
 
     def spole(self):
         # Square Pole to Square Link 
@@ -763,7 +763,7 @@ class Area (FormulaBase):
         argsOut = [title, sqp]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.0016
-        return (self.prec2(result), self.pluralize(result, 'Link<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Link<sup>2</sup>'))
 
     def spole2(self):
         # Square Pole to Square Yard 
@@ -772,7 +772,7 @@ class Area (FormulaBase):
         argsOut = [title, sqp]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.033057851
-        return (self.prec2(result), self.pluralize(result, 'Yard<sup>2</sup>'))
+        return (result, self.pluralize(result, 'Yard<sup>2</sup>'))
 
     def sqft4(self):
         # Square Feet to Acre 
@@ -790,7 +790,7 @@ class Area (FormulaBase):
         argsOut = [title, acre]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.4047
-        return (self.prec2(result), self.pluralize(result, 'Hectare'))
+        return (result, self.pluralize(result, 'Hectare'))
 
     def hect(self):
         # Hectare to Acre 
@@ -799,7 +799,7 @@ class Area (FormulaBase):
         argsOut = [title, hect]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 2.471
-        return (self.prec2(result), self.pluralize(result, 'Acre'))
+        return (result, self.pluralize(result, 'Acre'))
 
     def sqin(self):
         # Square Inch to Square Foot 
@@ -808,7 +808,7 @@ class Area (FormulaBase):
         argsOut = [title, sqi]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.006944444
-        return (self.prec2(result), self.pluralize(result, 'Square Foot'))
+        return (result, self.pluralize(result, 'Square Foot'))
 
     def sqft(self):
         # Square Foot to Square Yard 
@@ -817,7 +817,7 @@ class Area (FormulaBase):
         argsOut = [title, sqf]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.11111111
-        return (self.prec2(result), self.pluralize(result, 'Square Yard'))
+        return (result, self.pluralize(result, 'Square Yard'))
 
     def sqft2(self):
         # Square Foot to Square Rod 
@@ -826,7 +826,7 @@ class Area (FormulaBase):
         argsOut = [title, sqf]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.003673095
-        return (self.prec2(result), self.pluralize(result, 'Square Rod'))
+        return (result, self.pluralize(result, 'Square Rod'))
 
     def sqrd(self):
         # Square Rod to Acre 
@@ -835,7 +835,7 @@ class Area (FormulaBase):
         argsOut = [title, sqr]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.00625
-        return (self.prec2(result), self.pluralize(result, 'Acre'))
+        return (result, self.pluralize(result, 'Acre'))
 
     def acre2(self):
         # Acre to Square Mile 
@@ -844,7 +844,7 @@ class Area (FormulaBase):
         argsOut = [title, acre]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.0015625
-        return (self.prec2(result), self.pluralize(result, 'Square Mile'))
+        return (result, self.pluralize(result, 'Square Mile'))
 
     def sqft3(self):
         # Square Foot to Square Mile 

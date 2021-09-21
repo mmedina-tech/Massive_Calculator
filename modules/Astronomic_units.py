@@ -29,90 +29,112 @@ class Astronomic_units(FormulaBase):
         super(Astronomic_units, self).__init__(name)
         self.name = name
         
-        self.function_list = {
-            'Celsius to Kelvin': self.form_celsius,
-            'Fahrenheit to Kelvin': self.form_fahrenheit,
-            'Light Years to Astronomical Units': self.light,
-            'Astronomical Units to Light Years': self.astro,
-            'Light Years to Parsecs': self.light2,
-            'Parsecs to Light Years': self.parsec,
-            'Celsius to Rankine': self.rankin,
-            'Rankine to Celsius': self.celsius,
-            'Rankine to Kelvin': self.kelvin,
-            'Kelvin to Rankine': self.rankin2,
+#{{{ Function Strings
+        self.function_strings = {
+            1 : 'Celsius to Kelvin',
+            2 : 'Fahrenheit to Kelvin',
+            3 : 'Light Years to Astronomic Units',
+            4 : 'Astronomic Units to Light Years',
+            5 : 'Light Years to Parsecs',
+            6 : 'Parsecs to Light Years',
+            7 : 'Celsius to Rankine',
+            8 : 'Rankine to Celsius',
+            9 : 'Rankine to Kelvin',
+            10 : 'Kelvin to Rankine',
         }
-#{{{
+#}}}
+        
+#{{{ Function List
+        self.function_list = OrderedDict(
+            [
+                (self.function_strings[1], self.form_celsius),
+                (self.function_strings[2], self.form_fahrenheit),
+                (self.function_strings[3], self.light),
+                (self.function_strings[4], self.astro),
+                (self.function_strings[5], self.light2),
+                (self.function_strings[6], self.parsec),
+                (self.function_strings[7], self.rankin),
+                (self.function_strings[8], self.celsius),
+                (self.function_strings[9], self.kelvin),
+                (self.function_strings[10], self.rankin2),
+            ]
+        )
+#}}}
+        
+#{{{ Formula Inputs
         self.functionInputs = {
-            'Fahrenheit to Kelvin' : {
+            self.function_strings[2] : {
                     'number_input' : 'Fahrenheit (input): '
             },
-            'Celsius to Kelvin' : {
+            self.function_strings[1] : {
                     'number_input' : 'Celsius (input): '
             },
-            'Light Years to Astronomical Units':{
+            self.function_strings[3]:{
                     'number_input' : 'Light Years (input): '
             },
-            'Astronomical Units to Parsecs':{
-                    'number_input' : 'Astronomical Units (input): '
+            'Astronomic Units to Parsecs':{
+                    'number_input' : 'Astronomic Units (input): '
             },
-            'Astronomical Units to Light Years':{
-                    'number_input' : 'Astronomical Units (input): '
+            self.function_strings[4]:{
+                    'number_input' : 'Astronomic Units (input): '
             },
-            'Light Years to Parsecs':{
+            self.function_strings[5]:{
                     'number_input' : 'Light Years (input): '
             },
-            'Parsecs to Light Years': {
+            self.function_strings[6]: {
                     'number_input' : 'Parsecs (input): '
             },
-            'Celsius to Rankine':{
+            self.function_strings[7]:{
                     'number_input' : 'Celsius (input): '
             },
-            'Rankine to Celsius':{
+            self.function_strings[8]:{
                     'number_input' : 'Rankine (input): '
             },
-            'Rankine to Kelvin':{
+            self.function_strings[9]:{
                     'number_input' : 'Rankine (input): '
             },
-            'Kelvin to Rankine':{
+            self.function_strings[10]:{
                     'number_input' : 'Kelvin (input): '
             },
         }
-    #}}}
+#}}}
 
-#{{{___ Formula List _____________________________________________________________________________
+#{{{ Show Formula
         self.formula_list = {
-            'Celsius to Kelvin':{
+            self.function_strings[1]:{
                 'Formula:<br>' : 'Celsius + 270'
             },
-            'Fahrenheit to Kelvin':{
+            self.function_strings[2]:{
                 'Formula:<br>' : '((Fahrenheit - 32) * 5/9) + 270'
             },
-            'Light Years to Astronomical Units':{
+            self.function_strings[3]:{
                 'Formula:<br>' : 'Light Years * 63241.88'
             },
-            'Astronomical Units to Light Years':{
+            self.function_strings[4]:{
                 'Formula:<br>' : 'Astronomic Units * 0.000015813'
             },
-            'Light Years to Parsecs':{
+            self.function_strings[5]:{
                 'Formula:<br>' : 'Light Years * 3.261587474'
             },
-            'Parsecs to Light Years':{
+            self.function_strings[6]:{
                 'Formula:<br>' : 'Parsecs * 0.306599166'
             },
-            'Celsius to Rankine':{
+            self.function_strings[7]:{
                 'Formula:<br>' : 'Celsius * 493.47'
             },
-            'Rankine to Celsius':{
+            self.function_strings[8]:{
                 'Formula:<br>' : 'Rankine * -272.594444444'
             },
-            'Rankine to Kelvin':{
+            self.function_strings[9]:{
                 'Formula:<br>' : 'Rankine * 0.555555556'
             },
-            'Kelvin to Rankine':{
+            self.function_strings[10]:{
                 'Formula:<br>' : 'Kelvin * 1.8'
             },
         }
-#}}}_________________________________________________________________________________________
+#}}}
+
+#{{{___ Formula Functions _____________________________________________________________________________
 
     def rankin2 (self):
         title = 'Kelvin to Rankine'
@@ -120,7 +142,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, kel]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.8
-        return (str(self.prec2(result)), self.pluralize(result, 'Rankine')) 
+        return (result, self.pluralize(result, 'Rankine')) 
 
     def kelvin (self):
         title = "Rankine to Kelvin"
@@ -128,7 +150,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, ran]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .555555556
-        return (self.prec2(result), self.pluralize(result, 'Kelvin')) 
+        return (result, self.pluralize(result, 'Kelvin')) 
 
     def celsius (self):
         title = 'Rankine to Celsius'
@@ -136,7 +158,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, ran]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * -272.594444444
-        return (str(self.prec2(result)), self.pluralize(result, 'Celsius')) 
+        return (result, self.pluralize(result, 'Celsius')) 
 
     def rankin (self):
         title = 'Celsius to Rankine'
@@ -144,7 +166,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, cel]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 493.47
-        return (str(self.prec2(result)), self.pluralize(result, 'Rankine')) 
+        return (result, self.pluralize(result, 'Rankine')) 
 
     def light2 (self):
         title = 'Light Years to Parsecs'
@@ -152,7 +174,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, light]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 3.261587474
-        return (self.prec2(result), self.pluralize(result, 'Parsec')) 
+        return (result, self.pluralize(result, 'Parsec')) 
 
     def parsec (self):
         title = 'Parsecs to Light Years'
@@ -160,7 +182,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, par]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .306599166
-        return (self.prec2(result), self.pluralize(result, 'Light Year')) 
+        return (result, self.pluralize(result, 'Light Year')) 
 
     def astro (self):
         title = 'Astronomical Units to Light Years'
@@ -168,7 +190,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, au]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .000015813
-        return (self.prec4(result), self.pluralize(result, 'Light Year')) 
+        return (result, self.pluralize(result, 'Light Year')) 
 
     def light (self):
         title = 'Light Years to Astronomical Units'
@@ -176,7 +198,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, ly]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 63241.08
-        return (self.prec2(result), self.pluralize(result, 'Astronomical Unit')) 
+        return (result, self.pluralize(result, 'Astronomical Unit')) 
 
     def form_celsius(self):
         title = 'Celsius to Kelvin'
@@ -184,7 +206,7 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, cel]
         argsIn = self.prompt(argsOut)
         result = (argsIn[0] + 270)
-        return (self.prec2(result), self.pluralize(result, 'Kelvin'))
+        return (result, self.pluralize(result, 'Kelvin'))
 
     def form_fahrenheit(self):
         title = 'Fahrenheit to Kelvin'
@@ -192,4 +214,6 @@ class Astronomic_units(FormulaBase):
         argsOut = [title, fah]
         argsIn = self.prompt(argsOut)
         result = (((argsIn[0] - 32) * 5/9) + 270)
-        return (self.prec2(result), self.pluralize(result, 'Kelvin'))
+        return (result, self.pluralize(result, 'Kelvin'))
+#}}}_________________________________________________________________________________________
+

@@ -20,77 +20,121 @@
 #
 
 from FormulaBase import *
-from collections import OrderedDict
 
 class PlaneAngle(FormulaBase):
     def __init__(self, name):
         super(PlaneAngle, self).__init__(name)
         self.name = name
         
-        self.function_list = {
-            'Degrees to Radians': self.form_degrees,
-            'Minutes to Degrees': self.form_minutes,
-            'Quadrants to Degrees': self.form_quadrants,
-            'Quadrants to Radians': self.form_quadrants2,
-            'Radians to Degress': self.form_radians
+#{{{___ Function Titles _____________________________________________________________________________
+        self.function_strings = {
+            1 : 'Degrees to Radians',
+            2 : 'Minutes to Degrees',
+            3 : 'Quadrants to Degrees',
+            4 : 'Quadrants to Radians',
+            5 : 'Radians to Degrees',
+            6 : 'Minutes to Radians',
         }
-                
+#}}}_________________________________________________________________________________________
+        
+#{{{___ Function List _____________________________________________________________________________
+
+        self.function_list = OrderedDict(
+            [
+                (self.function_strings[1], self.form_degrees),
+                (self.function_strings[2], self.form_minutes),
+                (self.function_strings[3], self.form_quadrants),
+                (self.function_strings[4], self.form_quadrants2),
+                (self.function_strings[5], self.form_radians),
+                (self.function_strings[6], self.form_minutes2),
+            ]
+        )
+#}}}_________________________________________________________________________________________
+
+#{{{___ Inputs _____________________________________________________________________________
+
+        self.functionInputs = {
+            self.function_strings[1] : {
+                    'number_input' : 'Degrees: '
+            },
+            self.function_strings[2] : {
+                    'number_input' : 'Minutes: '
+            },
+            self.function_strings[6] : {
+                    'number_input' : 'Minutes: '
+            },
+            self.function_strings[3] : {
+                    'number_input' : 'Quadrants: '
+            },
+            self.function_strings[4] : {
+                    'number_input' : 'Quadrants: '
+            },
+            self.function_strings[5] : {
+                    'number_input' : 'Radians: '
+            },
+        }
+#}}}_________________________________________________________________________________________
+
 #{{{___ Formula List _____________________________________________________________________________
 
         self.formula_list = {
-            'Degrees to Radians':{
+            self.function_strings[1]:{
                 '' : 'Degrees * 0.0175'
             },
-            'Minutes to Degrees':{
+            self.function_strings[2]:{
                 '' : 'Minutes * 0.1667'
             },
-            'Minutes to Radians':{
+            self.function_strings[6]:{
                 '' : 'Minutes * (2.9 * 10<sup>-4</sup>)'
             },
-            'Quadrants to Degrees':{
+            self.function_strings[3]:{
                 '' : 'Quadrants * 90'
             },
-            'Quadrants to Radians':{
+            self.function_strings[4]:{
                 '' : 'Quadrants * 1.5708'
             },
-            'Radians to Degrees':{
+            self.function_strings[5]:{
                 '' : 'Radians * 57.3'
             },
         }
 #}}}_________________________________________________________________________________________
-		
+        
+#{{{___ Functions _____________________________________________________________________________
+
     def form_degrees(self):
-            argsOut = ['Degrees to Radians', 'Enter Degrees']
-            argsIn = self.prompt(argsOut)
-            result = argsIn[0] * .0175
-            return (result, self.pluralize(result, 'Radian'))
+        argsOut = [self.function_strings[1], 'Enter Degrees']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .0175
+        return (result, self.pluralize(result, 'Radian'))
             
     def form_minutes(self):
-            argsOut = ['Minutes to Degrees', 'Enter Minutes']
-            argsIn = self.prompt(argsOut)
-            result = argsIn[0] * .1667
-            return (result, self.pluralize(result, 'Degree'))
+        argsOut = [self.function_strings[2], 'Enter Minutes']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * .1667
+        return (result, self.pluralize(result, 'Degree'))
             
     def form_minutes2(self):
-            argsOut = ['Minutes to Radians', 'Enter Minutes']
-            argsIn = self.prompt(argsOut)
-            result = argsIn[0] * (2.9 * 10 ** (-4))
-            return (result, self.pluralize(result, 'Radian'))
+        argsOut = [self.function_strings[6], 'Enter Minutes']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * (2.9 * 10 ** (-4))
+        return (result, self.pluralize(result, 'Radian'))
             
     def form_quadrants(self):
-            argsOut = ['Quadrants to Degrees', 'Enter Quadrant']
-            argsIn = self.prompt(argsOut)
-            result = argsIn[0] * 90.0
-            return (result, self.pluralize(result, 'Degree'))
+        argsOut = [self.function_strings[3], 'Enter Quadrant']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 90.0
+        return (result, self.pluralize(result, 'Degree'))
             
     def form_quadrants2(self):
-            argsOut = ['Quadrants to Radians', 'Enter Quadrant']
-            argsIn = self.prompt(argsOut)
-            result = argsIn[0] * 1.5708
-            return (result, self.pluralize(result, 'Radian'))
+        argsOut = [self.function_strings[4], 'Enter Quadrant']
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * 1.5708
+        return (result, self.pluralize(result, 'Radian'))
             
     def form_radians(self):
-            argsOut = ['Radians to Degrees', 'Enter Radians']
-            argsIn =self.prompt(argsOut)
-            result = argsIn[0] * 57.3
-            return (result, self.pluralize(result, 'Degree'))
+        argsOut = [self.function_strings[5], 'Enter Radians']
+        argsIn =self.prompt(argsOut)
+        result = argsIn[0] * 57.3
+        return (result, self.pluralize(result, 'Degree'))
+#}}}_________________________________________________________________________________________
+

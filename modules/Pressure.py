@@ -27,89 +27,109 @@ class Pressure(FormulaBase):
         super(Pressure, self).__init__(name)
         self.name = name
 
+#{{{___ Function Titles _____________________________________________________________________________
+        self.function_strings = {
+            1 : 'Bars to KiloPascals',
+            2 : 'Bars to PSI',
+            3 : 'Inches of Mercury to KiloPascals',
+            4 : 'Inches of Water to KiloPascals',
+            5 : 'KiloPascals to Bars',
+            6 : 'KiloPascals to Inches of Mercury',
+            7 : 'KiloPascals to PSI',
+            8 : 'Pascals to Pounds per Square Foot',
+            9 : 'Pounds per Square Foot to Pascals',
+            10 : 'PSI to KiloPascals',
+        }
+#}}}_________________________________________________________________________________________
+
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = {
-            'Bars to KiloPascals': self.bars,
-            'Bars to PSI': self.bars2,
-            'Inches of Mercury to KiloPascals': self.InHg,
-            'Inches of Water to KiloPascals': self.InH2O,
-            'KiloPascals to Bars': self.kbars,
-            'KiloPascals to Inches of Mercury': self.KpHg,
-            'KiloPascals to PSI': self.KpPSI,
-            'Pascals to Pounds per Square Foot': self.pascal,
-            'Pounds per Square Foot to Pascals': self.psf,
-            'PSI to KiloPascals': self.PSI,
-        }
+        self.function_list = OrderedDict(
+            [
+                (self.function_strings[1], self.bars),
+                (self.function_strings[2], self.bars2),
+                (self.function_strings[3], self.InHg),
+                (self.function_strings[4], self.InH2O),
+                (self.function_strings[5], self.kbars),
+                (self.function_strings[6], self.KpHg),
+                (self.function_strings[7], self.KpPSI),
+                (self.function_strings[8], self.pascal),
+                (self.function_strings[9], self.psf),
+                (self.function_strings[10], self.PSI),
+            ]
+        )
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________
 
         self.functionInputs = {
-            'Bars to KiloPascals':{
+            self.function_strings[1]:{
                     'number_input' : 'Bars: '
             },
-            'Bars to PSI':{
+            self.function_strings[2]:{
                     'number_input' : 'Bars: '
             },
-            'Inches of Mercury to KiloPascals':{
+            self.function_strings[3]:{
                     'number_input' : 'Inches ot Mercury: '
             },
-            'Inches of Water to KiloPascals':{
+            self.function_strings[4]:{
                     'number_input' : 'Inches of Water: '
             },
-            'KiloPascals to Bars':{
+            self.function_strings[5]:{
                     'number_input' : 'KiloPascals: '
             },
-            'KiloPascals to Inches of Mercury':{
+            self.function_strings[6]:{
                     'number_input' : 'KiloPascals: '
             },
             'KiloPascals to Inches of Water':{
                     'number_input' : 'KiloPascals: '
             },
-            'Pascals to Pounds per Square Foot':{
+            self.function_strings[8]:{
                     'number_input' : 'Pascals: '
             },
-            'Pounds per Square Foot to Pascals':{
+            self.function_strings[9]:{
                     'number_input' : 'Pounds: '
             },
-            'PSI to KiloPascals':{
+            self.function_strings[10]:{
                     'number_input' : 'PSI: '
             },
-        }	
+            self.function_strings[7]:{
+                "number_input" : "KiloPascals (input): "
+            },
+        }    
 #}}}_________________________________________________________________________________________
 
 #{{{___ Formula List _____________________________________________________________________________
 
-        self.fomrula_list = {
-            'Inches of Mercury to KiloPascals':{
+        self.formula_list = {
+            self.function_strings[3]:{
                 '' : 'Inches of Mercury * 3.377'
             },
-            'KiloPascals to Inches of Mercury':{
+            self.function_strings[6]:{
                 '' : 'KiloPascals * 0.2961'
             },
-            'PSI to KiloPascals':{
+            self.function_strings[10]:{
                 '' : 'PSI * 6.895'
             },
-            'KiloPascals to PSI':{
+            self.function_strings[7]:{
                 '' : 'KiloPascals * 0.145'
             },
-            'Inches of Water to KiloPascals':{
+            self.function_strings[4]:{
                 '' : 'Inches of Water * 0.2488'
             },
-            'Bars to KiloPascals':{
+            self.function_strings[1]:{
                 '' : 'Bars * 100'
             },
-            'KiloPascals to Bars':{
+            self.function_strings[5]:{
                 '' : 'KiloPascals * 0.01'
             },
-            'Pascals to Pounds per Square Foot':{
+            self.function_strings[8]:{
                 '' : 'Pascals * 0.02088'
             },
-            'Pounds per Square Foot to Pascals':{
+            self.function_strings[9]:{
                 '' : 'Pounds per Square Foot * 47.88'
             },
-            'Bars to PSI':{
+            self.function_strings[2]:{
                 '' : '(Bars * 100) * .145'
             },
         }
@@ -118,7 +138,7 @@ class Pressure(FormulaBase):
 #{{{___ Formula Functions _____________________________________________________________________________
 
     def InHg (self):
-        title = "Inches of Mercury to KiloPascals"
+        title = self.function_strings[3]
         InHg = "Enter Inches of Mercury"
         argsOut = [title, InHg]
         argsIn = self.prompt(argsOut)
@@ -126,7 +146,7 @@ class Pressure(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
 
     def KpHg (self):
-        title = "KiloPascals to Inches of Mercury"
+        title = self.function_strings[6]
         Kp = "Enter KiloPascals"
         argsOut = [title, Kp]
         argsIn = self.prompt(argsOut)
@@ -134,7 +154,7 @@ class Pressure(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'Inches of Mercury'))
 
     def PSI (self):
-        title = "PSI to KiloPascals"
+        title = self.function_strings[10]
         psi = "Enter PSI"
         argsOut = [title, psi]
         argsIn = self.prompt(argsOut)
@@ -142,7 +162,7 @@ class Pressure(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
 
     def KpPSI (self):
-        title = "KiloPascals to PSI"
+        title = self.function_strings[7]
         Kp = "Enter KiloPascals"
         argsOut = [title, Kp]
         argsIn = self.prompt(argsOut)
@@ -150,7 +170,7 @@ class Pressure(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'PSI'))
     
     def InH2O (self):
-        title = "Inches of Water to KiloPascals"
+        title = self.function_strings[4]
         InH2O = "Enter Inches of Water"
         argsOut = [title, InH2O]
         argsIn = self.prompt(argsOut)
@@ -158,7 +178,7 @@ class Pressure(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
 
     def bars (self):
-        title = "Bars to KiloPascals"
+        title = self.function_strings[1]
         bar = "Enter Bars"
         argsOut = [title, bar]
         argsIn = self.prompt(argsOut)
@@ -166,7 +186,7 @@ class Pressure(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
 
     def kbars (self):
-        title = "KiloPascals to Bars"
+        title = self.function_strings[5]
         Kp = "Enter KiloPascals"
         argsOut = [title, Kp]
         argsIn = self.prompt(argsOut)
@@ -174,7 +194,7 @@ class Pressure(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'Bar'))
 
     def psf (self):
-        title = "Pounds per Square Foot to Pascals"
+        title = self.function_strings[9]
         psf = "Enter Pounds per Square Foot"
         argsOut = [title, psf]
         argsIn = self.prompt(argsOut)
@@ -182,7 +202,7 @@ class Pressure(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'Pascal'))
 
     def pascal (self):
-        title = "Pascal to Pounds per Square Foot"
+        title = self.function_strings[8]
         pas = "Enter Pascal"
         argsOut = [title, pas]
         argsIn = self.prompt(argsOut)
@@ -190,7 +210,7 @@ class Pressure(FormulaBase):
         return (self.prec4(result), self.pluralize(result, 'Pounds per Square Foot'))
 
     def bars2 (self):
-        title = "Bars to PSI"
+        title = self.function_strings[2]
         bar = "Enter Bars"
         argsOut = [title, bar]
         argsIn = self.prompt(argsOut)

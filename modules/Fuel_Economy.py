@@ -27,57 +27,64 @@ class Fuel_Economy(FormulaBase):
         super(Fuel_Economy, self).__init__(name)
         self.name = name
 
-        self.function_list = {
-#{{{___ Function List _____________________________________________________________________________
-            'Miles/Gal to Kilometers/Liter': self.miles,
-            'Kilometers/Liter to Miles/Gal': self.kilo,
+#{{{___ Function Titles _____________________________________________________________________________
+        self.function_strings = {
+            1 : 'Miles/Gal to Kilometers/Liter',
+            2 : 'Kilometers/Liter to Miles/Gal',
+        }
 #}}}_________________________________________________________________________________________
 
-        }
+#{{{___ Function List _____________________________________________________________________________
+        self.function_list = OrderedDict(
 
-        self.functionInputs = {
+            [
+                (self.function_strings[1], self.miles),
+                (self.function_strings[2], self.kilo),
+            ]
+        )
+#}}}_________________________________________________________________________________________
+
 #{{{___ Inputs _____________________________________________________________________________
+        self.functionInputs = {
 
-            'Miles/Gal to Kilometers/Liter':{
+            self.function_strings[1]:{
                     'number_input' : 'Miles/Gal: '
             },
-            'Kilometers/Liter to Miles/Gal':{
+            self.function_strings[2]:{
                     'number_input' : 'Kilometers/Liter: '
             },
+        }
 #}}}_________________________________________________________________________________________
 
-        }
-
-        self.formula_list = {
 #{{{___ Formula List _____________________________________________________________________________
+        self.formula_list = {
 
-            'Miles/Gal to Kilometers/Liter':{
+            self.function_strings[1]:{
                 '' : 'Miles/Gal * 0.42514'
             },
-            'Kilometers/Liter to Miles/Gal':{
+            self.function_strings[2]:{
                 '' : 'Kilometers/Liter * 2.3522'
             }
-#}}}_________________________________________________________________________________________
-
         }
+#}}}_________________________________________________________________________________________
 
 #{{{___ Formula Functions _____________________________________________________________________________
 
     def miles (self):
-        title = "Miles/Gal to Kilometers/Liter"
+        title = self.function_strings[1] 
         mpg = "Enter Miles/Gal"
         argsOut = [title, mpg]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .42514
-        return (self.prec2(result), self.pluralize(result, 'Kilometers/Liter'))
+        return (result, self.pluralize(result, 'Kilometers/Liter'))
 
     def kilo (self):
-        title = "Kilometers/Liter to Miles/Gal"
+        title = self.function_strings[2]
         kpl = "Enter Kilometers/Liter"
         argsOut = [title, kpl]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 2.3522
-        return (self.prec2(result), self.pluralize(result, 'Miles/Gal'))
+        return (result, self.pluralize(result, 'Miles/Gal'))
 
 #}}}_________________________________________________________________________________________
 

@@ -24,7 +24,6 @@
 
 
 from FormulaBase import * 
-from collections import OrderedDict
 
 class Acceleration(FormulaBase):
     def __init__(self, name): 
@@ -51,7 +50,7 @@ class Acceleration(FormulaBase):
         }
 #}}}_________________________________________________________________________________________
 
-#{{{
+#{{{ Inputs
         self.functionInputs = {
             self.function_strings[1]:{
                     'number_input' : 'Feet/Sec<sup>2</sup> (input): '
@@ -68,6 +67,8 @@ class Acceleration(FormulaBase):
         }
 #}}}
 
+#{{{___ Show Formula _____________________________________________________________________________
+
         self.formula_list = {
             self.function_strings[1]:{
                 "Formula:<br> " : 'Feet/Sec<sup>2</sup> * 0.3048'
@@ -82,6 +83,9 @@ class Acceleration(FormulaBase):
                 'Formula:<br>' : 'Meters/Sec<sup>2</sup> * 39.37'
             },
         }
+#}}}_________________________________________________________________________________________
+
+#{{{___ Functions _____________________________________________________________________________
 
     def feet (self):
         # Feet/Sec Squared to Meters/Sec Squared 
@@ -118,4 +122,5 @@ class Acceleration(FormulaBase):
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 39.37
         return (result, self.pluralize(result, 'Inches/Sec^2'))
+#}}}_________________________________________________________________________________________
 

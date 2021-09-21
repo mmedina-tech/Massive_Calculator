@@ -31,131 +31,151 @@ class Maritime_Measurements(FormulaBase):
         super(Maritime_Measurements, self).__init__(name)
         self.name = name
 
-#{{{___ Function List _____________________________________________________________________________
-
-        self.function_list = {
-            "Fathoms to Feet": self.ff,
-            "Cable to Fathom": self.cf,
-            "Nautical Miles to Feet": self.nmf,
-            "Fathoms to Meters": self.fm,
-            "Nautical Miles to Cables": self.nmc,
-            "Nautical Miles to Meters": self.nmm,
-            "Nautical Miles to Statute Miles": self.nmsm,
-            "Knots to Nautical Miles per Hour": self.knots,
-            "Meters to Fathoms": self.mf,
-            "Nautical Miles to Kilometers": self.nmk,
-            "Kilometers to Nautical Miles": self.knm,
-            "Miles to Nautical Miles": self.Mnm,
-            "Knots to Kilometers per Hour": self.Kkph,
-            "Kilometers per Hour to Knots": self.kphK,
-            "Knots to Miles per Hour": self.Kmph,
-            "Miles per Hour to Knots": self.mphK,
+#{{{___ Function Titles _____________________________________________________________________________
+        self.function_strings = {
+            1 : 'Fathoms to Feet',
+            2 : 'Cable to Fathom',
+            3 : 'Nautical Miles to Feet',
+            4 : 'Fathoms to Meters',
+            5 : 'Nautical Miles to Cables',
+            6 : 'Nautical Miles to Meters',
+            7 : 'Nautical Miles to Statute Miles',
+            8 : 'Knots to Nautical Miles per Hour',
+            9 : 'Meters to Fathoms',
+            10 : 'Nautical Miles to Kilometers',
+            11 : 'Kilometers to Nautical Miles',
+            12 : 'Miles to Nautical Miles',
+            13 : 'Knots to Kilometers per Hour',
+            14 : 'Kilometers per Hour to Knots',
+            15 : 'Knots to Miles per Hour',
+            16 : 'Miles per Hour to Knots',
         }
 #}}}_________________________________________________________________________________________
 
-#{{{___ Inputs _____________________________________________________________________________
+#{{{___ Function List _____________________________________________________________________________
+        self.function_list = OrderedDict(
+            [
+                (self.function_strings[1], self.ff),
+                (self.function_strings[2], self.cf),
+                (self.function_strings[3], self.nmf),
+                (self.function_strings[4], self.fm),
+                (self.function_strings[5], self.nmc),
+                (self.function_strings[6], self.nmm),
+                (self.function_strings[7], self.nmsm),
+                (self.function_strings[8], self.knots),
+                (self.function_strings[9], self.mf),
+                (self.function_strings[10], self.nmk),
+                (self.function_strings[11], self.knm),
+                (self.function_strings[12], self.Mnm),
+                (self.function_strings[13], self.Kkph),
+                (self.function_strings[14], self.kphK),
+                (self.function_strings[15], self.Kmph),
+                (self.function_strings[16], self.mphK),
+            ]
+        )
+#}}}_________________________________________________________________________________________
 
+#{{{___ Inputs _____________________________________________________________________________
         self.functionInputs = {
-            "Fathoms to Feet":{
-                "number_input" : "Fathoms (input):"
+            self.function_strings[1]:{
+                'number_input' : 'Fathoms (input):'
                     },
-            "Cable to Fathom":{
-                "number_input" : "Cable (input):"
+            self.function_strings[2]:{
+                'number_input' : 'Cable (input):'
                     },
-            "Nautical Miles to Feet":{
-                "number_input" : "Nautical Miles (input):"
+            self.function_strings[3]:{
+                'number_input' : 'Nautical Miles (input):'
                     },
-            "Fathoms to Meters":{
-                "number_input" : "Fathom (input):"
+            self.function_strings[4]:{
+                'number_input' : 'Fathom (input):'
                     },
-            "Nautical Miles to Cables":{
-                "number_input" : "Nautical Miles (input):"
+            self.function_strings[5]:{
+                'number_input' : 'Nautical Miles (input):'
                     },
-            "Nautical Miles to Meters":{
-                "number_input" : "Nautical Miles (input):"
+            self.function_strings[6]:{
+                'number_input' : 'Nautical Miles (input):'
                     },
-            "Nautical Miles to Statute Miles":{
-                "number_input" : "Nautical Miles (input):"
+            self.function_strings[7]:{
+                'number_input' : 'Nautical Miles (input):'
                     },
-            "Knots to Nautical Miles per Hour":{
-                "number_input" : "Knots (input):"
+            self.function_strings[8]:{
+                'number_input' : 'Knots (input):'
                     },
-            "Meters to Fathoms":{
-                "number_input" : "Meter (input):"
+            self.function_strings[9]:{
+                'number_input' : 'Meter (input):'
                     },
-            "Nautical Miles to Kilometers":{
-                "number_input" : "Nautical Miles (input):"
+            self.function_strings[10]:{
+                'number_input' : 'Nautical Miles (input):'
                     },
-            "Kilometers to Nautical Miles":{
-                "number_input" : "Kilometers (input):"
+            self.function_strings[11]:{
+                'number_input' : 'Kilometers (input):'
                     },
-            "Miles to Nautical Miles":{
-                "number_input" : "Miles (input):"
+            self.function_strings[12]:{
+                'number_input' : 'Miles (input):'
                     },
-            "Knots to Kilometers per Hour":{
-                "number_input" : "Knots (input):"
+            self.function_strings[13]:{
+                'number_input' : 'Knots (input):'
                     },
-            "Kilometers per Hour to Knots":{
-                "number_input" : "Kilometers per Hour (input):"
+            self.function_strings[14]:{
+                'number_input' : 'Kilometers per Hour (input):'
                     },
-            "Knots to Miles per Hour":{
-                "number_input" : "Knots (input):"
+            self.function_strings[15]:{
+                'number_input' : 'Knots (input):'
                     },
-            "Miles per Hour to Knots":{
-                "number_input" : "Miles per Hour (input):"
+            self.function_strings[16]:{
+                'number_input' : 'Miles per Hour (input):'
                     },
             }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Formula List _____________________________________________________________________________
-
         self.formula_list = {
-            'Fathoms to Feet':{
+            self.function_strings[1]:{
                 '' : 'Fathom * 6'
             },
-            'Cable to Fathom':{
+            self.function_strings[2]:{
                 '' : 'Cable * 0.01'
             },
-            'Nautical Miles to Feet':{
+            self.function_strings[3]:{
                 '' : 'Nautical Miles * 6076'
             },
-            'Fathoms to Meters':{
+            self.function_strings[4]:{
                 '' : 'Fathoms * 0.546448087'
             },
-            'Nautical Miles to Cables':{
+            self.function_strings[5]:{
                 '' : 'Nautical Miles * 10'
             },
-            'Nautical Miles to Meters':{
+            self.function_strings[6]:{
                 '' : 'Nautical Miles * 1852'
             },
-            'Nautical Miles to Statute Miles':{
+            self.function_strings[7]:{
                 '' : 'Nautical Miles * 1.15'
             },
-            'Knots to Nautical Miles per Hour':{
+            self.function_strings[8]:{
                 '' : 'Knots * 1'
             },
-            'Meters to Fathoms':{
+            self.function_strings[9]:{
                 '' : 'Meters * 1.83'
             },
-            'Nautical Miles to Kilometers':{
+            self.function_strings[10]:{
                 '' : 'Nautical Miles * 0.539956803456'
             },
-            'Kilometers to Nautical Miles':{
+            self.function_strings[11]:{
                 '' : 'Kilometers * 1.852'
             },
-            'Miles to Nautical Miles':{
+            self.function_strings[12]:{
                 '' : 'Miles * 1.150775577122'
             },
-            'Knots to Kilometers per Hour':{
+            self.function_strings[13]:{
                 '' : 'Kilometer * 1.93968964967'
             },
-            'Kilometers per Hour to Knots':{
+            self.function_strings[14]:{
                 '' : 'Kilometers per Hour * 0.59'
             },
-            'Miles per Hour to Knots':{
+            self.function_strings[16]:{
                 '' : 'Miles per Hour * 1.69491525424'
             },
-            'Knots to Miles per Hour':{
+            self.function_strings[15]:{
                 '' : 'Knots * 0.59'
             },
         }
@@ -163,8 +183,8 @@ class Maritime_Measurements(FormulaBase):
 
 #{{{___ Formula Functions _____________________________________________________________________________
 
-    def ff(self, num):
-        title = "Fathoms to Feet"
+    def ff(self):
+        title = self.function_strings[1]
         fath = "Enter Fathoms"
         argsOut = [title, fath]
         argsIn = self.prompt(argsOut)
@@ -172,7 +192,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Foot"))
 
     def cf(self):
-        title = "Cables to Fathoms"
+        title = self.function_strings[2]
         cb = "Enter Cables"
         argsOut = [title, cb]
         argsIn = self.prompt(argsOut)
@@ -180,7 +200,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result) , self.pluralize(result, "Fathom"))
 
     def nmf(self):
-        title = "Nautical Miles to Feet"
+        title = self.function_strings[3]
         nm = "Enter Nautical Miles"
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
@@ -188,7 +208,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Foot"))
 
     def fm(self):
-        title = "Fathoms to Meters"
+        title = self.function_strings[4]
         fath = "Enter Fathoms"
         argsOut = [title, fath]
         argsIn = self.prompt(argsOut)
@@ -196,7 +216,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Meter"))
 
     def nmc(self):
-        title = "Nautical Miles to Cables"
+        title = self.function_strings[5]
         nm = "Enter Nautical Miles"
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
@@ -204,7 +224,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Cable"))
 
     def nmm(self):
-        title = "Nautical Miles to Meters"
+        title = self.function_strings[6]
         nm = "Enter Nautical Miles"
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
@@ -212,7 +232,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Meter"))
 
     def nmsm(self):
-        title = "Nautical Miles to Statute Miles"
+        title = self.function_strings[7]
         nm = "Enter Nautical Miles"
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
@@ -220,7 +240,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Statute Mile"))
 
     def knots(self):
-        title = "Knots to Nautical Miles"
+        title = self.function_strings[8]
         knot = "Enter Knots"
         argsOut = [title, knot]
         argsIn = self.prompt(argsOut)
@@ -228,7 +248,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Nautical Mile"))
 
     def mf(self):
-        title = "Meters to Fathoms"
+        title = self.function_strings[9]
         m = "Enter Meters"
         argsOut = [title, m]
         argsIn = self.prompt(argsOut)
@@ -236,7 +256,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Fathom"))
 
     def nmk(self):
-        title = "Nautical Miles to Kilometers"
+        title = self.function_strings[10]
         nm = "Enter Nautical Miles"
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
@@ -244,7 +264,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Kilometer"))
 
     def knm(self):
-        title = "Kilometers to Nautical Miels"
+        title = self.function_strings[11]
         k = "Enter Kilometers"
         argsOut = [title, k]
         argsIn = self.prompt(argsOut)
@@ -252,7 +272,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Nautical Mile"))
 
     def Mnm(self):
-        title = "Miles to Nautical Miles"
+        title = self.function_strings[12]
         M = "Enter Miles"
         argsOut = [title, M]
         argsIn = self.prompt(argsOut)
@@ -260,7 +280,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Nautical Mile"))
 
     def Kkph(self):
-        title = "Kilometers to Kilometers per Hour"
+        title = self.function_strings[13]
         K = "Enter Kilometers"
         argsOut = [title, K]
         argsIn = self.prompt(argsOut)
@@ -268,7 +288,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Kilometer per Hour"))
 
     def kphK(self):
-        title = "Kilometers per Hour to Knots"
+        title = self.function_strings[14]
         kph = "Enter Kilometers per Hour"
         argsOut = [title, kph]
         argsIn = self.prompt(argsOut)
@@ -276,7 +296,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Knot"))
 
     def Kmph(self):
-        title = "Knots to Miles per Hour"
+        title = self.function_strings[15]
         K = "Enter Knots"
         argsOut = [title, K]
         argsIn = self.prompt(argsOut)
@@ -284,7 +304,7 @@ class Maritime_Measurements(FormulaBase):
         return (self.prec2(result), self.pluralize(result, "Mile per Hour"))
 
     def mphK(self):
-        title = "Miles per Hour to Knots"
+        title = self.function_strings[16]
         mph = "Enter Miles per Hour"
         argsOut = [title, mph]
         argsIn = self.prompt(argsOut)
