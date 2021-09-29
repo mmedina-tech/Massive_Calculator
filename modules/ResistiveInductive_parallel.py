@@ -713,36 +713,50 @@ class ResistiveInductive_parallel(FormulaBase):
         result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Impedance'))
 
-    def form_InductRe(self):
-        result = (argsIn[0]**2) / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
-
-    def form_InductRe2(self):
-        result = argsIn[0] / (argsIn[1]**2)
-        return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
-
     def form_InductRe3(self):
+        title = self.function_strings[6]
+        arg1 = "Enter Frequency"
+        arg2 = "Enter Inductor Rating"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = 2*3.14*argsIn[0]*argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
 
     def form_InductRe4(self):
+        title = self.function_strings[7]
+        arg1 = 'Enter Impedance'
+        arg2 = 'Enter Resistance'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = 1/(1/(argsIn[0]**2) - (argsIn[1]**2))
         return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
 
+    def form_InductRe2(self):
+        title = self.function_strings[8]
+        arg1 = "Enter Inductor VAR's"
+        arg2 = "Enter Inductor Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / (argsIn[1]**2)
+        return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
+
     def form_InductRe5(self):
+        title = self.function_strings[9]
+        arg1 = "Inductor Volts"
+        arg2 = 'Inductor Amps'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
 
-    def form_InductA(self):
-        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
-        try:
-            return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
-        except(Exception):
-            return (self.error_msg, '')
-
-    def form_InductA2(self):
-        result = argsIn[0] / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
+    def form_InductRe(self):
+        title = self.function_strings[10]
+        arg1 = 'Inductor Volts'
+        arg2 = "Inductor VAR's"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
 
     def form_InductA3(self):
         result = argsIn[0] / argsIn[1]
@@ -752,6 +766,17 @@ class ResistiveInductive_parallel(FormulaBase):
         result = sqrt(argsIn[0] / argsIn[1])
         return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
 
+    def form_InductA2(self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
+
+    def form_InductA(self):
+        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
+        try:
+            return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
+        except(Exception):
+            return (self.error_msg, '')
+
     def form_InductorRating(self):
         result = argsIn[0] / (2*3.14*argsIn[1])
         return (self.prec(result, 4), self.pluralize(result, 'Inductor Rating'))
@@ -760,13 +785,6 @@ class ResistiveInductive_parallel(FormulaBase):
         result = (argsIn[0]**2) * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, "Inductor VAR"))
 
-    def form_InductorV2(self):
-        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
-        try:
-            return (self.prec(result, 4), self.pluralize(result, 'Inductor VAR'))
-        except(Exception):
-            return (self.error_msg, '')
-
     def form_InductorV3(self):
         result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Inductor VAR'))
@@ -774,6 +792,13 @@ class ResistiveInductive_parallel(FormulaBase):
     def form_InductorV4(self):
         result = (argsIn[0]**2) / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Inductor VAR'))
+
+    def form_InductorV2(self):
+        result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
+        try:
+            return (self.prec(result, 4), self.pluralize(result, 'Inductor VAR'))
+        except(Exception):
+            return (self.error_msg, '')
 
     def form_InductV(self):
         result = argsIn[0] * argsIn[1]
@@ -787,11 +812,11 @@ class ResistiveInductive_parallel(FormulaBase):
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Inductor Volt'))
 
-    def form_Power(self):
-        result = argsIn[0] / argsIn[1]
+    def form_Power4(self):
+        result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
 
-    def form_Power2(self):
+    def form_Power(self):
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
 
@@ -799,17 +824,9 @@ class ResistiveInductive_parallel(FormulaBase):
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
 
-    def form_Power4(self):
-        result = argsIn[0] * argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
-
-    def form_Resistance(self):
+    def form_Power2(self):
         result = argsIn[0] / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
-
-    def form_Resistance2(self):
-        result = argsIn[0] / (argsIn[1]**2)
-        return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
+        return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
 
     def form_Resistance3(self):
         result = 1/sqrt((argsIn[0]**2) - (argsIn[1]**2))
@@ -819,6 +836,18 @@ class ResistiveInductive_parallel(FormulaBase):
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
 
+    def form_Resistance(self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
+
+    def form_Resistance2(self):
+        result = argsIn[0] / (argsIn[1]**2)
+        return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
+
+    def form_ResistA2(self):
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
+
     def form_ResistA(self):
         result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
         try:
@@ -826,8 +855,8 @@ class ResistiveInductive_parallel(FormulaBase):
         except(Exception):
             return (self.error_msg, '')
 
-    def form_ResistA2(self):
-        result = argsIn[0] / argsIn[1]
+    def form_ResistA5(self):
+        result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
 
     def form_ResistA3(self):
@@ -836,10 +865,6 @@ class ResistiveInductive_parallel(FormulaBase):
 
     def form_ResistA4(self):
         result = argsIn[0] / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
-
-    def form_ResistA5(self):
-        result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
 
     def form_ResistV(self):
