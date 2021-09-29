@@ -1182,10 +1182,12 @@ class ResistiveInductive_parallel(FormulaBase):
         return (self.prec(result, 4), self.pluralize(result, 'Watt'))
 
     def form_VoltA6(self):
+        #NOTE: form_VoltA6, find inputs
         result = (argsIn[0]**2) / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Volt Amp'))
 
     def form_ResistV4(self):
+        #NOTE: form_ResistV4, find inputs
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Resistor Volt'))
 
