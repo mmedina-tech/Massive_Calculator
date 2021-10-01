@@ -167,6 +167,7 @@ def category_prompt():
 # Formula Selection of Associated Category 
 def formula_prompt(cat):
 
+    while True:
     # Loops until proper input is taken in 
         prompt = raw_input(prompts['formulaprompt'])
 
