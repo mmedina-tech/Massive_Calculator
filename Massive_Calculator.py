@@ -169,6 +169,7 @@ def formula_prompt(cat):
 
     while True:
     # Loops until proper input is taken in 
+        print_menu(cat.function_list)
         prompt = raw_input(prompts['formulaprompt'])
 
         # checks input against letters and special characters 
