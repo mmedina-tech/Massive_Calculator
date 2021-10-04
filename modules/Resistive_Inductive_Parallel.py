@@ -22,9 +22,10 @@
 
 from FormulaBase import *
 
-class ResistiveInductive_parallel(FormulaBase):
-    def __init__(self):
-        super(ResistiveInductive_parallel, self).__init__()
+class Resistive_Inductive_Parallel(FormulaBase):
+    def __init__(self, name):
+        super(Resistive_Inductive_Parallel, self).__init__(name)
+        self.name = name
         
 #{{{___ Function Titles _____________________________________________________________________________
         self.function_strings = {

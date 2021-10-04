@@ -22,9 +22,9 @@
 
 from FormulaBase import *
 
-class ResistiveInductance_series(FormulaBase):
-    def __init__(self):
-        super(ResistiveInductance_series, self).__init__(name)
+class Resistive_Inductive_Series(FormulaBase):
+    def __init__(self, name):
+        super(Resistive_Inductive_Series, self).__init__(name)
         self.name = name
         self.error_msg = "Can not be a negative square root"
 

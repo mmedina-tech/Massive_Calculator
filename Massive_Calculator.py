@@ -10,10 +10,10 @@
 #
 # This Program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABLILITY of FITNESS FOR A PARTICULAR PURPOSE. See the 
+# MERCHANTABILITY of FITNESS FOR A PARTICULAR PURPOSE. See the 
 # GNU General Public License for more details.
 #
-# You Should have recieved a copy of the GNU General Public License
+# You Should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
@@ -23,6 +23,7 @@ from collections import OrderedDict
 from importlib import import_module
 from modules.FormulaBase import *
 from modules.allowances import *
+from load_screen import *
 
 
 
@@ -61,10 +62,10 @@ list_category = {
     'Plane Angle': 'PlaneAngle',
     'Power': 'Power',
     'Pressure': 'Pressure',
-    'Resistive Capacitance (Parallel)': 'Resistive_Capacitance_Parallel',
+    'Resistive Capacitance (Parallel)': 'Resistive_Capacitive_Parallel',
     'Resistive Capacitance (Series)': 'Resistive_Capacitive_Series',
-    'Resistive Inductance (Parallel)': 'Resistive_Inductive_parallel',
-    'Resistive Inductance (Series)': 'Resistive_Inductive_series',
+    'Resistive Inductance (Parallel)': 'Resistive_Inductive_Parallel',
+    'Resistive Inductance (Series)': 'Resistive_Inductive_Series',
     'Torque': 'Torque',
     'Velocity': 'Velocity',
 }
@@ -73,8 +74,6 @@ objects = {}
 menu = {}
 list_category = sorted(list_category.items())
 list_category = OrderedDict(list_category)
-#print list_category.items()
-#exit()
 
 # log function 
 def logme(msg):
@@ -102,6 +101,7 @@ def print_help():
 # Category Selection 
 def category_prompt():
 
+    loading_bar(20)
     # Loops until a proper selection is made     
     while True:
         print_menu(list_category)
@@ -140,11 +140,12 @@ def category_prompt():
             except(NameError, KeyError) as e:
                 subkey = list_category[key]
                 
-                ret = import_module("modules."+subkey)
+                ret = import_module("modules."+list_category[key])
                 try:
-                        ret = import_module("modules."+subkey)
+                    ret = import_module("modules."+list_category[key])
                 except(Exception) as e:
-                        print e; exit()
+                    logme(e)
+                    print e; exit()
                 
                 submod = getattr(ret, subkey)
                 
@@ -152,10 +153,8 @@ def category_prompt():
             finally:
                 #print objects[key].functions_list.keys(); exit()
                 cnt = 0
-                objects[key].function_list = sorted(objects[key].function_list.items())
-                objects[key].function_list = OrderedDict(objects[key].function_list)
                 for funct in objects[key].function_list.keys():
-                    print '\n{} {}'.format(cnt,funct)
+                    print '\n{} {}'.format(cnt, funct)
                     cnt += 1
     #formula_prompt(objects[key].function_list[key])
                     formula_prompt(objects[key])
@@ -166,6 +165,8 @@ def category_prompt():
         
 # Formula Selection of Associated Category 
 def formula_prompt(cat):
+    cat.function_list = sorted(cat.function_list.items())
+    cat.function_list = OrderedDict(cat.function_list)
 
     while True:
     # Loops until proper input is taken in 

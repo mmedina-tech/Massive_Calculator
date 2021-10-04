@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#SYNOPSIS: Module for Massive Calculator Terminal
+# SYNOPSIS: Module for Massive Calculator Terminal
 # 
 # Accounting.py
 #
@@ -27,9 +27,6 @@ from FormulaBase import *
 
 class Accounting(FormulaBase):
     def __init__(self, name):
-        """
-        name -- Accounting
-        """
         super(Accounting, self).__init__(name)
         self.name = name
 
@@ -59,28 +56,26 @@ class Accounting(FormulaBase):
 
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = OrderedDict(
-            [
-                (self.function_strings[1], self.equity),
-                (self.function_strings[2], self.trend),
-                (self.function_strings[3], self.current),
-                (self.function_strings[4], self.gross_margin),
-                (self.function_strings[5], self.gross_margin2),
-                (self.function_strings[6], self.inventory),
-                (self.function_strings[7], self.quick),
-                (self.function_strings[8], self.accounts),
-                (self.function_strings[9], self.number),
-                (self.function_strings[10], self.rate),
-                (self.function_strings[11], self.total_asset),
-                (self.function_strings[12], self.per_share),
-                (self.function_strings[13], self.dividend),
-                (self.function_strings[14], self.payout),
-                (self.function_strings[15], self.quick2),
-                (self.function_strings[16], self.gross_margin3),
-                (self.function_strings[17], self.comp_equity),
-                (self.function_strings[18], self.cash2equity),
-            ]
-        )
+        self.function_list = {
+            self.function_strings[1]: self.equity,
+            self.function_strings[2]: self.trend,
+            self.function_strings[3]: self.current,
+            self.function_strings[4]: self.gross_margin,
+            self.function_strings[5]: self.gross_margin2,
+            self.function_strings[6]: self.inventory,
+            self.function_strings[7]: self.quick,
+            self.function_strings[8]: self.accounts,
+            self.function_strings[9]: self.number,
+            self.function_strings[10]: self.rate,
+            self.function_strings[11]: self.total_asset,
+            self.function_strings[12]: self.per_share,
+            self.function_strings[13]: self.dividend,
+            self.function_strings[14]: self.payout,
+            self.function_strings[15]: self.quick2,
+            self.function_strings[16]: self.gross_margin3,
+            self.function_strings[17]: self.comp_equity,
+            self.function_strings[18]: self.cash2equity,
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Function Inputs _____________________________________________________________________________
@@ -243,7 +238,7 @@ class Accounting(FormulaBase):
             },
             self.function_strings[13]:{
                 'Formula:<br>': 'Dividend Per Share of Common Stock / Current Market Price per Share'
-             },
+            },
             self.function_strings[14]:{
                 'Formula:<br>': 'Dividend per Share of Common Stock / Earnings Per Share (EPS)'
             },
@@ -260,6 +255,7 @@ class Accounting(FormulaBase):
                 'Formula:<br>': 'Company Worth / Amount Put In'
             },
         }
+
 #}}}_________________________________________________________________________________________
         
 #{{{___ Formula Functions _____________________________________________________________________________
@@ -286,7 +282,7 @@ class Accounting(FormulaBase):
         argsOut = [title, current_amount, current_liability]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return ('%'+self.prec2(result), self.pluralize(result, 'Trend Percentage'))
+        return ('%'+self.prec(result, 2), self.pluralize(result, 'Trend Percentage'))
 
     def current_ratio(self):
         """
@@ -298,7 +294,7 @@ class Accounting(FormulaBase):
         argsOut = [title, current_assets, current_liability]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return (self.prec2(result)+'/1', self.pluralize(result, 'Current Ratio'))
+        return (self.prec(result, 2)+'/1', self.pluralize(result, 'Current Ratio'))
 
     def gross_margin(self):
         """
@@ -310,7 +306,7 @@ class Accounting(FormulaBase):
         argsOut = [title, cost, revenue]
         argsIn = self.prompt(argsOut)
         result = ((argsIn[0] - argsIn[1]) / argsIn[1]) * 100
-        return ('%'+self.prec2(result), self.pluralize(result, 'Gross Margin Percentage'))
+        return ('%'+self.prec(result, 2), self.pluralize(result, 'Gross Margin Percentage'))
 
     def gross_ratio(self):
         """
@@ -322,7 +318,7 @@ class Accounting(FormulaBase):
         argsOut = [title, gross_profit, revenue]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return (self.prec2(result)+'/1', self.pluralize(result, 'Gross Margin Ratio'))
+        return (self.prec(result, 2)+'/1', self.pluralize(result, 'Gross Margin Ratio'))
 
     def inventory(self):
         """
@@ -334,7 +330,7 @@ class Accounting(FormulaBase):
         argsOut = [title, cost, average]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return (self.prec2(result)+'/1', self.pluralize(result, 'Inventory Turn-Over Ratio'))
+        return (self.prec(result, 2)+'/1', self.pluralize(result, 'Inventory Turn-Over Ratio'))
 
     def quick(self):
         """
@@ -349,7 +345,7 @@ class Accounting(FormulaBase):
         argsOut = [title, cash, cash_eq, short_term, current_recieve, current_liability]
         argsIn = self.prompt(argsOut)
         result = (argsIn[0] + argsIn[1] + argsIn[2] + argsIn[3]) / argsIn[4]
-        return (self.prec2(result)+'/1', self.pluralize(result, 'Quick Ratio'))
+        return (self.prec(result, 2)+'/1', self.pluralize(result, 'Quick Ratio'))
 
     def accounts_receive(self):
         """
@@ -433,7 +429,7 @@ class Accounting(FormulaBase):
         argsOut = [title, per_share, eps]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return (self.prec2(result)+'/1', self.pluralize(result, 'Payout Ratio'))
+        return (self.prec(result, 2)+'/1', self.pluralize(result, 'Payout Ratio'))
 
     def quick2(self):
         """
@@ -447,7 +443,7 @@ class Accounting(FormulaBase):
         argsOut = [title, total_current, inventory, prepaid, liability]
         argsIn = self.prompt(argsOut)
         result = (argsIn[0] - argsIn[1] - argsIn[2]) / argsIn[3]
-        return (self.prec2(result)+'/1', self.pluralize(result, 'Quick Ratio'))
+        return (self.prec(result, 2)+'/1', self.pluralize(result, 'Quick Ratio'))
 
     def gross_margin3(self):
         """
@@ -471,7 +467,7 @@ class Accounting(FormulaBase):
         argsOut = [title, cmpy_worth, in_amount]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return ('%'+self.prec2(result), self.pluralize(result, 'Equity'))
+        return ('%'+self.prec(result, 2), self.pluralize(result, 'Equity'))
 
     def comp_equity(self):
         """
@@ -483,7 +479,7 @@ class Accounting(FormulaBase):
         argsOut = [title, cash, equity]
         argsIn = self.prompt(argsOut)
         result = (argsIn[0] / argsIn[1])
-        return ('$'+self.prec2(result), self.pluralize(result, 'Company Valuation'))
+        return ('$'+self.prec(result, 2), self.pluralize(result, 'Company Valuation'))
 
-    #}}}_________________________________________________________________________________________
+#}}}_________________________________________________________________________________________
     

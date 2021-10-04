@@ -22,9 +22,9 @@
 
 from FormulaBase import * 
 
-class Resistive_Capacitance_Parallel(FormulaBase):
+class Resistive_Capacitive_Parallel(FormulaBase):
     def __init__(self, name):
-        super(Resistive_Capacitance_Parallel, self).__init__(name)
+        super(Resistive_Capacitive_Parallel, self).__init__(name)
         self.name = name
 
 #{{{___ Function Titles _____________________________________________________________________________
