@@ -27,21 +27,28 @@ class Light(FormulaBase):
         super(Light, self).__init__(name)
         self.name = name
 
-#{{{___ Function List _____________________________________________________________________________
-
-        self.function_list = {
-            'Foot Candles to Lumens/Meter Squared': self.foot,
-            'Lumens/Meter Squared to Foot Candles': self.lumens,
+#{{{___ Function Titles _____________________________________________________________________________
+        self.function_strings = {
+            1 : 'Foot Candles to Lumens/Meter Squared',
+            2 : 'Lumens/Meter Squared to Foot Candles',
         }
 #}}}_________________________________________________________________________________________
 
-#{{{___ Inputs _____________________________________________________________________________
+#{{{___ Function List _____________________________________________________________________________
+        self.function_list = OrderedDict(
+            [
+                (self.function_strings[1], self.foot),
+                (self.function_strings[2], self.lumens),
+            ]
+        )
+#}}}_________________________________________________________________________________________
 
+#{{{___ Inputs _____________________________________________________________________________
         self.functionInputs = {
-            'Foot Candles to Lumens/Meter Squared':{
+            self.function_strings[1]:{
                     'number_input' : 'Foot Candles: '
             },
-            'Lumens/Meter Squared to Foot Candles':{
+            self.function_strings[2]:{
                     'number_input' : 'Lumens/Meter<sup>2</sup>: '
             },
         }
@@ -49,10 +56,10 @@ class Light(FormulaBase):
 
 #{{{___ Formula List _____________________________________________________________________________
         self.formula_list = {
-            'Foot Candles to Lumens/Meter Squared':{
+            self.function_strings[1]:{
                 '' : 'Foot Candles * 10.76'
             },
-            'Lumens/Meter Squared to Foot Candles':{
+            self.function_strings[2]:{
                 '' : 'Lumens/Meter Squared * 0.0929'
             },
         }
@@ -61,7 +68,7 @@ class Light(FormulaBase):
 #{{{___ Formula Functions _____________________________________________________________________________
 
     def foot (self):
-        title = "Foot Candles to Lumens/Meter Squared"
+        title = self.function_strings[1]
         fc = "Enter Foot Candles"
         argsOut = [title, fc]
         argsIn = self.prompt(argsOut)
@@ -69,7 +76,7 @@ class Light(FormulaBase):
         return (self.prec2(result), self.pluralize(result, 'Lumens/Meter<sup>2</sup>'))
 
     def lumens (self):
-        title = "Lumens/Meter Squared to Foot Candles"
+        title = self.function_strings[2]
         lms = "Enter Lumens/Meter Squared"
         argsOut = [title, lms]
         argsIn = self.prompt(argsOut)
