@@ -48,8 +48,8 @@ class FormulaBase(object):
 		argList = []
 		print "\nRunning... "+args[0]
 		for arg in args[1:]:
-				userStr = raw_input("\t"+arg+": ")
-            	argList.append(float(userStr))
+                    userStr = raw_input("\t"+arg+": ")
+                    argList.append(float(userStr))
 		return argList
 		
 	def pluralize(self, a, b):
