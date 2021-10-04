@@ -1,26 +1,47 @@
-#!/usr/bin python
+#!/usr/bin/python
+#
+# Author: Marcus Medina
+# Co-Author: Gail Long
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or 
+# (at your option) any later version.
+#
+# This Program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY of FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+#
+# You Should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
 
 import os
 from collections import OrderedDict
-from FormulaBase import *
 from importlib import import_module
+from modules.FormulaBase import *
+from modules.allowances import *
+from load_screen import *
+
 
 
 # Sets up prompt strings 
 prompts = {
-	'categoryprompt' : "\nEnter Category - 'h' for Help or 'q' to Quit: ",
-	'formulaprompt' : "\nEnter Formula or 'b' to go back, or 'q' to Quit: ",
-	'continueprompt' : 'Press Enter to Continue'
-		}
-# strings for titles, exit messages, error messages, and help strings		
+    'categoryprompt' : "\nEnter Category - 'h' for Help or 'q' to Quit: ",
+    'formulaprompt' : "\nEnter Formula or 'b' to go back, or 'q' to Quit: ",
+    'continueprompt' : 'Press Enter to Continue'
+        }
+# strings for titles, exit messages, error messages, and help strings        
 strings = {
-	'mainmenutitle' : '\nThe Massive Calculator\n',
-	'endnote' : '\nThank you for using the Massive Calculator\n',
-	'cathelpstring' : '\nPress the number of the formula or conversion you want\n',
-	'tryagain' : 'Please Try Again'
-		}
+    'mainmenutitle' : '\nThe Massive Calculator\n',
+    'endnote' : '\nThank you for using the Massive Calculator\n',
+    'cathelpstring' : '\nPress the number of the formula or conversion you want\n',
+    'tryagain' : 'Please Try Again'
+        }
 # Category Module list for Menu list 
-old_list_category = {
+list_category = {
     'Acceleration': 'Acceleration',
     'Accounting': 'Accounting',
     'Area': 'Area',
@@ -41,52 +62,25 @@ old_list_category = {
     'Plane Angle': 'PlaneAngle',
     'Power': 'Power',
     'Pressure': 'Pressure',
-    'Resistive Capacitance (Parallel)': 'Resistive_Capacitance_Parallel',
+    'Resistive Capacitance (Parallel)': 'Resistive_Capacitive_Parallel',
     'Resistive Capacitance (Series)': 'Resistive_Capacitive_Series',
-    'Resistive Inductance (Parallel)': 'Resistive_Inductive_parallel',
-    'Resistive Inductance (Series)': 'Resistive_Inductive_series',
+    'Resistive Inductance (Parallel)': 'Resistive_Inductive_Parallel',
+    'Resistive Inductance (Series)': 'Resistive_Inductive_Series',
     'Torque': 'Torque',
     'Velocity': 'Velocity',
 }
 
 objects = {}
 menu = {}
-list_category = sorted(old_list_category.items())
+list_category = sorted(list_category.items())
 list_category = OrderedDict(list_category)
-#print list_category.items()
-#exit()
 
 # log function 
 def logme(msg):
-	fp = open('Log/my.log', 'a')
-	fp.write('\n'+msg+'\n\n')
-	fp.close()
+    fp = open('Log/my.log', 'a')
+    fp.write('\n'+msg+'\n\n')
+    fp.close()
        
-# Allowances class for allowable inputs other than numbers 
-class allowances(object):
-
-    def __init__(self):
-        self.quit_allowances()
-        self.back_allowances()
-        self.help_allowances()
-        self.cat_allowances()
-        self.form_allowances()
-
-    def quit_allowances(self):
-        self.quit_allowances = ['q', 'Q']
-
-    def back_allowances(self):
-        self.back_allowances = ['b', 'B']
-
-    def help_allowances(self):
-        self.help_allowances = ['h', 'H']
-
-    def cat_allowances(self):
-        self.cat_allowances = []
-
-    def form_allowances(self):
-        self.form_allowances = []
-
 allowances = allowances()
 
 #  Prints the Menus
@@ -101,17 +95,17 @@ def print_menu(list_category):
 
 # Prints the help message 
 def print_help():
-	print strings['cathelpstring']
-	raw_input(prompts['continueprompt'])
+    print strings['cathelpstring']
+    raw_input(prompts['continueprompt'])
         
 # Category Selection 
 def category_prompt():
 
-    # Loops until a proper selection is made 	
+    loading_bar(20)
+    # Loops until a proper selection is made     
     while True:
         print_menu(list_category)
         prompt = raw_input(prompts['categoryprompt'])
-        logme('user input ' + prompt)
 
         # checks to make sure that the input is allowed 
         if prompt.isalpha():
@@ -148,9 +142,10 @@ def category_prompt():
                 
                 ret = import_module("modules."+list_category[key])
                 try:
-                        ret = import_module("modules."+list_category[key])
+                    ret = import_module("modules."+list_category[key])
                 except(Exception) as e:
-                        print e; exit()
+                    logme(e)
+                    print e; exit()
                 
                 submod = getattr(ret, subkey)
                 
@@ -158,10 +153,8 @@ def category_prompt():
             finally:
                 #print objects[key].functions_list.keys(); exit()
                 cnt = 0
-                objects[key].function_list = sorted(objects[key].function_list.items())
-                objects[key].function_list = OrderedDict(objects[key].function_list)
                 for funct in objects[key].function_list.keys():
-                    print '\n{} {}'.format(cnt,funct)
+                    print '\n{} {}'.format(cnt, funct)
                     cnt += 1
     #formula_prompt(objects[key].function_list[key])
                     formula_prompt(objects[key])
@@ -169,12 +162,14 @@ def category_prompt():
         else:
             print 'try again'
             continue
-		
+        
 # Formula Selection of Associated Category 
 def formula_prompt(cat):
+    cat.function_list = sorted(cat.function_list.items())
+    cat.function_list = OrderedDict(cat.function_list)
 
-    # Loops until proper input is taken in 
     while True:
+    # Loops until proper input is taken in 
         print_menu(cat.function_list)
         prompt = raw_input(prompts['formulaprompt'])
 
@@ -203,30 +198,24 @@ def formula_prompt(cat):
         # formula list
         if runFormula in range(len(cat.function_list)):
             promptstr = cat.function_list.keys()[runFormula]
-            logme('I got the Function List: ' + str(cat.function_list[promptstr]))
             try:
                 if isinstance(cat.function_list[promptstr], OrderedDict):
                     formula_prompt(cat.function_list[promptstr])
                 else:
                     # takes in numbers needed for calculation and returns answer 
                     try:
-                        logme('I got the PromptStr ' + str(cat.function_list[promptstr]))
                         retval = cat.function_list[promptstr]()
-                        #logme('I got the RetVal ' + str(retval))
                         print "\nAnswer: {} {}\n".format(retval[0], retval[1])
-                        logme('After Print cat.function_list')
                         prompt = raw_input(prompts['continueprompt'])
                     # catches errors that are most likely not in the array for the 
                     # for loop in the FormulaBase.py
                     except(Exception) as e:
                         print "\nThere was an error, please see my.log file"
                         raw_input(prompts['continueprompt'])
-                        logme("Error: {}".format(e))
             except(Exception) as e:
-                print "Error: {}".format(e)
                 raw_input(prompts['continueprompt'])
 
-		
+        
 # Starts the Category Menu Selection 
 category_prompt()
 

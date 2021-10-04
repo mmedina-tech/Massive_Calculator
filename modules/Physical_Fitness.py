@@ -27,21 +27,35 @@ class Physical_Fitness(FormulaBase):
         super(Physical_Fitness, self).__init__(name)
         self.name = name
 
+#{{{___ Function Titles _____________________________________________________________________________
+        self.function_strings = {
+            1 : 'Calories burned in Work-Out',
+            2 : 'Calories to Joules',
+            3 : 'Joules to Calories',
+            4 : 'Newtons to Pounds',
+            5 : 'Pounds to Newtons',
+        }
+#}}}_________________________________________________________________________________________
+
 #{{{___ Function List _____________________________________________________________________________
 
-        self.function_list = {
-            'Calories burned in Work-Out': self.work,
-            'Calories to Joules': self.calories,
-            'Joules to Calories': self.joules,
-            'Newtons to Pounds': self.newtons,
-            'Pounds to Newtons': self.pounds,
-        }
+        self.function_list = OrderedDict(
+            [
+            #    ('Body Mass Index', self.bmi),
+                (self.function_strings[1], self.work),
+                (self.function_strings[2], self.calories),
+                (self.function_strings[3], self.joules),
+                (self.function_strings[4], self.newtons),
+                (self.function_strings[5], self.pounds),
+
+            ]
+        )
 #}}}_________________________________________________________________________________________
 
 #{{{___ Inputs _____________________________________________________________________________
 
         self.functionInputs = {
-            'Calories burned in Work-Out': OrderedDict(
+            self.function_strings[1]: OrderedDict(
                 [
                     ('number_input', 'Enter Weight: '),
                     ('number_input2', 'Enter Angle: '),
@@ -54,16 +68,16 @@ class Physical_Fitness(FormulaBase):
           #          ('number_input2' , 'Height in Inches: ')
            #     ]
             #),
-            'Newtons to Pounds':{
+            self.function_strings[4]:{
                     'number_input' : 'Newtons: '
             },
-            'Pounds to Newtons':{
+            self.function_strings[5]:{
                     'number_input' : 'Pounds: '
             },
-            'Joules to Calories':{
+            self.function_strings[3]:{
                     'number_input' : 'Joules: '
             },
-            'Calories to Joules':{
+            self.function_strings[2]:{
                     'number_input' : 'Calories: '
             },
         }
@@ -72,19 +86,19 @@ class Physical_Fitness(FormulaBase):
 #{{{___ Formula List _____________________________________________________________________________
 
         self.formula_list = {
-            'Calories burned in Work-out':{
+            self.function_strings[1]:{
                 '' : '((Weight * 4.448) * cos(Angle) * (Distance or Lift * 3.2808)) * 0.239'
             },
-            'Calories to Joules':{
+            self.function_strings[2]:{
                 '' : 'Calories * 4.186'
             },
-            'Joules to Calories':{
+            self.function_strings[3]:{
                 '' : 'Joules * 0.239'
             },
-            'Newtons to Pounds':{
+            self.function_strings[4]:{
                 '' : 'Newtons * 0.2248'
             },
-            'Pounds to Newtons':{
+            self.function_strings[5]:{
                 '' : 'Pounds * 4.448'
             },
         }
@@ -94,10 +108,10 @@ class Physical_Fitness(FormulaBase):
 
     #def bmi (self, num, num2):
      #       result = (float(num) * 703) / float(num2)) / float(num2)
-      #      return (self.prec2(result)+'%', self.pluralize(result, 'Body Mass (estimated)'))
+      #      return (result+'%', self.pluralize(result, 'Body Mass (estimated)'))
 
     def work (self):
-        title = "Calories burned in Work-Out"
+        title = self.function_strings[1]
         weight = "Enter Weight"
         angle = "Enter Angle"
         lift = "Enter Distance of Lift"
@@ -105,38 +119,38 @@ class Physical_Fitness(FormulaBase):
         argsIn = self.prompt(argsOut)
         result = (((argsIn[0] * 4.448) * cos(argsIn[1]) * (argsIn[2] * 3.2808))) * .239
         result = result * pow(10, -3)
-        return (self.prec4(result), self.pluralize(result, 'Calorie')) 
+        return (result, self.pluralize(result, 'Calorie')) 
 
     def calories (self):
-        title = "Calories to Joules"
+        title = self.function_strings[2]
         cal = "Enter Calories"
         argsOut = [title, cal]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 4.186
-        return (self.prec4(result), self.pluralize(result, 'Joule')) 
+        return (result, self.pluralize(result, 'Joule')) 
 
     def joules (self):
-        title = "Joules to Calories"
+        title = self.function_strings[3]
         joul = "Enter Joules"
         argsOut = [title, joul]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .239
-        return (self.prec2(result), self.pluralize(result, 'Calorie')) 
+        return (result, self.pluralize(result, 'Calorie')) 
     
     def newtons (self):
-        title = "Newtons to Pounds"
+        title = self.function_strings[4]
         newt = "Enter Newtons"
         argsOut = [title, newt]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .2248
-        return (self.prec2(result), self.pluralize(result, 'Pound'))
+        return (result, self.pluralize(result, 'Pound'))
 
     def pounds (self):
-        title = "Pounds to Newton"
+        title = self.function_strings[5]
         pound = "Enter Pounds"
         argsOut = [title, pound]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 4.448
-        return (self.prec2(result), self.pluralize(result, 'Newton')) 
+        return (result, self.pluralize(result, 'Newton')) 
 #}}}_________________________________________________________________________________________
 

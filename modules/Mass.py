@@ -27,68 +27,79 @@ class Mass(FormulaBase):
         super (Mass, self).__init__(name)
         self.name = name
 
-#{{{___ Function List _____________________________________________________________________________
-
-        self.function_list = {
-            'Tons to Kilograms': self.tons,
-            'Kilograms to Tons': self.kilo,
-            'Tons to Metric Tons': self.tons2,
-            'Metric Tons to Tons': self.tons3,
-            'Grains to Drams': self.grains,
-            'Grains to Ounces': self.grains2,
-            'Grains to Grams': self.grains3,
+#{{{___ Function Titles _____________________________________________________________________________
+        self.function_strings = {
+            1 : 'Tons to Kilograms',
+            2 : 'Kilograms to Tons',
+            3 : 'Tons to Metric Tons',
+            4 : 'Metric Tons to Tons',
+            5 : 'Grains to Drams',
+            6 : 'Grains to Ounces',
+            7 : 'Grains to Grams',
         }
 #}}}_________________________________________________________________________________________
 
-#{{{___ Inputs _____________________________________________________________________________
+#{{{___ Function List _____________________________________________________________________________
+        self.function_list = OrderedDict(
+            [
+                (self.function_strings[1], self.tons),
+                (self.function_strings[2], self.kilo),
+                (self.function_strings[3], self.tons2),
+                (self.function_strings[4], self.tons3),
+                (self.function_strings[5], self.grains),
+                (self.function_strings[6], self.grains2),
+                (self.function_strings[7], self.grains3),
+            ]
+        )
+#}}}_________________________________________________________________________________________
 
+#{{{___ Inputs _____________________________________________________________________________
         self.functionInputs = {
-                'Tons to Kilograms':{
-                    'number_input' : 'Tons (input): '
-                    },
-                'Kilograms to Tons':{
-                    'number_input' : 'Kilograms (input): '
-                    },
-                'Tons to Metric Tons':{
-                    'number_input' : 'Tons (input): '
-                    },
-                'Metric Tons to Tons':{
-                    'number_input' : 'Metric Tons (input): '
-                    },
-                'Grains to Drams':{
-                    'number_input' : 'Grains (input): '
-                    },
-                'Grains to Ounces':{
-                    'number_input' : 'Grains (input): '
-                    },
-                'Grains to Grams':{
-                    'number_input' : 'Grains (input): '
-                    },
-            }
+            self.function_strings[1]:{
+                'number_input' : 'Tons (input): '
+            },
+            self.function_strings[2]:{
+                'number_input' : 'Kilograms (input): '
+            },
+            self.function_strings[3]:{
+                'number_input' : 'Tons (input): '
+            },
+            self.function_strings[4]:{
+                'number_input' : 'Metric Tons (input): '
+            },
+            self.function_strings[5]:{
+                'number_input' : 'Grains (input): '
+            },
+            self.function_strings[6]:{
+                'number_input' : 'Grains (input): '
+            },
+            self.function_strings[7]:{
+                'number_input' : 'Grains (input): '
+            },
+        }
 #}}}_________________________________________________________________________________________
 
 #{{{___ Formula List _____________________________________________________________________________
-
         self.formula_list = {
-            'Tons to Kilograms':{
+            self.function_strings[1]:{
                 '' : 'Tons * 907.18'
             },
-            'Kilograms to Tons':{
+            self.function_strings[2]:{
                 '' : 'Kilograms * 0.001102'
             },
-            'Tons to Metric Tons':{
+            self.function_strings[3]:{
                 '' : 'Tons * 0.90718'
             },
-            'Metric Tons to Tons':{
+            self.function_strings[4]:{
                 '' : 'Metric Tons * 1.1023'
             },
-            'Grains to Drams':{
+            self.function_strings[5]:{
                 '' : 'Grains * 0.0365764447696'
             },
-            'Grains to Ounces':{
+            self.function_strings[6]:{
                 '' : 'Grains * 0.00228571'
             },
-            'Grains to Grams':{
+            self.function_strings[7]:{
                 '' : 'Grains * 15.43236'
             },
         }
@@ -97,59 +108,59 @@ class Mass(FormulaBase):
 #{{{___ Formula Functions _____________________________________________________________________________
 
     def tons(self):
-        title = "Tons to Kilograms"
+        title = self.function_strings[1]
         ton = "Enter Tons"
         argsOut = [title, ton]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 907.18
-        return (self.prec2(result), self.pluralize(result, 'Kilogram'))
+        return (result, self.pluralize(result, 'Kilogram'))
 
     def kilo(self):
-        title = "Kilograms to Tons"
+        title = self.function_strings[2]
         kilo = "Enter Kilograms"
         argsOut = [title, kilo]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .001102
-        return (self.prec2(result), self.pluralize(result, 'Ton'))
+        return (result, self.pluralize(result, 'Ton'))
 
     def tons2(self):
-        title = "Tons to Metric Tons"
+        title = self.function_strings[3]
         ton = "Enter Tons"
         argsOut = [title, ton]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .90718
-        return (self.prec2(result), self.pluralize(result, 'Metric Ton'))
+        return (result, self.pluralize(result, 'Metric Ton'))
 
     def tons3(self):
-        title = "Metric Tons to Tons"
+        title = self.function_strings[4]
         mt = "Enter Metric Tons"
         argsOut = [title, mt]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.1023
-        return (self.prec2(result), self.pluralize(result, 'Ton'))
+        return (result, self.pluralize(result, 'Ton'))
 
     def grains(self):
-        title = "Grains to Drams"
+        title = self.function_strings[5]
         grain = "Enter Grains"
         argsOut = [title, grain]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .0365764447696
-        return (self.prec2(result), self.pluralize(result, 'Dram'))
+        return (result, self.pluralize(result, 'Dram'))
 
     def grains2(self):
-        title = "Grains to Ounce"
+        title = self.function_strings[6]
         grain = "Enter Grains"
         argsOut = [title, grain]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .00228571
-        return (self.prec2(result), self.pluralize(result, 'Ounce'))
+        return (result, self.pluralize(result, 'Ounce'))
 
     def grains3(self):
-        title = "Grains to Grams"
+        title = self.function_strings[7]
         grain = "Enter Grains"
         argsOut = [title, grain]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 15.43236
-        return (self.prec2(result), self.pluralize(result, 'Gram'))
+        return (result, self.pluralize(result, 'Gram'))
 #}}}_________________________________________________________________________________________
 
