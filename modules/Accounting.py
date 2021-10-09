@@ -1,10 +1,10 @@
 #!/usr/bin/python
-# SYNOPSIS: Module for Massive Calculator Terminal
+# SYNOPSIS: Accounting Module for Massive Calculator
 # 
 # Accounting.py
 #
-# Author: mmedina
-# Date: Mon 29 Jun 2020 08:40:33 AM PDT
+# Author: Marcus Medina
+# Date: Sat 09 Oct 2021 03:57:37 PM PDT
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,7 +21,8 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 #
-# This Module is for Accounting Formulas 
+#
+#
 
 from FormulaBase import *
 
@@ -57,145 +58,30 @@ class Accounting(FormulaBase):
 #{{{___ Function List _____________________________________________________________________________
 
         self.function_list = {
-            self.function_strings[1]  : self.equity,
-            self.function_strings[2]  : self.trend,
-            self.function_strings[3]  : self.current,
+            self.function_strings[1]  : self.equity_ratio,
+            self.function_strings[2]  : self.trend_percent,
+            self.function_strings[3]  : self.current_ratio,
             self.function_strings[4]  : self.gross_margin,
-            self.function_strings[5]  : self.gross_margin2,
+            self.function_strings[5]  : self.gross_ratio,
             self.function_strings[6]  : self.inventory,
             self.function_strings[7]  : self.quick,
-            self.function_strings[8]  : self.accounts,
-            self.function_strings[9]  : self.number,
-            self.function_strings[10] : self.rate,
+            self.function_strings[8]  : self.accounts_receive,
+            self.function_strings[9]  : self.number_days,
+            self.function_strings[10] : self.return_rate,
             self.function_strings[11] : self.total_asset,
             self.function_strings[12] : self.per_share,
             self.function_strings[13] : self.dividend,
             self.function_strings[14] : self.payout,
             self.function_strings[15] : self.quick2,
             self.function_strings[16] : self.gross_margin3,
-            self.function_strings[17] : self.comp_equity,
-            self.function_strings[18] : self.cash2equity,
+            self.function_strings[17] : self.cash2equity,
+            self.function_strings[18] : self.comp_equity,
         }
 #}}}_________________________________________________________________________________________
 
-#{{{___ Function Inputs _____________________________________________________________________________
-
-        self.functionInputs = {
-            self.function_strings[1] :OrderedDict(
-                    [
-                            ('number_input', 'Stockholders Equity (input): '),
-                            ('number_input2', 'Total Equity (input): ')
-                    ]
-            ),
-            self.function_strings[2]:OrderedDict(
-                    [
-                            ('number_input', 'Current Year Amount (input): '),
-                            ('number_input2', 'Base Year Amount (input): ')
-                    ]
-            ),
-            self.function_strings[3]:OrderedDict(
-                    [
-                            ('number_input', 'Current Assets (input): '),
-                            ('number_input2', 'Current Liabilities (input): ')
-                    ]
-            ),
-            self.function_strings[4]:OrderedDict(
-                    [
-                            ('number_input', 'Cost of Goods Sold (input): '),
-                            ('number_input2', 'Revenue (input): ')
-                    ]
-            ),
-            self.function_strings[5]:OrderedDict(
-                    [
-                            ('number_input', 'Gross Profit (input): '),
-                            ('number_input2', 'Revenue (input): ')
-                    ]
-            ),
-            self.function_strings[6]:OrderedDict(
-                    [
-                            ('number_input', 'Cost of Goods Sold (input): '),
-                            ('number_input2', 'Average Inventory (input): ')
-                    ]
-            ),
-            self.function_strings[7]:OrderedDict(
-                    [
-                            ('number_input', 'Cash (input): '),
-                            ('number_input2', 'Cash Equivalants (input): '),
-                            ('number_input3', 'Short Term Investments (input): '),
-                            ('number_input4', 'Current Receivables (input): '),
-                            ('number_input5', 'Current Liabilities (input): ')
-                    ]
-            ),
-            self.function_strings[8]:OrderedDict(
-                    [
-                            ('number_input', 'Net Credit Sales (input): '),
-                            ('number_input2', 'Average Accounts (input): ')
-                    ]
-            ),
-            self.function_strings[9]:OrderedDict(
-                    [
-                            ('number_input', 'Sales (input): '),
-                            ('number_input2', 'Account Receivable (input): ')
-                    ]
-            ),
-            self.function_strings[10]:OrderedDict(
-                    [
-                            ('number_input', 'Net Income (input): '),
-                            ('number_input2', 'Operating Assets (input): ')
-                    ]
-            ),
-            self.function_strings[11]:OrderedDict(
-                    [
-                            ('number_input', 'Net Sales (input): '),
-                            ('number_input2', 'Average Total Assets (input): ')
-                    ]
-            ),
-            self.function_strings[12]:OrderedDict(
-                    [
-                            ('number_input', 'Income Available to Common Stockholders (input): '),
-                            ('number_input2', 'Weighted-Average Number of Common Shares Outstanding (input): ')
-                    ]
-            ),
-            self.function_strings[13]:OrderedDict(
-                    [
-                            ('number_input', 'Dividend Per Share of Common Stock (input): '),
-                            ('number_input2', 'Current Market Price per Share (input): ')
-                    ]
-            ),
-            self.function_strings[14]:OrderedDict(
-                    [
-                            ('number_input', 'Dividend per Share of Common Stock (input): '),
-                            ('number_input2', 'Earnings per Share (EPS) (input): ')
-                    ]
-            ),
-            self.function_strings[15]:OrderedDict(
-                    [
-                            ('number_input', 'Total Current Assets (input): '),
-                            ('number_input2', 'Inventory (input): '),
-                            ('number_input3', 'Prepaid Expenses (input): '),
-                            ('number_input4' , 'Current Liabilities (input): ')
-                    ]
-            ),
-            self.function_strings[16]:OrderedDict(
-                    [
-                            ('number_input', 'Revenue (input): '),
-                            ('number_input2', 'Cost of Goods Sold (input): ')
-                    ]
-            ),
-            self.function_strings[17]:OrderedDict(
-                    [
-                        ('number_input', 'Cash Amount Asking (input): '),
-                        ('number_input2', 'Amount of Equity Given (input): '),
-                    ]
-            ),
-            self.function_strings[18]:OrderedDict(
-                    [
-                        ('number_input', 'Company Worth (input): '),
-                        ('number_input2', 'Buy in Amount (input): '),
-                    ]
-            ),
-        }
-#}}}_________________________________________________________________________________________
+        #{{{ Inputs
+        self.functionInputs = {}
+        #}}}
 
 #{{{___ Show Formula _____________________________________________________________________________
 
@@ -257,7 +143,7 @@ class Accounting(FormulaBase):
         }
 
 #}}}_________________________________________________________________________________________
-        
+
 #{{{___ Formula Functions _____________________________________________________________________________
 
     def equity_ratio(self):
@@ -482,4 +368,4 @@ class Accounting(FormulaBase):
         return ('$'+self.prec(result, 2), self.pluralize(result, 'Company Valuation'))
 
 #}}}_________________________________________________________________________________________
-    
+
