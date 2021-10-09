@@ -101,7 +101,7 @@ def print_help():
 # Category Selection 
 def category_prompt():
 
-    loading_bar(20)
+    loading_bar(20, .1)
     # Loops until a proper selection is made     
     while True:
         print_menu(list_category)
@@ -132,7 +132,7 @@ def category_prompt():
         if category in range(len(list_category.values())):
         # key is a category name string
         # list_category is an ordered dictionary
-        # dianamically inmports the selected category 
+        # dynamically imports the selected category 
             key = list_category.keys()[category]
             try:
                 if objects[list_category[key]] is None:
@@ -153,11 +153,10 @@ def category_prompt():
             finally:
                 #print objects[key].functions_list.keys(); exit()
                 cnt = 0
-                for funct in objects[key].function_list.keys():
+                for funct in objects[key].function_list:
                     print '\n{} {}'.format(cnt, funct)
                     cnt += 1
-    #formula_prompt(objects[key].function_list[key])
-                    formula_prompt(objects[key])
+                formula_prompt(objects[key])
                         
         else:
             print 'try again'
