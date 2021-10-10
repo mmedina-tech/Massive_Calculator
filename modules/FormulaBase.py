@@ -49,7 +49,7 @@ class FormulaBase(object):
         argList = []
         print "\nRunning... "+args[0]
         for form in self.formula_list[args[0]].values():
-            print "\t"+form
+            print "\tFormula: "+form+"\n"
         for arg in args[1:]:
             userStr = raw_input("\t"+arg+": ")
             argList.append(float(userStr))

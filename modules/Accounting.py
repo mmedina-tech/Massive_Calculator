@@ -243,7 +243,7 @@ class Accounting(FormulaBase):
         argsOut = [title, net_credit, avg_accounts]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return (result, self.pluralize(result, 'Accounts Receivable'))
+        return (money(result), self.pluralize(result, 'Accounts Receivable'))
 
     def number_days(self):
         """
@@ -291,7 +291,7 @@ class Accounting(FormulaBase):
         argsOut = [title, income, wgt_avg]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return (result, self.pluralize(result, 'Earnings Per Share'))
+        return (money(result), self.pluralize(result, 'Earnings Per Share'))
 
     def dividend(self):
         """
@@ -303,7 +303,7 @@ class Accounting(FormulaBase):
         argsOut = [title, dividend_per_share, market]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return (result, self.pluralize(result, 'Dividend Yield'))
+        return (money(result), self.pluralize(result, 'Dividend Yield'))
 
     def payout(self):
         """
@@ -341,7 +341,7 @@ class Accounting(FormulaBase):
         argsOut = [title, revenue, cost_goods]
         argsInt = self.prompt(argsOut)
         result = (argsIn[0] - argsIn[1]) / argsIn[2]
-        return (result, self.pluralize(result, 'Gross Margin'))
+        return (money(result), self.pluralize(result, 'Gross Margin'))
 
     def cash2equity(self):
         """
@@ -365,7 +365,7 @@ class Accounting(FormulaBase):
         argsOut = [title, cash, equity]
         argsIn = self.prompt(argsOut)
         result = (argsIn[0] / argsIn[1])
-        return ('$'+self.prec(result, 2), self.pluralize(result, 'Company Valuation'))
+        return (money(result), self.pluralize(result, 'Company Valuation'))
 
 #}}}_________________________________________________________________________________________
 
