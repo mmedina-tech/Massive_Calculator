@@ -101,7 +101,7 @@ def print_help():
 # Category Selection 
 def category_prompt():
 
-    loading_bar(20, .1)
+    loading_screen(.5)
     # Loops until a proper selection is made     
     while True:
         print_menu(list_category)
