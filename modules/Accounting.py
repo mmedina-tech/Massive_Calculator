@@ -192,7 +192,7 @@ class Accounting(FormulaBase):
         argsOut = [title, cost, revenue]
         argsIn = self.prompt(argsOut)
         result = ((argsIn[0] - argsIn[1]) / argsIn[1]) * 100
-        return ('%'+self.prec(result, 2), self.pluralize(result, 'Gross Margin Percentage'))
+        return (self.prec(result, 2)+"%", self.pluralize(result, 'Gross Margin Percentage'))
 
     def gross_ratio(self):
         """
@@ -278,7 +278,7 @@ class Accounting(FormulaBase):
         avg_total_assets = 'Enter Average Total Assets'
         argsOut = [title, net_sales, avg_total_assets]
         argsIn = self.prompt(argsOut)
-        result = argsIn[0] / argsin[1]
+        result = argsIn[0] / argsIn[1]
         return (result, self.pluralize(result, title))
 
     def per_share(self):
@@ -339,7 +339,7 @@ class Accounting(FormulaBase):
         revenue = 'Enter Revenue'
         cost_goods = 'Enter Cost of Goods Sold'
         argsOut = [title, revenue, cost_goods]
-        argsInt = self.prompt(argsOut)
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0] - argsIn[1]) / argsIn[2]
         return (money(result), self.pluralize(result, 'Gross Margin'))
 
@@ -353,7 +353,7 @@ class Accounting(FormulaBase):
         argsOut = [title, cmpy_worth, in_amount]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return ('%'+self.prec(result, 2), self.pluralize(result, 'Equity'))
+        return (self.prec(result, 2)+"%", self.pluralize(result, 'Equity'))
 
     def comp_equity(self):
         """
