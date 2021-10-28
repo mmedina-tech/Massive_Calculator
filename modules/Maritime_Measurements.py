@@ -189,7 +189,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, fath]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 6
-        return (self.prec2(result), self.pluralize(result, "Foot"))
+        return (self.prec(result, 2), self.pluralize(result, "Foot"))
 
     def cf(self):
         title = self.function_strings[2]
@@ -197,7 +197,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, cb]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .01
-        return (self.prec2(result) , self.pluralize(result, "Fathom"))
+        return (self.prec(result, 2) , self.pluralize(result, "Fathom"))
 
     def nmf(self):
         title = self.function_strings[3]
@@ -205,7 +205,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 6076
-        return (self.prec2(result), self.pluralize(result, "Foot"))
+        return (self.prec(result, 2), self.pluralize(result, "Foot"))
 
     def fm(self):
         title = self.function_strings[4]
@@ -213,7 +213,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, fath]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .546448087
-        return (self.prec2(result), self.pluralize(result, "Meter"))
+        return (self.prec(result, 2), self.pluralize(result, "Meter"))
 
     def nmc(self):
         title = self.function_strings[5]
@@ -221,7 +221,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 10
-        return (self.prec2(result), self.pluralize(result, "Cable"))
+        return (self.prec(result, 2), self.pluralize(result, "Cable"))
 
     def nmm(self):
         title = self.function_strings[6]
@@ -229,7 +229,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1852
-        return (self.prec2(result), self.pluralize(result, "Meter"))
+        return (self.prec(result, 2), self.pluralize(result, "Meter"))
 
     def nmsm(self):
         title = self.function_strings[7]
@@ -237,7 +237,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.15
-        return (self.prec2(result), self.pluralize(result, "Statute Mile"))
+        return (self.prec(result, 2), self.pluralize(result, "Statute Mile"))
 
     def knots(self):
         title = self.function_strings[8]
@@ -245,7 +245,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, knot]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1
-        return (self.prec2(result), self.pluralize(result, "Nautical Mile"))
+        return (self.prec(result, 2), self.pluralize(result, "Nautical Mile"))
 
     def mf(self):
         title = self.function_strings[9]
@@ -253,7 +253,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, m]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.83
-        return (self.prec2(result), self.pluralize(result, "Fathom"))
+        return (self.prec(result, 2), self.pluralize(result, "Fathom"))
 
     def nmk(self):
         title = self.function_strings[10]
@@ -261,7 +261,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, nm]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .539956803456
-        return (self.prec2(result), self.pluralize(result, "Kilometer"))
+        return (self.prec(result, 2), self.pluralize(result, "Kilometer"))
 
     def knm(self):
         title = self.function_strings[11]
@@ -269,7 +269,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, k]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.852
-        return (self.prec2(result), self.pluralize(result, "Nautical Mile"))
+        return (self.prec(result, 2), self.pluralize(result, "Nautical Mile"))
 
     def Mnm(self):
         title = self.function_strings[12]
@@ -277,7 +277,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, M]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.150774477122
-        return (self.prec2(result), self.pluralize(result, "Nautical Mile"))
+        return (self.prec(result, 2), self.pluralize(result, "Nautical Mile"))
 
     def Kkph(self):
         title = self.function_strings[13]
@@ -285,7 +285,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, K]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.93968964967
-        return (self.prec2(result), self.pluralize(result, "Kilometer per Hour"))
+        return (self.prec(result, 2), self.pluralize(result, "Kilometer per Hour"))
 
     def kphK(self):
         title = self.function_strings[14]
@@ -293,7 +293,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, kph]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .515546391749
-        return (self.prec2(result), self.pluralize(result, "Knot"))
+        return (self.prec(result, 2), self.pluralize(result, "Knot"))
 
     def Kmph(self):
         title = self.function_strings[15]
@@ -301,7 +301,7 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, K]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .59
-        return (self.prec2(result), self.pluralize(result, "Mile per Hour"))
+        return (self.prec(result, 2), self.pluralize(result, "Mile per Hour"))
 
     def mphK(self):
         title = self.function_strings[16]
@@ -309,6 +309,6 @@ class Maritime_Measurements(FormulaBase):
         argsOut = [title, mph]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.69491525424
-        return (self.prec2(result), self.pluralize(result, "Knot"))
+        return (self.prec(result, 2), self.pluralize(result, "Knot"))
 #}}}_________________________________________________________________________________________
 

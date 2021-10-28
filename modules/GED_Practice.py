@@ -275,7 +275,7 @@ class GED_Practice (FormulaBase):
         argsOut = [title, base, height]
         argsIn = self.prompt(argsOut)
         result = (.33333333333*argsIn[0]*argsIn[1])
-        return (self.prec4(result), self.pluralize(result, 'Pyramid Volume'))
+        return (result, self.pluralize(result, 'Pyramid Volume'))
 
     def cone(self):
         title = self.function_strings[12]

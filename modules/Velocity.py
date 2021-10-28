@@ -108,7 +108,7 @@ class Velocity (FormulaBase):
         argsOut = [title, mph]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 1.6093
-        return (self.prec2(result), self.pluralize(result, 'Kilometers/hr'))
+        return (self.prec(result, 2), self.pluralize(result, 'Kilometers/hr'))
 
     def kph(self):
         title = "Kilometers per Hour to Miles per Hour"
@@ -116,7 +116,7 @@ class Velocity (FormulaBase):
         argsOut = [title, kph]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .6214
-        return (self.prec2(result), self.pluralize(result, 'Miles/hr'))
+        return (self.prec(result, 2), self.pluralize(result, 'Miles/hr'))
 
     def ftmt(self):
         title = "Feet/Sec to Meters/Sec"
@@ -124,7 +124,7 @@ class Velocity (FormulaBase):
         argsOut = [title, ft]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .3648
-        return (self.prec2(result), self.pluralize(result, 'Meters/Sec'))
+        return (self.prec(result, 2), self.pluralize(result, 'Meters/Sec'))
 
     def mtft(self):
         title = 'Meters/Sec to Feet/Sec'
@@ -132,7 +132,7 @@ class Velocity (FormulaBase):
         argsOut = [title, mt]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 3.281
-        return (self.prec2(result), self.pluralize(result, 'Feet/Sec'))
+        return (self.prec(result, 2), self.pluralize(result, 'Feet/Sec'))
 
     def kphmt(self):
         title = 'Kilometers per Hour to Meters/Sec'
@@ -140,7 +140,7 @@ class Velocity (FormulaBase):
         argsOut = [title, kph]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .27778
-        return (self.prec2(result), self.pluralize(result, 'Meters/Sec'))
+        return (self.prec(result, 2), self.pluralize(result, 'Meters/Sec'))
 
     def mtkph(self):
         title = 'Meters/Sec to Kilometers per Hour'
@@ -148,7 +148,7 @@ class Velocity (FormulaBase):
         argsOut = [title, mt]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 3.6
-        return (self.prec2(result), self.pluralize(result, 'Kilometers/hr'))
+        return (self.prec(result, 2), self.pluralize(result, 'Kilometers/hr'))
 
     def mphmt(self):
         title = 'Miles per Hour to Meters/Sec'
@@ -156,7 +156,7 @@ class Velocity (FormulaBase):
         argsOut = [title, mph]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .4470
-        return (self.prec2(result), self.pluralize(result, 'Meters/Sec'))
+        return (self.prec(result, 2), self.pluralize(result, 'Meters/Sec'))
 
     def mtmph(self):
         title = 'Meters/Sec to Miles per Hour'
@@ -164,6 +164,6 @@ class Velocity (FormulaBase):
         argsOut = [title, mt]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 2.237
-        return (self.prec2(result), self.pluralize(result, 'Miles/hr'))
+        return (self.prec(result, 2), self.pluralize(result, 'Miles/hr'))
 #}}}_________________________________________________________________________________________
 

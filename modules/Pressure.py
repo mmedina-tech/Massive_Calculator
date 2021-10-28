@@ -143,7 +143,7 @@ class Pressure(FormulaBase):
         argsOut = [title, InHg]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 3.377
-        return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
+        return (result, self.pluralize(result, 'KiloPascal'))
 
     def KpHg (self):
         title = self.function_strings[6]
@@ -151,7 +151,7 @@ class Pressure(FormulaBase):
         argsOut = [title, Kp]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .2961
-        return (self.prec4(result), self.pluralize(result, 'Inches of Mercury'))
+        return (result, self.pluralize(result, 'Inches of Mercury'))
 
     def PSI (self):
         title = self.function_strings[10]
@@ -159,7 +159,7 @@ class Pressure(FormulaBase):
         argsOut = [title, psi]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 6.895
-        return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
+        return (result, self.pluralize(result, 'KiloPascal'))
 
     def KpPSI (self):
         title = self.function_strings[7]
@@ -167,7 +167,7 @@ class Pressure(FormulaBase):
         argsOut = [title, Kp]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .145
-        return (self.prec4(result), self.pluralize(result, 'PSI'))
+        return (result, self.pluralize(result, 'PSI'))
     
     def InH2O (self):
         title = self.function_strings[4]
@@ -175,7 +175,7 @@ class Pressure(FormulaBase):
         argsOut = [title, InH2O]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .2488
-        return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
+        return (result, self.pluralize(result, 'KiloPascal'))
 
     def bars (self):
         title = self.function_strings[1]
@@ -183,7 +183,7 @@ class Pressure(FormulaBase):
         argsOut = [title, bar]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 100
-        return (self.prec4(result), self.pluralize(result, 'KiloPascal'))
+        return (result, self.pluralize(result, 'KiloPascal'))
 
     def kbars (self):
         title = self.function_strings[5]
@@ -191,7 +191,7 @@ class Pressure(FormulaBase):
         argsOut = [title, Kp]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .01
-        return (self.prec4(result), self.pluralize(result, 'Bar'))
+        return (result, self.pluralize(result, 'Bar'))
 
     def psf (self):
         title = self.function_strings[9]
@@ -199,7 +199,7 @@ class Pressure(FormulaBase):
         argsOut = [title, psf]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 47.88
-        return (self.prec4(result), self.pluralize(result, 'Pascal'))
+        return (result, self.pluralize(result, 'Pascal'))
 
     def pascal (self):
         title = self.function_strings[8]
@@ -207,7 +207,7 @@ class Pressure(FormulaBase):
         argsOut = [title, pas]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .02088
-        return (self.prec4(result), self.pluralize(result, 'Pounds per Square Foot'))
+        return (result, self.pluralize(result, 'Pounds per Square Foot'))
 
     def bars2 (self):
         title = self.function_strings[2]
@@ -215,6 +215,6 @@ class Pressure(FormulaBase):
         argsOut = [title, bar]
         argsIn = self.prompt(argsOut)
         result = (argsIn[0] * 100) * .145
-        return (self.prec4(result), self.pluralize(result, 'PSI'))
+        return (result, self.pluralize(result, 'PSI'))
 #}}}_________________________________________________________________________________________
 

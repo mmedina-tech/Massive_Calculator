@@ -28,13 +28,12 @@ import os
 import time
 import random
 
-def loading_bar(seconds):
+def loading_bar(seconds, timing):
     for loading in range(0, seconds+1):
         precent = (loading * 5)
-        print "Loading..."
-        print "<"+("-----" * loading)+"> " + str(precent) + "%"
+        print "Loading...["+("#" * loading*2)+"] " + str(precent) + "%"
         print "\n"
-        time.sleep(.5)
+        time.sleep(timing)
         os.system('cls' if os.name == 'nt' else 'clear')
 
 def loading_screen(seconds):
