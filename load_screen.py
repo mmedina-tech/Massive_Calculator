@@ -34,7 +34,7 @@ def loading_bar(seconds):
         print "Loading..."
         print "<"+("-----" * loading)+"> " + str(precent) + "%"
         print "\n"
-        time.sleep(1)
+        time.sleep(.5)
         os.system('cls' if os.name == 'nt' else 'clear')
 
 def loading_screen(seconds):
