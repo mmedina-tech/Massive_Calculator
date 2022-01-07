@@ -781,7 +781,7 @@ class Area (FormulaBase):
         argsOut = [title, sqf]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 0.003673095 * 0.00625
-        return (self.prec4(result), self.pluralize(result, 'Acre'))
+        return (result, self.pluralize(result, 'Acre'))
 
     def acre(self):
         # Acre to Hectare 

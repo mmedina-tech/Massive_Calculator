@@ -1,10 +1,10 @@
 #!/usr/bin/python
-# SYNOPSIS: class for allowable strings
+# SYNOPSIS: loading screen using python
 # 
-# allowances.py
+# load_screen.py
 #
-# Author: Marcus Medina,,,
-# Date: Wed 08 Sep 2021 04:50:29 PM PDT
+# Author: Marcus Medina
+# Date: Sat 02 Oct 2021 12:43:04 AM PDT
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,28 +24,25 @@
 #
 #
 
-# Allowances class for allowable inputs other than numbers 
-class allowances(object):
+import os
+import time
+import random
 
-    def __init__(self):
-        self.quit_allowances()
-        self.back_allowances()
-        self.help_allowances()
-        self.cat_allowances()
-        self.form_allowances()
+def loading_bar(seconds, timing):
+    for loading in range(0, seconds+1):
+        precent = (loading * 5)
+        print "Loading...["+("#" * loading*2)+"] " + str(precent) + "%"
+        print "\n"
+        time.sleep(timing)
+        os.system('cls' if os.name == 'nt' else 'clear')
 
-    def quit_allowances(self):
-        self.quit_allowances = ['q', 'Q']
+def loading_screen(seconds):
+    screens=open("screens.txt", 'r')
+    for lines in screens:
+        print lines
+        time.sleep(seconds)
+        os.system('clear')
+    screens.close()
 
-    def back_allowances(self):
-        self.back_allowances = ['b', 'B']
-
-    def help_allowances(self):
-        self.help_allowances = ['h', 'H']
-
-    def cat_allowances(self):
-        self.cat_allowances = []
-
-    def form_allowances(self):
-        self.form_allowances = []
+os.system('cls' if os.name == 'nt' else 'clear')
 

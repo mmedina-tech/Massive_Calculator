@@ -1,9 +1,19 @@
 [Desktop Entry]
-Version=1.0
-Type=Application
-Name=Conversion Calculator
+Comment[en_US]=
 Comment=
-Exec=../Calculator/menu_prompt.py
-Icon=accessories-calculator
-Terminal=true
+Exec=$HOME/try/Calculator/Massive_Calculator.py
+GenericName[en_US]=
+GenericName=
+Icon=/var/www/html/Massive_Calculator.web/images/massive.png
+MimeType=
+Name=Massive Calculator
+Path=
 StartupNotify=false
+Terminal=true
+TerminalOptions=
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

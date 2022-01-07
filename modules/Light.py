@@ -73,7 +73,7 @@ class Light(FormulaBase):
         argsOut = [title, fc]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * 10.76
-        return (self.prec2(result), self.pluralize(result, 'Lumens/Meter<sup>2</sup>'))
+        return (self.prec(result, 2), self.pluralize(result, 'Lumens/Meter<sup>2</sup>'))
 
     def lumens (self):
         title = self.function_strings[2]
@@ -81,6 +81,6 @@ class Light(FormulaBase):
         argsOut = [title, lms]
         argsIn = self.prompt(argsOut)
         result = argsIn[0] * .0929
-        return (self.prec2(result), self.pluralize(result, 'Foot Candle'))
+        return (self.prec(result, 2), self.pluralize(result, 'Foot Candle'))
 #}}}_________________________________________________________________________________________
 

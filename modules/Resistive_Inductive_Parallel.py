@@ -22,9 +22,10 @@
 
 from FormulaBase import *
 
-class ResistiveInductive_parallel(FormulaBase):
-    def __init__(self):
-        super(ResistiveInductive_parallel, self).__init__()
+class Resistive_Inductive_Parallel(FormulaBase):
+    def __init__(self, name):
+        super(Resistive_Inductive_Parallel, self).__init__(name)
+        self.name = name
         
 #{{{___ Function Titles _____________________________________________________________________________
         self.function_strings = {
@@ -713,225 +714,483 @@ class ResistiveInductive_parallel(FormulaBase):
         result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Impedance'))
 
-    def form_InductRe(self):
-        result = (argsIn[0]**2) / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
-
-    def form_InductRe2(self):
-        result = argsIn[0] / (argsIn[1]**2)
-        return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
-
     def form_InductRe3(self):
+        title = self.function_strings[6]
+        arg1 = "Enter Frequency"
+        arg2 = "Enter Inductor Rating"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = 2*3.14*argsIn[0]*argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
 
     def form_InductRe4(self):
+        title = self.function_strings[7]
+        arg1 = 'Enter Impedance'
+        arg2 = 'Enter Resistance'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = 1/(1/(argsIn[0]**2) - (argsIn[1]**2))
         return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
 
+    def form_InductRe2(self):
+        title = self.function_strings[8]
+        arg1 = "Enter Inductor VAR's"
+        arg2 = "Enter Inductor Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / (argsIn[1]**2)
+        return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
+
     def form_InductRe5(self):
+        title = self.function_strings[9]
+        arg1 = "Inductor Volts"
+        arg2 = 'Inductor Amps'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
 
+    def form_InductRe(self):
+        title = self.function_strings[10]
+        arg1 = 'Inductor Volts'
+        arg2 = "Inductor VAR's"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Inductive Reactance'))
+
+    def form_InductA3(self):
+        title = self.function_strings[11]
+        arg1 = "Enter Inductor VAR's"
+        arg2 = 'Enter Inductor Volts'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
+
+    def form_InductA4(self):
+        title = self.function_strings[12]
+        arg1 = "Enter Inductor VAR's"
+        arg2 = "Enter Inductive Reactance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = sqrt(argsIn[0] / argsIn[1])
+        return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
+
+    def form_InductA2(self):
+        title = self.function_strings[13]
+        arg1 = 'Enter Inductor Votls'
+        arg2 = 'Enter Inductive Reactance'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
+
     def form_InductA(self):
+        title = self.function_strings[14]
+        arg1 = "Enter Total Amps"
+        arg2 = "Enter Resistor Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
         try:
             return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
         except(Exception):
             return (self.error_msg, '')
 
-    def form_InductA2(self):
-        result = argsIn[0] / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
-
-    def form_InductA3(self):
-        result = argsIn[0] / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
-
-    def form_InductA4(self):
-        result = sqrt(argsIn[0] / argsIn[1])
-        return (self.prec(result, 4), self.pluralize(result, 'Inductor Amp'))
-
     def form_InductorRating(self):
+        title = self.function_strings[15]
+        arg1 = "Enter Inductive Reactance"
+        arg2 = "Enter Frequency"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / (2*3.14*argsIn[1])
         return (self.prec(result, 4), self.pluralize(result, 'Inductor Rating'))
 
     def form_InductorV(self):
+        title = self.function_strings[16]
+        arg1 = "Enter Inductor Amps"
+        arg2 = "Enter Inductive Reactance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0]**2) * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, "Inductor VAR"))
 
+    def form_InductorV3(self):
+        title = self.function_strings[17]
+        arg1 = "Enter Inductor Volts"
+        arg2 = 'Enter Inductor Amps'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Inductor VAR'))
+
+    def form_InductorV4(self):
+        title = self.function_strings[18]
+        arg1 = "Enter Inductor Volts"
+        arg2 = 'Enter Inductor Amps'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Inductor VAR'))
+
     def form_InductorV2(self):
+        title = self.function_strings[19]
+        arg1 = 'Enter Volt Amps'
+        arg2 = 'Enter Watts'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
         try:
             return (self.prec(result, 4), self.pluralize(result, 'Inductor VAR'))
         except(Exception):
             return (self.error_msg, '')
 
-    def form_InductorV3(self):
-        result = argsIn[0] * argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Inductor VAR'))
-
-    def form_InductorV4(self):
-        result = (argsIn[0]**2) / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Inductor VAR'))
-
     def form_InductV(self):
+        title = self.function_strings[20]
+        arg1 = "Enter Inductor VAR's"
+        arg2 = 'Enter Inductive Reactance'
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Inductor Volt'))
 
     def form_InductV2(self):
+        title = self.function_strings[21]
+        arg1 = "Enter Inductor Amps"
+        arg2 = "Enter Inductive Reactance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] * argsIn[1])
         return (self.prec(result, 4), self.pluralize(result, 'Inductor Volt'))
 
     def form_InductV3(self):
+        title = self.function_strings[22]
+        arg1 = "Enter Inductor VAR's"
+        arg2 = "Enter Inductor Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Inductor Volt'))
 
-    def form_Power(self):
-        result = argsIn[0] / argsIn[1]
+    def form_Power4(self):
+        title = self.function_strings[23]
+        arg1 = "Enter CoSine"
+        arg2 = "Theta Angle"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
 
-    def form_Power2(self):
+    def form_Power(self):
+        title = self.function_strings[24]
+        arg1 = "Enter Impedance"
+        arg2 = "Enter Resistance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
 
     def form_Power3(self):
+        title = self.function_strings[25]
+        arg1 = "Enter Resistor Amps"
+        arg2 = "Enter Total Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
 
-    def form_Power4(self):
-        result = argsIn[0] * argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
-
-    def form_Resistance(self):
+    def form_Power2(self):
+        title = self.function_strings[26]
+        arg1 = "Enter Watts"
+        arg2 = "Enter Volt Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
-
-    def form_Resistance2(self):
-        result = argsIn[0] / (argsIn[1]**2)
-        return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
+        return (self.prec(result, 4), self.pluralize(result, 'Power Factor'))
 
     def form_Resistance3(self):
+        title = self.function_strings[27]
+        arg1 = "Enter Impedance"
+        arg2 = "Enter Inductive Reactance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = 1/sqrt((argsIn[0]**2) - (argsIn[1]**2))
         return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
     
     def form_Resistance4(self):
+        title = self.function_strings[28]
+        arg1 = "Enter Impedance"
+        arg2 = "Enter Power Factor"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
 
+    def form_Resistance(self):
+        title = self.function_strings[29]
+        arg1 = "Enter Resistor Volts"
+        arg2 = "Enter Resistor Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
+
+    def form_Resistance2(self):
+        title = self.function_strings[30]
+        arg1 = "Enter Watts"
+        arg2 = "Enter Resistor Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / (argsIn[1]**2)
+        return (self.prec(result, 4), self.pluralize(result, 'Resistance'))
+
+    def form_ResistA2(self):
+        title = self.function_strings[31]
+        arg1 = "Enter Resistor Volts"
+        arg2 = "Enter Resistance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
+
     def form_ResistA(self):
+        title = self.function_strings[32]
+        arg1 = "Enter Total Amps"
+        arg2 = "Enter Inductor Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) - (argsIn[1]**2))
         try:
             return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
         except(Exception):
             return (self.error_msg, '')
 
-    def form_ResistA2(self):
-        result = argsIn[0] / argsIn[1]
+    def form_ResistA5(self):
+        title = self.function_strings[33]
+        arg1 = "Enter Total Amps"
+        arg2 = "Enter Power Factor"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
 
     def form_ResistA3(self):
+        title = self.function_strings[34]
+        arg1 = "Enter Watts"
+        arg2 = "Enter Resistance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] / argsIn[1])
         return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
 
     def form_ResistA4(self):
+        title = self.function_strings[35]
+        arg1 = "Enter Watts"
+        arg2 = "Enter Resistor Volts"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
 
-    def form_ResistA5(self):
-        result = argsIn[0] * argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Resistor Amp'))
-
     def form_ResistV(self):
+        title = self.function_strings[36]
+        arg1 = "Enter Resistor Amps"
+        arg2 = "Enter Resistance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Resistor Volt'))
 
     def form_ResistV2(self):
+        title = self.function_strings[37]
+        arg1 = "Enter Watts"
+        arg2 = "Enter Resistance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] * argsIn[1])
         return (self.prec(result, 4), self.pluralize(result, 'Resistor Volt'))
 
     def form_ResistV3(self):
+        title = self.function_strings[38]
+        arg1 = "Enter Watts"
+        arg2 = "Enter Resistor Amps"
+        argsOut = [title, arg1, args2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / (argsIn[1]**2)
         return (self.prec(result, 4), self.pluralize(result, 'Resistor Volt'))
 
-    def form_ResistV4(self):
-        result = argsIn[0] / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Resistor Volt'))
-
     def form_TAmps(self):
+        title = self.function_strings[39]
+        arg1 = "Enter Resistor Amps"
+        arg2 = "Enter Inductor Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) + (argsIn[1]**2))
         return (self.prec(result, 4), self.pluralize(result, 'Total Amp'))
 
+    def form_TAmps5(self):
+        title = self.function_strings[40]
+        arg1 = "Enter Resistor Amps"
+        arg2 = "Enter Power Factor"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Total Amp'))
+
     def form_TAmps2(self):
+        title = self.function_strings[41]
+        arg1 = "Enter Total Volts"
+        arg2 = "Enter Impedance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Total Amp'))
 
     def form_TAmps3(self):
+        title = self.function_strings[42]
+        arg1 = "Enter Volt Amps"
+        arg2 = "Enter Total Volts"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Total Amp'))
 
     def form_TAmps4(self):
+        title = self.function_strings[43]
+        arg1 = "Enter Volt Amps"
+        arg2 = "Enter Impedance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] / argsIn[1])
         return (self.prec(result, 4), self.pluralize(result, 'Total Amp'))
 
-    def form_TAmps5(self):
-        result = argsIn[0] / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Total Amp'))
-
-    def form_TVolts(self):
-        result = argsIn[0] / argsIn[1]
+    def form_TVolts3(self):
+        title = self.function_strings[44]
+        arg1 = "Enter Total Amps"
+        arg2 = "Enter Impedance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Total Volt'))
-
+    
     def form_TVolts2(self):
+        title = self.function_strings[45]
+        arg1 = "Enter Volt Amps"
+        arg2 = "Enter Impedance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt(argsIn[0] * argsIn[1])
         return (self.prec(result, 4), self.pluralize(result, 'Total Volt'))
 
-    def form_TVolts3(self):
-        result = argsIn[0] * argsIn[1]
+    def form_TVolts(self):
+        title = self.function_strings[46]
+        arg1 = "Enter Volt Amps"
+        arg2 = "Enter Total Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Total Volt'))
 
-
-    def form_VoltA6(self):
-        result = (argsIn[0]**2) / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Volt Amp'))
-
-    def form_VoltA(self):
-        result = argsIn[0] * argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Volt Amp'))
-
     def form_VoltA2(self):
+        title = self.function_strings[47]
+        arg1 = "Enter Total Amps"
+        arg2 = "Enter Impedance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0]**2) * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Volt Amp'))
 
     def form_VoltA3(self):
+        title = self.function_strings[48]
+        arg1 = "Enter Total Volts"
+        arg2 = "Enter Impedance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0]**2) / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Volt Amp'))
 
+    def form_VoltA(self):
+        title = self.function_strings[49]
+        arg1 = "Enter Total Volts"
+        arg2 = "Enter Total Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Volt Amp'))
+
     def form_VoltA4(self):
+        title = self.function_strings[50]
+        arg1 = "Enter Watts"
+        arg2 = "Enter Inductor VAR's"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = sqrt((argsIn[0]**2) + (argsIn[1]**2))
         return (self.prec(result, 4), self.pluralize(result, 'Volt Amp'))
 
     def form_VoltA5(self):
+        title = self.function_strings[51]
+        arg1 = "Enter Watts"
+        arg2 = "Enter Power Factor"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] / argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Volt Amp'))
 
-    def form_Watts(self):
-        result = argsIn[0] * argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Watt'))
-
-    def form_Watts2(self):
-        result = sqrt((argsIn[0]**2) / (argsIn[1]**2))
-        return (self.prec(result, 4), self.pluralize(result, 'Watt'))
-
-    def form_Watts3(self):
-        result = (argsIn[0]**2) / argsIn[1]
-        return (self.prec(result, 4), self.pluralize(result, 'Watt'))
-
     def form_Watts4(self):
+        title = self.function_strings[52]
+        arg1 = "Enter Resistor Amps"
+        arg2 = "Enter Resistance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = (argsIn[0]**2) * argsIn[1]
         return (self.prec(result, 4), self.pluralize(result, 'Watt'))
 
+    def form_Watts2(self):
+        title = self.function_strings[53]
+        arg1 = "Enter Resistor Volts"
+        arg2 = "Enter Resistance"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = sqrt((argsIn[0]**2) / (argsIn[1]**2))
+        return (self.prec(result, 4), self.pluralize(result, 'Watt'))
+
+    def form_Watts(self):
+        title = self.function_strings[54]
+        arg1 = "Enter Resistor Volts"
+        arg2 = "Enter Resistor Amps"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = argsIn[0] * argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Watt'))
+
     def form_Watts5(self):
+        title = self.function_strings[55]
+        arg1 = "Enter Volt Amps"
+        arg2 = "Enter Inductor VAR's"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
         result = argsIn[0] * argsIn[1] 
         return (self.prec(result, 4), self.pluralize(result, 'Watt'))
+
+    def form_Watts3(self):
+        title = self.function_strings[56]
+        arg1 = "Enter Volt Amps"
+        arg2 = "Enter Power Factor"
+        argsOut = [title, arg1, arg2]
+        argsIn = self.prompt(argsOut)
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Watt'))
+
+    def form_VoltA6(self):
+        #NOTE: form_VoltA6, find inputs
+        result = (argsIn[0]**2) / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Volt Amp'))
+
+    def form_ResistV4(self):
+        #NOTE: form_ResistV4, find inputs
+        result = argsIn[0] / argsIn[1]
+        return (self.prec(result, 4), self.pluralize(result, 'Resistor Volt'))
+
+
 #}}}_________________________________________________________________________________________

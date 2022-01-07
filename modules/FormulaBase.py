@@ -1,4 +1,4 @@
-#!/bin/usr/python
+#!/usr/bin/python
 #SYNOPSIS: Setup for The Massive Calculator Back End 
 #
 # FormulaBase.py
@@ -48,6 +48,8 @@ class FormulaBase(object):
     def prompt(self, args):
         argList = []
         print "\nRunning... "+args[0]
+        for form in self.formula_list[args[0]].values():
+            print "\tFormula: "+form+"\n"
         for arg in args[1:]:
             userStr = raw_input("\t"+arg+": ")
             argList.append(float(userStr))
