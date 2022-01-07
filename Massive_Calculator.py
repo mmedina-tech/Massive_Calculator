@@ -159,7 +159,6 @@ def category_prompt():
                 objects[key] = submod(subkey)
                 logme(objects[key])
             finally:
-                #print objects[key].functions_list.keys(); exit()
                 cnt = 0
                 for funct in objects[key].function_list:
                     print '\n{} {}'.format(cnt, funct)
