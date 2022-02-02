@@ -8,12 +8,12 @@
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or 
+# the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
 #
 # This Program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABLILITY of FITNESS FOR A PARTICULAR PURPOSE. See the 
+# MERCHANTABLILITY of FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
 #
 # You Should have recieved a copy of the GNU General Public License
@@ -27,6 +27,8 @@
 import os
 import time
 import random
+import sys
+
 
 def loading_bar(seconds, timing):
     for loading in range(0, seconds+1):
@@ -36,13 +38,15 @@ def loading_bar(seconds, timing):
         time.sleep(timing)
         os.system('cls' if os.name == 'nt' else 'clear')
 
+
 def loading_screen(seconds):
-    screens=open("screens.txt", 'r')
+    cwd = os.getcwd()
+    screens = open(cwd+"/screens.txt", 'r')
     for lines in screens:
         print lines
         time.sleep(seconds)
         os.system('clear')
     screens.close()
 
-os.system('cls' if os.name == 'nt' else 'clear')
 
+os.system('cls' if os.name == 'nt' else 'clear')
