@@ -78,6 +78,8 @@ list_category = OrderedDict(list_category)
 
 
 def logme(msg):
+    if not os.path.exists("Log"):
+        os.makedirs("Log")
     fp = open('Log/my.log', 'a')
     fp.write('\n'+str(msg)+'\n\n')
     fp.close()
@@ -109,7 +111,7 @@ def category_prompt():
         prompt = raw_input(prompts['categoryprompt'])
 
         # checks to make sure that the input is allowed
-        #logme(prompt)
+        logme(prompt)
         if prompt.isalpha():
 
             if prompt in allowances.quit_allowances:
@@ -131,34 +133,34 @@ def category_prompt():
         # call won't work if it's a letter
         category = int(prompt) - 1
 
-        #logme(category)
+        logme(category)
         if category in range(len(list_category.values())):
         # key is a category name string
         # list_category is an ordered dictionary
         # dynamically imports the selected category
             key = list_category.keys()[category]
-            #logme(key)
+            logme(key)
             try:
                 if objects[list_category[key]] is None:
                         throw(NameError)
             except(NameError, KeyError) as e:
                 subkey = list_category[key]
-                #logme(subkey)
+                logme(subkey)
 
                 ret = import_module("modules."+list_category[key])
-                #logme(ret)
+                logme(ret)
                 try:
                     ret = import_module("modules."+list_category[key])
-                    #logme(ret)
+                    logme(ret)
                 except(Exception) as e:
-                    #logme(e)
+                    logme(e)
                     print e; exit()
 
                 submod = getattr(ret, subkey)
-                #logme(submod)
+                logme(submod)
 
                 objects[key] = submod(subkey)
-                #logme(objects[key])
+                logme(objects[key])
             finally:
                 cnt = 0
                 for funct in objects[key].function_list:
@@ -179,26 +181,26 @@ def formula_prompt(cat):
     # Loops until proper input is taken in
         print_menu(cat.function_list)
         prompt = raw_input(prompts['formulaprompt'])
-        #logme(prompt)
+        logme(prompt)
 
         # checks input against letters and special characters
         if prompt.isalpha():
 
             if prompt in allowances.quit_allowances:
-                #logme(prompt)
+                logme(prompt)
                 print(strings['endnote'])
                 exit()
 
             if prompt in allowances.back_allowances:
-                #logme(prompt)
+                logme(prompt)
                 category_prompt()
 
-            #logme(prompt)
+            logme(prompt)
             print 'try again'
             continue
 
         elif not prompt.isdigit():
-            #logme(prompt)
+            logme(prompt)
             print 'try again'
             continue
 
@@ -210,26 +212,26 @@ def formula_prompt(cat):
         # formula list
         if runFormula in range(len(cat.function_list)):
             promptstr = cat.function_list.keys()[runFormula]
-            #logme(promptstr)
+            logme(promptstr)
             try:
                 if isinstance(cat.function_list[promptstr], OrderedDict):
-                    #logme(formula_prompt(cat.function_list[promptstr]))
+                    logme(formula_prompt(cat.function_list[promptstr]))
                     formula_prompt(cat.function_list[promptstr])
                 else:
                     # takes in numbers needed for calculation and returns answer
                     try:
                         retval = cat.function_list[promptstr]()
-                        #logme(retval)
+                        logme(retval)
                         print "\nAnswer: {} {}\n".format(retval[0], retval[1])
                         prompt = raw_input(prompts['continueprompt'])
                     # catches errors that are most likely not in the array for the
                     # for loop in the FormulaBase.py
                     except(Exception) as e:
-                        #logme(e)
+                        logme(e)
                         print "\nThere was an error, please see my.log file"
                         raw_input(prompts['continueprompt'])
             except(Exception) as e:
-                #logme(e)
+                logme(e)
                 raw_input(prompts['continueprompt'])
 
 
