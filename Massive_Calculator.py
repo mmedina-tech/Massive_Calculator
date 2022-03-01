@@ -79,8 +79,8 @@ list_category = OrderedDict(list_category)
 
 def logme(msg):
     if not os.path.exists("Log"):
-        os.makedirs("Log")
-    fp = open('Log/my.log', 'a')
+        os.mkdir("Log")
+    fp = open('Log/Calculator.log', 'a')
     fp.write('\n'+str(msg)+'\n\n')
     fp.close()
 
