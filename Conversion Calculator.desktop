@@ -1,13 +1,13 @@
 [Desktop Entry]
 Comment[en_US]=
 Comment=
-Exec=/home/mmedina/try/Calculator/Massive_Calculator.py
+Exec=python Massive_Calculator.py
 GenericName[en_US]=
 GenericName=
 Icon=/var/www/html/Massive_Calculator.web/images/massive.png
 MimeType=
 Name=Massive Calculator
-Path=/home/mmedina/try/Calculator/Massive_Calculator.py
+Path=/home/mmedina/try/Calculator/
 StartupNotify=false
 Terminal=true
 TerminalOptions=
