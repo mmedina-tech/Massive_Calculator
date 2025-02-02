@@ -1,0 +1,123 @@
+
+1
+
+
+0
+
+
+Acceleration
+
+
+Acceleration
+
+
+<module 'modules.Acceleration' from '/home/mmedina/try/Calculator/modules/Acceleration.py'>
+
+
+<module 'modules.Acceleration' from '/home/mmedina/try/Calculator/modules/Acceleration.py'>
+
+
+<class 'modules.Acceleration.Acceleration'>
+
+
+<modules.Acceleration.Acceleration object at 0x7f88485fa950>
+
+
+b
+
+
+b
+
+
+2
+
+
+1
+
+
+Accounting
+
+
+Accounting
+
+
+<module 'modules.Accounting' from '/home/mmedina/try/Calculator/modules/Accounting.py'>
+
+
+<module 'modules.Accounting' from '/home/mmedina/try/Calculator/modules/Accounting.py'>
+
+
+<class 'modules.Accounting.Accounting'>
+
+
+<modules.Accounting.Accounting object at 0x7f88485fad10>
+
+
+b
+
+
+b
+
+
+10
+
+
+9
+
+
+Imperial to Imperial
+
+
+Imperial_to_Imperial
+
+
+<module 'modules.Imperial_to_Imperial' from '/home/mmedina/try/Calculator/modules/Imperial_to_Imperial.py'>
+
+
+<module 'modules.Imperial_to_Imperial' from '/home/mmedina/try/Calculator/modules/Imperial_to_Imperial.py'>
+
+
+<class 'modules.Imperial_to_Imperial.Imperial_to_Imperial'>
+
+
+<modules.Imperial_to_Imperial.Imperial_to_Imperial object at 0x7f88485fa990>
+
+
+b
+
+
+b
+
+
+11
+
+
+10
+
+
+Imperial to Metric
+
+
+Imperial_to_Metric
+
+
+<module 'modules.Imperial_to_Metric' from '/home/mmedina/try/Calculator/modules/Imperial_to_Metric.py'>
+
+
+<module 'modules.Imperial_to_Metric' from '/home/mmedina/try/Calculator/modules/Imperial_to_Metric.py'>
+
+
+<class 'modules.Imperial_to_Metric.Imperial_to_Metric'>
+
+
+<modules.Imperial_to_Metric.Imperial_to_Metric object at 0x7f884858eb50>
+
+
+b
+
+
+b
+
+
+q
+
