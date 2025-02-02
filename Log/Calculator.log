@@ -1,0 +1,189 @@
+
+1
+
+
+0
+
+
+Acceleration
+
+
+Acceleration
+
+
+<module 'modules.Acceleration' from '/home/mmedina/try/Calculator/modules/Acceleration.pyc'>
+
+
+<module 'modules.Acceleration' from '/home/mmedina/try/Calculator/modules/Acceleration.pyc'>
+
+
+<class 'modules.Acceleration.Acceleration'>
+
+
+<modules.Acceleration.Acceleration object at 0x7ff7cfc31bd0>
+
+
+1
+
+
+Feet/Sec Squared to Meters/Sec Squared
+
+
+(71.3232, 'Meters/Sec^2s')
+
+
+q
+
+
+q
+
+
+q
+
+
+26
+
+
+25
+
+
+Velocity
+
+
+Velocity
+
+
+<module 'modules.Velocity' from '/home/mmedina/try/Calculator/modules/Velocity.py'>
+
+
+<module 'modules.Velocity' from '/home/mmedina/try/Calculator/modules/Velocity.py'>
+
+
+<class 'modules.Velocity.Velocity'>
+
+
+<modules.Velocity.Velocity object at 0x7f7b6192cc50>
+
+
+1
+
+
+Feet/Sec to Meters/Sec
+
+
+('18.6', 'Meters/Sec')
+
+
+q
+
+
+q
+
+
+1
+
+
+0
+
+
+Acceleration
+
+
+Acceleration
+
+
+<module 'modules.Acceleration' from '/home/mmedina/try/Calculator/modules/Acceleration.py'>
+
+
+<module 'modules.Acceleration' from '/home/mmedina/try/Calculator/modules/Acceleration.py'>
+
+
+<class 'modules.Acceleration.Acceleration'>
+
+
+<modules.Acceleration.Acceleration object at 0x7f0e03129c50>
+
+
+b
+
+
+b
+
+
+21
+
+
+20
+
+
+Resistive Capacitance (Parallel)
+
+
+Resistive_Capacitive_Parallel
+
+
+<module 'modules.Resistive_Capacitive_Parallel' from '/home/mmedina/try/Calculator/modules/Resistive_Capacitive_Parallel.py'>
+
+
+<module 'modules.Resistive_Capacitive_Parallel' from '/home/mmedina/try/Calculator/modules/Resistive_Capacitive_Parallel.py'>
+
+
+<class 'modules.Resistive_Capacitive_Parallel.Resistive_Capacitive_Parallel'>
+
+
+<modules.Resistive_Capacitive_Parallel.Resistive_Capacitive_Parallel object at 0x7f0e02dee910>
+
+
+57
+
+
+Watts using Volt Amps and Power Factor
+
+
+('48.7442', 'Watts')
+
+
+q
+
+
+q
+
+
+1
+
+
+0
+
+
+Acceleration
+
+
+Acceleration
+
+
+<module 'modules.Acceleration' from '/home/mmedina/try/Calculator/modules/Acceleration.py'>
+
+
+<module 'modules.Acceleration' from '/home/mmedina/try/Calculator/modules/Acceleration.py'>
+
+
+<class 'modules.Acceleration.Acceleration'>
+
+
+<modules.Acceleration.Acceleration object at 0x7f67b63f4ad0>
+
+
+1
+
+
+Feet/Sec Squared to Meters/Sec Squared
+
+
+(15.5448, 'Meters/Sec^2s')
+
+
+q
+
+
+q
+
