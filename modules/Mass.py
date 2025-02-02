@@ -11,7 +11,8 @@
 #
 # This program is distributed in the hope that will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
@@ -20,7 +21,7 @@
 #
 
 
-from FormulaBase import *  
+from FormulaBase import *
 
 class Mass(FormulaBase):
     def __init__(self, name):
@@ -104,7 +105,7 @@ class Mass(FormulaBase):
             },
         }
 #}}}_________________________________________________________________________________________
-        
+
 #{{{___ Formula Functions _____________________________________________________________________________
 
     def tons(self):
@@ -163,4 +164,3 @@ class Mass(FormulaBase):
         result = argsIn[0] * 15.43236
         return (result, self.pluralize(result, 'Gram'))
 #}}}_________________________________________________________________________________________
-
