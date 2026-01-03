@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #SYNOPSIS: Area Formula Set
 #
 # Area.py
@@ -22,7 +22,7 @@
 # This Module is for Area Formuals 
 
 
-from FormulaBase import *  
+from .FormulaBase import *  
 
 class Area (FormulaBase):
     def __init__(self, name):

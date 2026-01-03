@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #SYNOPSIS: Acceleration Formula Set
 
 #
@@ -23,7 +23,7 @@
 # This Module is for Acceleration Formulas 
 
 
-from FormulaBase import * 
+from .FormulaBase import * 
 
 class Acceleration(FormulaBase):
     def __init__(self, name): 

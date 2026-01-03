@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #SYNOPSIS: Culinary Formula Set 
 #
 # Culinary.py
@@ -21,7 +21,7 @@
 #
 
 
-from FormulaBase import * 
+from .FormulaBase import * 
 
 class Culinary(FormulaBase):
     def __init__(self, name): 

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # Energy_or_Work.py
 #
@@ -19,7 +19,7 @@
 # MA 02110-1301, USA.
 #
 
-from FormulaBase import *
+from .FormulaBase import *
 
 
 class Energy_or_Work(FormulaBase):

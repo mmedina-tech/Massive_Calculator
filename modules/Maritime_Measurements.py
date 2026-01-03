@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #SYNOPSIS: Converting Maritime Measurements to statute/metric
 #
 # Maritime_Measurements.py
@@ -20,7 +20,7 @@
 # MA 02110-1301, USA.
 #
 
-from FormulaBase import * 
+from .FormulaBase import * 
 
 class Maritime_Measurements(FormulaBase):
     """

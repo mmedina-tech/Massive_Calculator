@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
-from FormulaBase import *
+from .FormulaBase import *
 from collections import OrderedDict
 
 

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # SYNOPSIS: formatting for commas and money
 # 
 # formats.py
@@ -64,9 +64,9 @@ if __name__ == '__main__':
         tests += 12, 123, 1234, 12345, 123456, 1234567
         tests += 2 ** 32, 2 ** 100
         for test in tests:
-            print commas(test)
+            print(commas(test))
 
-        print ''
+        print('')
         tests = 0, 1, -1, 1.23, 1., 1.2, 3.14159
         tests += 12.34, 12.344, 12.345, 12.3456
         tests += 2 ** 32, (2 ** 32 + .2345)
@@ -74,10 +74,10 @@ if __name__ == '__main__':
         tests += -(2 ** 32), -(2**32 + .2345)
         tests += (2 ** 100), -(2 ** 100)
         for test in tests:
-            print '%s [%s]' % (money(test, 17), test)
+            print('%s [%s]' % (money(test, 17), test))
 
     import sys
     if len(sys.argv) == 1:
         selftest()
     else:
-        print money(float(sys.argv[1]), int(sys.argv[2]))
+        print(money(float(sys.argv[1]), int(sys.argv[2])))

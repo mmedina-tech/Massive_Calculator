@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # GED_Practice.py
 #
@@ -20,7 +20,7 @@
 #
 
 
-from FormulaBase import *  
+from .FormulaBase import *  
 
 class GED_Practice (FormulaBase):
     def __init__(self, name):

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #SYNOPSIS: Setup for The Massive Calculator Back End 
 #
 # FormulaBase.py
@@ -24,7 +24,7 @@
 import os
 from collections import OrderedDict
 from math import *
-from formats import commas, money
+from .formats import commas, money
 
 class FormulaBase(object):
     def __init__(self, name=None):
@@ -47,11 +47,11 @@ class FormulaBase(object):
         
     def prompt(self, args):
         argList = []
-        print "\nRunning... "+args[0]
+        print("\nRunning... " + args[0])
         for form in self.formula_list[args[0]].values():
-            print "\tFormula: "+form+"\n"
+            print("\tFormula: " + form + "\n")
         for arg in args[1:]:
-            userStr = raw_input("\t"+arg+": ")
+            userStr = input("\t" + arg + ": ")
             argList.append(float(userStr))
         return argList
         
@@ -163,7 +163,7 @@ class FormulaBase(object):
     
     def for_loop(self, fname):
         mystr = ''
-        for label, name in self.functionInputs[fname].iteritems():
+        for label, name in self.functionInputs[fname].items():
             mystr += '<p class="titles">{}</p><br>&nbsp<input type="text" name="{}" required autofocus><br>\n'.format(name, label)
 
         return mystr

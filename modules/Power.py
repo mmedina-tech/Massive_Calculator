@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # SYNOPSIS: Power Module for Massive Calculator
 # 
 # Power.py
@@ -24,7 +24,7 @@
 #
 #
 
-from FormulaBase import *
+from .FormulaBase import *
 
 class Power(FormulaBase):
     def __init__(self, name):

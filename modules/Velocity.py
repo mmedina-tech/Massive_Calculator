@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # Velocity.py
 #
@@ -20,7 +20,7 @@
 #
 
 
-from FormulaBase import * 
+from .FormulaBase import * 
 
 class Velocity (FormulaBase):
     def __init__(self, name):

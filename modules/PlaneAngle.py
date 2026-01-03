@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # PlaneAngle.py
 #
@@ -19,7 +19,7 @@
 # MA 02110-1301, USA.
 #
 
-from FormulaBase import *
+from .FormulaBase import *
 
 class PlaneAngle(FormulaBase):
     def __init__(self, name):

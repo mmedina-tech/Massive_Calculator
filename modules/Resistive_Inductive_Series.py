@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/env python3
 #
 # ResistiveInductance_series.py
 #
@@ -20,7 +20,7 @@
 #
 
 
-from FormulaBase import *
+from .FormulaBase import *
 
 class Resistive_Inductive_Series(FormulaBase):
     def __init__(self, name):

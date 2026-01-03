@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # SYNOPSIS: loading screen using python
 # 
 # load_screen.py
@@ -35,20 +35,19 @@ import sys
 def loading_bar(seconds, timing):
     for loading in range(0, seconds+1):
         precent = (loading * 5)
-        print "Loading...["+("#" * loading*2)+"] " + str(precent) + "%"
-        print "\n"
+        print("Loading...[" + ("#" * loading * 2) + "] " + str(precent) + "%")
+        print("\n")
         time.sleep(timing)
         os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def loading_screen(seconds):
     cwd = os.getcwd()
-    screens = open(cwd+"/screens.txt", 'r')
-    for lines in screens:
-        print lines
-        time.sleep(seconds)
-        os.system('clear')
-    screens.close()
+    with open(cwd + "/screens.txt", 'r') as screens:
+        for lines in screens:
+            print(lines)
+            time.sleep(seconds)
+            os.system('clear')
 
 
 os.system('cls' if os.name == 'nt' else 'clear')

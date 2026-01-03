@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # Resistive_Capacitive_Parallel.py
 #
@@ -20,7 +20,7 @@
 #
 
 
-from FormulaBase import * 
+from .FormulaBase import * 
 
 class Resistive_Capacitive_Parallel(FormulaBase):
     def __init__(self, name):

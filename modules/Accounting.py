@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # SYNOPSIS: Accounting Module for Massive Calculator
 # 
 # Accounting.py
@@ -24,7 +24,7 @@
 #
 #
 
-from FormulaBase import *
+from .FormulaBase import *
 
 class Accounting(FormulaBase):
     def __init__(self, name):

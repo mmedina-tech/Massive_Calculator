@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/env python3
 #SYNOPSIS: Astronomic Unit Set
 #
 # Astronomic_units.py
@@ -21,7 +21,7 @@
 #
 
 
-from FormulaBase import *
+from .FormulaBase import *
 
 
 class Astronomic_units(FormulaBase):

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # Author: Marcus Medina
 # Co-Author: Gail Long
@@ -19,6 +19,7 @@
 # MA 02110-1301, USA.
 
 import os
+import sys
 from collections import OrderedDict
 from importlib import import_module
 from modules.FormulaBase import *
@@ -46,6 +47,7 @@ list_category = {
     'Area': 'Area',
     'Astronomic Units': 'Astronomic_units',
     'Budget': 'Budget',
+    'Computer Conversion': 'Computer_Conversion',
     'Culinary': 'Culinary',
     'Energy or Work': 'Energy_or_Work',
     'Fuel Economy': 'Fuel_Economy',
@@ -63,6 +65,8 @@ list_category = {
     'Pressure': 'Pressure',
     'Resistive Capacitance (Parallel)': 'Resistive_Capacitive_Parallel',
     'Resistive Capacitance (Series)': 'Resistive_Capacitive_Series',
+    'Resistive Inductive Capacitance (Parallel)': 'Resistive_Inductive_Capacitive_Parallel',
+    'Resistive Inductive Capacitance (Series)': 'Resistive_Inductive_Capacitive_Series',
     'Resistive Inductance (Parallel)': 'Resistive_Inductive_Parallel',
     'Resistive Inductance (Series)': 'Resistive_Inductive_Series',
     'Torque': 'Torque',
@@ -80,26 +84,25 @@ list_category = OrderedDict(list_category)
 def logme(msg):
     if not os.path.exists("Log"):
         os.mkdir("Log")
-    fp = open('Log/Calculator.log', 'a')
-    fp.write('\n'+str(msg)+'\n\n')
-    fp.close()
+    with open('Log/Calculator.log', 'a') as fp:
+        fp.write('\n' + str(msg) + '\n\n')
 
 allowances = allowances()
 
 #  Prints the Menus
 def print_menu(list_category):
     os.system('clear')
-    print strings['mainmenutitle']
+    print(strings['mainmenutitle'])
     cnt = 1
     for line in list_category.keys():
-        print '{}. {}'.format(cnt, line)
+        print('{}. {}'.format(cnt, line))
         cnt += 1
         allowances.cat_allowances.append(line)
 
 # Prints the help message
 def print_help():
-    print strings['cathelpstring']
-    raw_input(prompts['continueprompt'])
+    print(strings['cathelpstring'])
+    input(prompts['continueprompt'])
 
 # Category Selection
 def category_prompt():
@@ -108,7 +111,7 @@ def category_prompt():
     # Loops until a proper selection is made
     while True:
         print_menu(list_category)
-        prompt = raw_input(prompts['categoryprompt'])
+        prompt = input(prompts['categoryprompt'])
 
         # checks to make sure that the input is allowed
         logme(prompt)
@@ -116,17 +119,17 @@ def category_prompt():
 
             if prompt in allowances.quit_allowances:
                 print(strings['endnote'])
-                exit()
+                sys.exit()
 
             if prompt in allowances.help_allowances:
                 print_help()
                 continue
 
-            print 'try again'
+            print('try again')
             continue
 
         elif not prompt.isdigit():
-            print 'try again'
+            print('try again')
             continue
 
         # prompt could be a number or a letter
@@ -138,7 +141,7 @@ def category_prompt():
         # key is a category name string
         # list_category is an ordered dictionary
         # dynamically imports the selected category
-            key = list_category.keys()[category]
+            key = list(list_category.keys())[category]
             logme(key)
             try:
                 if objects[list_category[key]] is None:
@@ -154,7 +157,8 @@ def category_prompt():
                     logme(ret)
                 except(Exception) as e:
                     logme(e)
-                    print e; exit()
+                    print(e)
+                    sys.exit()
 
                 submod = getattr(ret, subkey)
                 logme(submod)
@@ -164,12 +168,12 @@ def category_prompt():
             finally:
                 cnt = 0
                 for funct in objects[key].function_list:
-                    print '\n{} {}'.format(cnt, funct)
+                    print('\n{} {}'.format(cnt, funct))
                     cnt += 1
                 formula_prompt(objects[key])
 
         else:
-            print 'try again'
+            print('try again')
             continue
 
 # Formula Selection of Associated Category
@@ -180,7 +184,7 @@ def formula_prompt(cat):
     while True:
     # Loops until proper input is taken in
         print_menu(cat.function_list)
-        prompt = raw_input(prompts['formulaprompt'])
+        prompt = input(prompts['formulaprompt'])
         logme(prompt)
 
         # checks input against letters and special characters
@@ -189,19 +193,19 @@ def formula_prompt(cat):
             if prompt in allowances.quit_allowances:
                 logme(prompt)
                 print(strings['endnote'])
-                exit()
+                sys.exit()
 
             if prompt in allowances.back_allowances:
                 logme(prompt)
                 category_prompt()
 
             logme(prompt)
-            print 'try again'
+            print('try again')
             continue
 
         elif not prompt.isdigit():
             logme(prompt)
-            print 'try again'
+            print('try again')
             continue
 
 
@@ -211,7 +215,7 @@ def formula_prompt(cat):
         # checks to make sure that the selection is within range of the
         # formula list
         if runFormula in range(len(cat.function_list)):
-            promptstr = cat.function_list.keys()[runFormula]
+            promptstr = list(cat.function_list.keys())[runFormula]
             logme(promptstr)
             try:
                 if isinstance(cat.function_list[promptstr], OrderedDict):
@@ -222,20 +226,20 @@ def formula_prompt(cat):
                     try:
                         retval = cat.function_list[promptstr]()
                         logme(retval)
-                        print "\nAnswer: {} {}\n".format(retval[0], retval[1])
-                        prompt = raw_input(prompts['continueprompt'])
+                        print("\nAnswer: {} {}\n".format(retval[0], retval[1]))
+                        prompt = input(prompts['continueprompt'])
                     # catches errors that are most likely not in the array for the
                     # for loop in the FormulaBase.py
                     except(Exception) as e:
                         logme(e)
-                        print "\nThere was an error, please see my.log file"
-                        raw_input(prompts['continueprompt'])
+                        print("\nThere was an error, please see my.log file")
+                        input(prompts['continueprompt'])
             except(Exception) as e:
                 logme(e)
-                raw_input(prompts['continueprompt'])
+                input(prompts['continueprompt'])
 
 
-# Starts the Category Menu Selection
-category_prompt()
-
-print strings['endnote']
+if __name__ == "__main__":
+    # Starts the Category Menu Selection
+    category_prompt()
+    print(strings['endnote'])

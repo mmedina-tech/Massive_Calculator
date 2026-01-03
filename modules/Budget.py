@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # Budget.py
 #
@@ -19,7 +19,7 @@
 # MA 02110-1301, USA.
 #
 
-from FormulaBase import *
+from .FormulaBase import *
 
 class Budget(FormulaBase):
     def __init__(self, name):
@@ -57,6 +57,6 @@ class Budget(FormulaBase):
         income = (argsIn[0] * argsIn[1])
         expenses = (argsIn[2] + argsIn[3] + argsIn[4] + argsIn[5] + argsIn[6] + argsIn[7] + argsIn[8] + argsIn[9] + argsIn[10] + argsIn[11] + argsIn[12] + argsIn[13])
         result = income - expenses
-        print "\n\tIncome: "+str(money(income))
-        print "\tExpenses: "+str(money(expenses))
+        print("\n\tIncome: " + str(money(income)))
+        print("\tExpenses: " + str(money(expenses)))
         return (money(result), self.pluralize(result, 'Dollar'))

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # SYNOPSIS: class for allowable strings
 # 
 # allowances.py

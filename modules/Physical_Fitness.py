@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # Physical_Fitness.py
 #
@@ -20,7 +20,7 @@
 #
 
 
-from FormulaBase import * 
+from .FormulaBase import * 
 
 class Physical_Fitness(FormulaBase):
     def __init__(self, name): 
